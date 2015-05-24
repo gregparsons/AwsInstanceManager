@@ -12,7 +12,15 @@
  * express or implied. See the License for the specific language governing
  * permissions and limitations under the License.
  */
+
+
+
+// To Run:
+//  mvn package exec:java
+
+
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -26,17 +34,14 @@ import com.amazonaws.regions.Region;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
-import com.amazonaws.services.ec2.model.AvailabilityZone;
-import com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult;
-import com.amazonaws.services.ec2.model.DescribeInstancesResult;
-import com.amazonaws.services.ec2.model.Instance;
-import com.amazonaws.services.ec2.model.Reservation;
+import com.amazonaws.services.ec2.model.*;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
+/*
 import com.amazonaws.services.s3.iterable.S3Objects;
 import com.amazonaws.services.s3.model.Bucket;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
-
+*/
 /**
  * This class is a starting point for working with the AWS SDK for Java, and
  * shows how to make a few simple requests to Amazon EC2 and Amazon S3.
@@ -55,7 +60,7 @@ import com.amazonaws.services.s3.model.S3ObjectSummary;
  * AWS Java Developer Blog:
  *   https://java.awsblog.com
  */
-public class AwsSdkSample {
+public class AwsInstanceManager {
 
     /*
      * Important: Be sure to fill in your AWS access credentials in the
@@ -66,8 +71,23 @@ public class AwsSdkSample {
     static AmazonEC2 ec2;
     static AmazonS3  s3;
 
+	static final String _ami = "ami-85467ab5";	//ami-85467ab5
+	static final InstanceType _type = InstanceType.T2Micro;
+	static final String _keyName = "290b-java";
+	static final String _securityGroup = "RMI";
+
+
+
+	static List<Instance> _instances = new ArrayList<Instance>();
+
+
+
 
     /**
+	 *
+	 * Init()
+	 *
+	 *
      * The only information needed to create a client are security credentials -
      * your AWS Access Key ID and Secret Access Key. All other
      * configuration, such as the service endpoints have defaults provided.
@@ -79,7 +99,8 @@ public class AwsSdkSample {
      * @see com.amazonaws.auth.PropertiesCredentials
      * @see com.amazonaws.ClientConfiguration
      */
-    private static void init() throws Exception {
+    private static void init() throws Exception
+	{
         /*
          * ProfileCredentialsProvider loads AWS security credentials from a
          * .aws/config file in your home directory.
@@ -93,7 +114,8 @@ public class AwsSdkSample {
         AWSCredentialsProvider credentialsProvider = new ProfileCredentialsProvider(
             new ProfilesConfigFile(configFile), "default");
 
-        if (credentialsProvider.getCredentials() == null) {
+        if (credentialsProvider.getCredentials() == null)
+		{
             throw new RuntimeException("No AWS security credentials found:\n"
                     + "Make sure you've configured your credentials in: " + configFile.getAbsolutePath() + "\n"
                     + "For more information on configuring your credentials, see "
@@ -102,42 +124,170 @@ public class AwsSdkSample {
 
         ec2 = new AmazonEC2Client(credentialsProvider);
         s3  = new AmazonS3Client(credentialsProvider);
+
     }
 
 
-    public static void main(String[] args) throws Exception {
+	/**
+	 *
+	 * Start a single EC2 instance.
+	 *
+	 */
+	private static void launchInstance()
+	{
+
+
+		// https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/run-instance.html
+
+
+		System.out.println("Launching instance of ami: " + _ami + " and size: " + _type);
+
+		RunInstancesRequest runRqst = new RunInstancesRequest();
+
+		runRqst.withImageId(_ami)
+			.withInstanceType(_type)
+			.withMinCount(1)
+			.withMaxCount(2)
+			.withKeyName(_keyName)
+			.withSecurityGroups(_securityGroup);
+
+
+		if(ec2!=null)
+		{
+			RunInstancesResult result = ec2.runInstances(runRqst);
+			//	DryRunResult<RunInstancesResult> dryRunResult = ec2.dryRun(DryRunSupportedRequest<RunInstancesRequest>)
+			System.out.println("Run Result: " + result.toString());
+		}
+
+	}
+
+
+	private static void terminateAllInstances(   )
+	{
+
+		System.out.println("[terminateAllInstances]");
+
+	/*
+		TerminateInstancesRequest terminateInstancesRequest;
+		TerminateInstancesResult terminateInstancesResult = ec2.terminateInstances(terminateInstancesRequest);
+*/
+
+		if(_instances.size() > 0) {
+
+
+			List<String> instIds = new ArrayList<String>();
+			for (Instance i : _instances) {
+
+				System.out.println("Deleting..." + i.getInstanceId() + " (" + i.getImageId() + ")");
+				instIds.add(i.getInstanceId());
+			}
+			TerminateInstancesRequest terminateInstancesRequest = new TerminateInstancesRequest(instIds);
+			TerminateInstancesResult terminateInstancesResult = ec2.terminateInstances(terminateInstancesRequest);
+
+			System.out.println("[terminateAllInstances] termination results: " + terminateInstancesResult.toString());
+		}
+
+
+	}
+
+
+
+
+    public static void main(String[] args) throws Exception
+	{
+
         System.out.println("===========================================");
         System.out.println("Welcome to the AWS Java SDK!");
         System.out.println("===========================================");
 
         init();
 
-        try {
-            /*
-             * The Amazon EC2 client allows you to easily launch and configure
-             * computing capacity in AWS datacenters.
-             *
-             * In this sample, we use the EC2 client to list the availability zones
-             * in a region, and then list the instances running in those zones.
+        try
+		{
+
+            /**
+			 * Set region.
              */
 
 			Region usWest2 = Region.getRegion(Regions.US_WEST_2);
             ec2.setRegion(usWest2);
 
+			/**
+			 *
+			 * Zones within this region.
+			 *
+			 */
+
             DescribeAvailabilityZonesResult availabilityZonesResult = ec2.describeAvailabilityZones();
             List<AvailabilityZone> availabilityZones = availabilityZonesResult.getAvailabilityZones();
             System.out.println("You have access to " + availabilityZones.size() + " availability zones:");
-            for (AvailabilityZone zone : availabilityZones) {
+            for (AvailabilityZone zone : availabilityZones)
+			{
                 System.out.println(" - " + zone.getZoneName() + " (" + zone.getRegionName() + ")");
             }
 
+
+			/**
+			 *
+			 * Instances running in this Region.
+			 *
+			 */
             DescribeInstancesResult describeInstancesResult = ec2.describeInstances();
             Set<Instance> instances = new HashSet<Instance>();
-            for (Reservation reservation : describeInstancesResult.getReservations()) {
-                instances.addAll(reservation.getInstances());
+            for (Reservation reservation : describeInstancesResult.getReservations())
+			{
+
+				List<Instance> reservationInstances = reservation.getInstances();
+//                instances.addAll(reservation.getInstances());
+				instances.addAll(reservationInstances);
             }
 
-            System.out.println("You have " + instances.size() + " Amazon EC2 instance(s) running.");
+
+
+
+			/**
+			 *
+			 * Print the IP addresses of currently running instances.
+			 *
+			 */
+			System.out.println("You have " + instances.size() + " Amazon EC2 instance(s) running.");
+
+			int runningInstances = 0;
+			for(Instance i:instances)
+			{
+				System.out.println("Id: " + i.getInstanceId() + ": "
+					+ i.getPublicIpAddress()
+					+ ", Img: " + i.getImageId()
+					+ ", state: " + i.getState().getName()
+				);
+
+				//if pending or running
+				if(i.getImageId().equals(_ami))
+				{
+					if(i.getState().getCode() == 16 || i.getState().getCode()==0)
+					{
+						//https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/model/InstanceState.html
+						runningInstances++;
+						_instances.add(i);
+					}
+				}
+			}
+
+
+			System.out.println("Running/pending instances: " + runningInstances);
+
+
+			// launch at most 2 instances ... where ami ==
+/*			if(runningInstances < 2)
+			{
+				launchInstance();
+			}
+
+*/
+
+			terminateAllInstances();
+
+
 
 
             /*
@@ -157,6 +307,7 @@ public class AwsSdkSample {
              * use API:
              *   http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/transfer/TransferManager.html
              */
+			/*
             List<Bucket> buckets = s3.listBuckets();
             System.out.println("You have " + buckets.size() + " Amazon S3 bucket(s).");
 
@@ -165,11 +316,8 @@ public class AwsSdkSample {
 
                 long totalSize  = 0;
                 long totalItems = 0;
-                /*
-                 * The S3Objects and S3Versions classes provide convenient APIs
-                 * for iterating over the contents of your buckets, without
-                 * having to manually deal with response pagination.
-                 */
+
+				// Iterate over buckets
                 for (S3ObjectSummary objectSummary : S3Objects.inBucket(s3, bucket.getName())) {
                     totalSize += objectSummary.getSize();
                     totalItems++;
@@ -177,8 +325,12 @@ public class AwsSdkSample {
 
                 System.out.println("The bucket '" + bucket.getName() + "' contains "+ totalItems + " objects "
                         + "with a total size of " + totalSize + " bytes.");
+
             }
-        } catch (AmazonServiceException ase) {
+            */
+        }
+		catch (AmazonServiceException ase)
+		{
             /*
              * AmazonServiceExceptions represent an error response from an AWS
              * services, i.e. your request made it to AWS, but the AWS service
@@ -190,7 +342,9 @@ public class AwsSdkSample {
             System.out.println("AWS Error Code:   " + ase.getErrorCode());
             System.out.println("Error Type:       " + ase.getErrorType());
             System.out.println("Request ID:       " + ase.getRequestId());
-        } catch (AmazonClientException ace) {
+        }
+		catch (AmazonClientException ace)
+		{
             /*
              * AmazonClientExceptions represent an error that occurred inside
              * the client on the local host, either while trying to send the
