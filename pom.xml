@@ -1,40 +1,156 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.swimr</groupId>
+  	<artifactId>aws-test1</artifactId>
+  	<version>1.0-SNAPSHOT</version>
+  	<packaging>jar</packaging>
 
-  <groupId>com.swimr</groupId>
-  <artifactId>aws-test1</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  	<name>AWS SDK for Java Sample</name>
+  	<url>http://aws.amazon.com/sdkforjava</url>
 
-  <name>AWS SDK for Java Sample</name>
-  <url>http://aws.amazon.com/sdkforjava</url>
+  	<dependencies>
+    	<dependency>
+      		<groupId>com.amazonaws</groupId>
+      		<artifactId>aws-java-sdk</artifactId>
+      		<version>[1.7.2,2.0.0)</version>
+    	</dependency>
+  	</dependencies>
 
-  <dependencies>
-    <dependency>
-      <groupId>com.amazonaws</groupId>
-      <artifactId>aws-java-sdk</artifactId>
-      <version>[1.7.2,2.0.0)</version>
-    </dependency>
-  </dependencies>
+	<profiles>
+	<profile>
+		<!-- run manager  -->
+		<!-- mvn exec:java -Pmanager    OR   mvn test -Pmanager -->
+		<id>manager</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>1.2.1</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>java</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <mainClass>AwsInstanceManager</mainClass>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>system.HwManager</mainClass>
+						<systemProperties>
+							<systemProperty>
+								<key>java.security.policy</key>
+								<value>policy</value>
+							</systemProperty>
+						</systemProperties>
+						<commandlineArgs>"hello"</commandlineArgs>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+	<profile>
+
+		<!-- run computer -->
+		<!-- mvn test -Pcomputer -->
+
+
+		<id>computer</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>system.HwComputer</mainClass>
+						<systemProperties>
+							<systemProperty>
+								<key>java.security.policy</key>
+								<value>policy</value>
+							</systemProperty>
+						</systemProperties>
+						<commandlineArgs>localhost</commandlineArgs>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+
+
+	<profile>
+
+		<!-- aws user -->
+
+		<id>user</id>
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.3</version>
+					<configuration>
+						<source>1.8</source>
+						<target>1.8</target>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+					<executions>
+						<execution>
+							<phase>test</phase>
+							<goals>
+								<goal>java</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>system.HwUser</mainClass>
+						<systemProperties>
+							<systemProperty>
+								<key>java.security.policy</key>
+								<value>policy</value>
+							</systemProperty>
+						</systemProperties>
+						<commandlineArgs>localhost</commandlineArgs>
+					</configuration>
+				</plugin>
+			</plugins>
+		</build>
+	</profile>
+
+	</profiles>
 </project>
