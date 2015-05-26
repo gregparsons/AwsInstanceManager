@@ -1,7 +1,0 @@
-system/HwComputer.class
-system/HwManager$Scheduler.class
-system/HwManager.class
-rmi/HwComputerInterface.class
-rmi/HwManagerInterface.class
-rmi/HwUserInterface.class
-system/HwUser.class
