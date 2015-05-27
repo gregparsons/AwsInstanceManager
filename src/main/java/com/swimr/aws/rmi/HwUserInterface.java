@@ -1,4 +1,4 @@
-package rmi;
+package com.swimr.aws.rmi;
 
 import java.rmi.Remote;
 

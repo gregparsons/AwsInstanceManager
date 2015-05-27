@@ -1,7 +1,8 @@
-package system;
+package com.swimr.aws.system;
 
-import rmi.HwComputerInterface;
-import rmi.HwManagerInterface;
+import com.amazonaws.util.EC2MetadataUtils;
+import com.swimr.aws.rmi.*; // rmi.HwComputerInterface;
+// import rmi.HwManagerInterface;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -10,17 +11,30 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HwComputer extends UnicastRemoteObject implements HwComputerInterface, Serializable {
 
 
+	List<Process> _processes = new ArrayList<>();
+	String _amazonInstanceId = "UNKNOWN";
+
+
 
 	public HwComputer() throws RemoteException{
+		setMyAmazonInstanceId();
 	}
 
-	@Override
-	public boolean startLogicalComputers(int numComputers, String spaceURL) {
 
+	public String getAwsInstanceId() throws RemoteException{
+		return _amazonInstanceId;
+	}
+
+
+
+	// @Override
+	public boolean startLogicalComputers(int numComputers, String spaceURL) {
 		System.out.println("[HwComputer.startLogicalComputers] Start " + numComputers + " computers w/ space URL: " + spaceURL);
 /*
 
@@ -37,15 +51,38 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 			Process p = Runtime.getRuntime().exec(commands);
 			System.out.println("[HwComputer.startLogicalComputers] pid: " + p.toString() + ", isAlive: " + p.isAlive());
 
+			// Save a reference to the process just started, so you can kill it later.
+			_processes.add(p);
+
+
 		} catch (IOException/*|InterruptedException*/ e) {
 			e.printStackTrace();
 		}
 
-
-
-
 		return false;
 	}
+
+
+
+
+
+	public List<Process> getRunningProcessList(){
+
+		return _processes;
+	}
+
+
+	private boolean setMyAmazonInstanceId(){
+
+		_amazonInstanceId = EC2MetadataUtils.getInstanceId();
+		System.out.println("[HwComputer.setMyAmazonInstanceId] id: " + _amazonInstanceId);
+
+		if(_amazonInstanceId != null)
+			return true;
+		else
+			return false;
+	}
+
 
 
 	/**
@@ -53,6 +90,10 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 	 * "//domain:port/space_name"
 	 */
 	public static void main(String[] args){
+
+
+		HwManagerInterface hwManagerStub = null;
+
 
 		if(args.length == 0) {
 			System.out.println("[HwComputer.main] First argument should be domain to hardware manager registry.");
@@ -75,7 +116,7 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 			System.out.println("[HwComputer.main] Attempting: " + hwRegistryUrl);
 			try {
-				HwManagerInterface hwManagerStub = ((HwManagerInterface) Naming.lookup(hwRegistryUrl));
+				hwManagerStub = ((HwManagerInterface) Naming.lookup(hwRegistryUrl));
 
 				System.out.println("");
 
@@ -89,7 +130,7 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 					continue;
 				System.out.println("[HwComputer.main] Connected.");
 				// Stop trying to connect if success.
-				break;
+				// break;
 			} catch (RemoteException | NotBoundException | MalformedURLException e) {
 				System.out.println("[HwComputer.main] Connect failed. Trying...");
 			}
@@ -99,10 +140,37 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 			} catch (InterruptedException e) {
 				System.out.println("[HwComputer.main] Connect failed. Trying again.");
 			}
-		}
-		while(true){
-			//stay connected
-		}
 
+
+
+			while(true){
+				//stay connected
+
+				//Do heartbeat. If HwManager doesn't respond, break, start trying to connect again.
+
+				// Sleep for a while, then check for a heartbeat.
+				try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					//do nothing
+				}
+
+				if(hwManagerStub==null){
+					System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
+				}
+
+				try {
+					String heartbeat = hwManagerStub.computerRequestsHeartbeatOfHwManager();
+					if(heartbeat!=null)
+						System.out.println("[HwComputer.main] Got heartbeat from HwManager: " + heartbeat);
+
+				} catch (RemoteException e) {
+
+					System.out.println("[HwComputer.main] No heartbeat, retrying connect.");
+					break;	//break out of this while, go back into the connect attempt loop
+					//					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

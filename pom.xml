@@ -9,12 +9,31 @@
   	<name>AWS SDK for Java Sample</name>
   	<url>http://aws.amazon.com/sdkforjava</url>
 
+	<properties>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+
+	</properties>
+
+
+
+
   	<dependencies>
     	<dependency>
       		<groupId>com.amazonaws</groupId>
       		<artifactId>aws-java-sdk</artifactId>
       		<version>[1.7.2,2.0.0)</version>
     	</dependency>
+
+<!-- https://stackoverflow.com/questions/1551697/getting-java-lang-classnotfoundexception-org-apache-commons-logging-logfactory -->
+<!--
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+-->
+
   	</dependencies>
 
 	<profiles>
@@ -48,7 +67,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<mainClass>system.HwManager</mainClass>
+						<mainClass>com.swimr.aws.system.HwManager</mainClass>
 						<systemProperties>
 							<systemProperty>
 								<key>java.security.policy</key>
@@ -93,7 +112,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<mainClass>system.HwComputer</mainClass>
+						<mainClass>com.swimr.aws.system.HwComputer</mainClass>
 						<systemProperties>
 							<systemProperty>
 								<key>java.security.policy</key>
@@ -138,7 +157,7 @@
 						</execution>
 					</executions>
 					<configuration>
-						<mainClass>system.HwUser</mainClass>
+						<mainClass>com.swimr.aws.system.HwUser</mainClass>
 						<systemProperties>
 							<systemProperty>
 								<key>java.security.policy</key>

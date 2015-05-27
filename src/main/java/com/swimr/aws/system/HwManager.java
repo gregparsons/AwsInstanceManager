@@ -1,4 +1,4 @@
-package system;
+package com.swimr.aws.system;
 
 // To Run:
 //  mvn package exec:java
@@ -19,11 +19,16 @@ import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
-import rmi.HwComputerInterface;
-import rmi.HwManagerInterface;
+import com.swimr.aws.rmi.HwComputerInterface;
+import com.swimr.aws.rmi.HwManagerInterface;
+import com.swimr.aws.rmi.StatusTransportObject;
+
+import javax.print.DocFlavor;
 
 
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
+
+	static final int MAX_EC2_INSTANCES_AT_A_TIME = 2;
 
     static AmazonEC2 ec2;
     static AmazonS3  s3;
@@ -32,7 +37,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	static final String _keyName = "290b-java";
 	static final String _securityGroup = "RMI";
 	static List<Instance> _instances = new ArrayList<Instance>();
-	static List<HwComputerInterface> _computers = new ArrayList<>();
+	static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 
 	public HwManager() throws RemoteException {
 		super(_port);
@@ -45,23 +50,37 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 	// * A new computer calls this when it starts.
-	public void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
+	public
+	void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
 
 		System.out.println("[HwManager.registerAsComputer]");
 
-		if(!_computers.contains(hwComputer))
-			_computers.add(hwComputer);
+		if(!_awsComputers.contains(hwComputer))
+			_awsComputers.add(hwComputer);
 
 	}
 
 
-	// * User calls this.
-	public List<Instance> getRunningInstances() throws RemoteException {
-		System.out.println("[HwManager.getRunningInstances] connected computers: " + _computers.size());
-		for(HwComputerInterface computer: _computers) {
-			computer.startLogicalComputers(1, "hello");
+	// * User calls this. Returns the object containing all the hardware and logical computers.
+	public
+	StatusTransportObject getSystemStatus() throws RemoteException
+	{
+		System.out.println("[HwManager.getSystemStatus] connected computers: " + _awsComputers.size());
+
+		StatusTransportObject transportObj = new StatusTransportObject();
+
+
+		for(HwComputerInterface computer: _awsComputers) {
+			// computer.startLogicalComputers(1, "hello");
+
+			transportObj._awsInstances.add(computer);
+			List<Process> processList = computer.getRunningProcessList();
+			//transportObj._logicalComputerProcesses.put(computer.getAwsInstanceId(), processList);
+			transportObj._logicalComputerProcesses.addAll(processList);
+
 		}
-		return null;
+
+		return transportObj;
 	}
 
 
@@ -182,18 +201,47 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		{
             System.out.println("Error Message: " + ace.getMessage());
         }
-
-
-
-
-
     }
 
 
 
 
+	/*
 
-	// launchInstance
+	TEST ONLY. JUST STARTS one EC2 instance right now.
+
+	This starts an instance. When the instance startup script comes back and
+	registers the computer then _awsComputers will be incremented.
+
+	 */
+
+
+	@Override
+	public void spaceRequestsLogicalComputers(int requestedCores) {
+
+		// TO DO: CONVERT CORES TO INSTANCES. IMPLIES KNOWLEDGE OF NUMBER OF CORES ON
+		// THE EC2 INSTANCE THAT WILL START.
+
+
+		if(_awsComputers.size() >= MAX_EC2_INSTANCES_AT_A_TIME)
+		{
+			System.out.println("[HwManager.spaceRequestsLogicalComputers] Max EC2 instances reached. ");
+			return;
+		}
+
+
+		launchAWSInstance();
+
+
+		//right now this will not work.
+
+		// Instances are not registering on startup yet.
+
+
+	}
+
+	// Start an Amazon instance. Need to correlate this image id later with the computer object
+	// when the hwComputer registers.
 	private static void launchAWSInstance()
 	{
 
@@ -202,20 +250,44 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		RunInstancesRequest runRqst = new RunInstancesRequest();
 
+
+
+
+
+
+
+
+		// Put startup script in here somehow
+		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
+		//
+		String startupUserData = "";
+
+
+
+
+
+
+
+
+
+
 		runRqst.withImageId(_ami)
 			.withInstanceType(_type)
 			.withMinCount(1)
 			.withMaxCount(2)
 			.withKeyName(_keyName)
-			.withSecurityGroups(_securityGroup);
+			.withSecurityGroups(_securityGroup)
+			.withUserData(startupUserData);
+
 
 		if(ec2!=null)
 		{
 			RunInstancesResult result = ec2.runInstances(runRqst);
 			//	DryRunResult<RunInstancesResult> dryRunResult = ec2.dryRun(DryRunSupportedRequest<RunInstancesRequest>)
 			System.out.println("Run Result: " + result.toString());
-		}
 
+			String id = result.getReservation().getInstances().get(0).getImageId();
+		}
 	}
 
 
@@ -258,20 +330,21 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
-
-
-
-
+	@Override
+	public String computerRequestsHeartbeatOfHwManager() throws RemoteException {
+		return "HwManager is still alive.";
+	}
 
 	// MAIN
     public static void main(String[] args) throws Exception
 	{
 
+		System.out.println("[main] Starting Hardware Manager");
         System.out.println("===========================================");
-        System.out.println("Welcome to the AWS Java SDK!");
+        System.out.println("Welcome to DIstributed jaVA (DIVA)");
         System.out.println("===========================================");
-		System.out.println("[main] args: " + args.length);
-		Arrays.asList(args).forEach(System.out::println);
+		//System.out.println("[main] args: " + args.length);
+		//Arrays.asList(args).forEach(System.out::println);
 
         // initAWS();
 
@@ -281,6 +354,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		System.setSecurityManager(new SecurityManager());
 		HwManager hwManager = new HwManager();
 		LocateRegistry.createRegistry(_port).rebind(_serviceName, hwManager);
+
+		System.out.println("[main] Hardware Manager started. Service: "
+			+ _serviceName + " available on port: " + _port + ".");
 
 
 		while(true){

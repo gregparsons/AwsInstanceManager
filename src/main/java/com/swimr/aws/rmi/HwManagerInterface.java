@@ -1,7 +1,7 @@
-package rmi;
+package com.swimr.aws.rmi;
 
 import com.amazonaws.services.ec2.model.Instance;
-import system.HwComputer;
+import com.swimr.aws.system.HwComputer;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,8 +15,20 @@ public interface HwManagerInterface extends Remote {
 
 	void registerComputer(HwComputerInterface hwComputerInterface) throws RemoteException;
 
-	List<Instance> getRunningInstances() throws RemoteException;
+	StatusTransportObject getSystemStatus() throws RemoteException;
 
 	String userJustCheckingIn() throws RemoteException;
+
+
+
+	// Interfaces for Space
+	void spaceRequestsLogicalComputers(int requestedCores) throws RemoteException;
+
+
+
+	// For HwComputers
+	String computerRequestsHeartbeatOfHwManager() throws RemoteException;
+
+
 
 }
