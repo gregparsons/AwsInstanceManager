@@ -206,7 +206,7 @@
 							</systemProperty>
 							<systemProperty>
 								<key>java.rmi.server.hostname</key>
-								<value>djava.dyndns.org</value>
+								<value>52.24.130.231</value>
 							</systemProperty>
 							<systemProperty>
 								<key>java.net.preferIPv4Stack</key>

@@ -69,10 +69,19 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public
 	StatusTransportObject getSystemStatus() throws RemoteException
 	{
-		System.out.println("[HwManager.getSystemStatus] connected computers: " + _awsComputers.size());
+		System.out.println("[HwManager.getSystemStatus] connected computers: " + _awsComputers.size()
+			+ ", getting logical compute processes...");
 
 		StatusTransportObject transportObj = new StatusTransportObject();
 
+		// Space processes
+		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
+		for(Process process:_spaceProcesses){
+			if(process.isAlive())
+				transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+			else
+				_spaceProcesses.remove(process);
+		}
 
 
 		// AWS computers and logical computer processes on them
@@ -83,13 +92,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 
 
-		// Space processes
-		for(Process process:_spaceProcesses){
-			if(process.isAlive())
-				transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
-			else
-				_spaceProcesses.remove(process);
-		}
 
 
 		return transportObj;

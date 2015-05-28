@@ -180,25 +180,22 @@ public class HwUser implements HwUserInterface {
 	// *** 2 ***
 	void printSystemStatusFromManager(){
 
-		try {
-			if(_hwManager == null){
-				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
+		if(_hwManager == null){
+			System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
+			return;
+		}
 
-				return;
-			}
+		try {
 
 
 			// Ask AWS Hardware Manager to get the status of all running HwComputers and logical compute processes.
 			StatusTransportObject statusObject = _hwManager.getSystemStatus();
 
-
 			//print all this here!!!
 			if(statusObject==null){
-
 				System.out.println("[HwUser.printSystemStatusFromManager] Error: Status came back null.");
 				return;
 			}
-
 
 
 			System.out.println("[HwUser.printSystemStatusFromManager] System Status\n");
@@ -240,7 +237,7 @@ public class HwUser implements HwUserInterface {
 
 
 		} catch (RemoteException e) {
-			System.out.println("[HwUser.printSystemStatusFromManager] Call to manager failed. Setting hwMgr to null.");
+			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
 			_hwManager = null;
 			e.printStackTrace();
 		}
