@@ -47,50 +47,65 @@
   	</dependencies>
 
 	<profiles>
-	<profile>
-		<!-- run manager  -->
-		<!-- mvn exec:java -Pmanager    OR   mvn test -Pmanager -->
-		<id>manager</id>
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
 
 
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.2.1</version>
-					<executions>
-						<execution>
-							<phase>test</phase>
-							<goals>
-								<goal>java</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<mainClass>com.swimr.aws.system.HwManager</mainClass>
-						<systemProperties>
-							<systemProperty>
-								<key>java.security.policy</key>
-								<value>policy</value>
-							</systemProperty>
-						</systemProperties>
-						<commandlineArgs>"hello"</commandlineArgs>
-					</configuration>
-				</plugin>
-			</plugins>
-		</build>
-	</profile>
-	<profile>
+
+		<!--
+
+		manager (not localhost)
+
+		-->
+		<profile>
+			<!-- run manager  -->
+			<!-- mvn exec:java -Pmanager    OR   mvn test -Pmanager -->
+			<id>manager</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.swimr.aws.system.HwManager</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>policy</value>
+								</systemProperty>
+								<systemProperty>
+									<key>java.rmi.server.hostname</key>
+									<value>djava.dyndns.org</value>
+								</systemProperty>
+								<systemProperty>
+									<key>java.net.preferIPv4Stack</key>
+									<value>true</value>
+								</systemProperty>
+							</systemProperties>
+							<!-- command line parameters -->
+							<commandlineArgs>"hello"</commandlineArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 
 		<!-- run computer -->
 		<!-- mvn test -Pcomputer -->
