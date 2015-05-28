@@ -85,7 +85,10 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// Space processes
 		for(Process process:_spaceProcesses){
-			transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+			if(process.isAlive())
+				transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+			else
+				_spaceProcesses.remove(process);
 		}
 
 
@@ -116,7 +119,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void startApplicationSpaceOnHwManager() throws RemoteException
 	{
 
-		String scriptToRun = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/runApplicationSpace.sh";
+//		String scriptToRun = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/runApplicationSpace.sh";
+		String scriptToRun = "scripts/runApplicationSpace.sh";
 		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
 
 		String[] commands = {scriptToRun};

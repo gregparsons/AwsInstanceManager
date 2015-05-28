@@ -158,10 +158,13 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 					//do nothing
 				}
 
+				// break if no hwmanager at all; go back up to reconnect.
 				if(hwManagerStub==null){
 					System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
+					break;
 				}
 
+				// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
 				try {
 					String heartbeat = hwManagerStub.computerRequestsHeartbeatOfHwManager();
 					if(heartbeat!=null)
