@@ -19,12 +19,22 @@
 
 
   	<dependencies>
+
+		<!-- http://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-ec2/1.9.0 -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-ec2</artifactId>
+			<version>1.9.38</version>
+		</dependency>
+
+<!--
+
     	<dependency>
       		<groupId>com.amazonaws</groupId>
       		<artifactId>aws-java-sdk</artifactId>
       		<version>[1.7.2,2.0.0)</version>
     	</dependency>
-
+-->
 <!-- https://stackoverflow.com/questions/1551697/getting-java-lang-classnotfoundexception-org-apache-commons-logging-logfactory -->
 <!--
 		<dependency>
@@ -164,7 +174,7 @@
 								<value>policy</value>
 							</systemProperty>
 						</systemProperties>
-						<commandlineArgs>localhost</commandlineArgs>
+						<commandlineArgs>djava.dyndns.org</commandlineArgs>
 					</configuration>
 				</plugin>
 			</plugins>

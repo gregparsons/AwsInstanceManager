@@ -17,8 +17,9 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
-import com.amazonaws.services.s3.AmazonS3;
+/*import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3Client;
+*/
 import com.swimr.aws.rmi.HwComputerInterface;
 import com.swimr.aws.rmi.HwManagerInterface;
 import com.swimr.aws.rmi.StatusTransportObject;
@@ -31,7 +32,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	static final int MAX_EC2_INSTANCES_AT_A_TIME = 2;
 
     static AmazonEC2 ec2;
-    static AmazonS3  s3;
+    //static AmazonS3  s3;
 	static final String _ami = "ami-85467ab5";	//ami-85467ab5
 	static final InstanceType _type = InstanceType.T2Micro;
 	static final String _keyName = "290b-java";
@@ -121,7 +122,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
         }
 
         ec2 = new AmazonEC2Client(credentialsProvider);
-        s3  = new AmazonS3Client(credentialsProvider);
+        //s3  = new AmazonS3Client(credentialsProvider);
 
 
         try
