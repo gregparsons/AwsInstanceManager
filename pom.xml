@@ -128,58 +128,185 @@
 								<key>java.security.policy</key>
 								<value>policy</value>
 							</systemProperty>
-						</systemProperties>
-						<commandlineArgs>djava.dyndns.org</commandlineArgs>
-					</configuration>
-				</plugin>
-			</plugins>
-		</build>
-	</profile>
-
-
-	<profile>
-
-		<!-- aws user -->
-
-		<id>user</id>
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
-
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.2.1</version>
-					<executions>
-						<execution>
-							<phase>test</phase>
-							<goals>
-								<goal>java</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<mainClass>com.swimr.aws.system.HwUser</mainClass>
-						<systemProperties>
 							<systemProperty>
-								<key>java.security.policy</key>
-								<value>policy</value>
+								<key>java.rmi.server.hostname</key>
+								<value>djava.dyndns.org</value>
+							</systemProperty>
+							<systemProperty>
+								<key>java.net.preferIPv4Stack</key>
+								<value>true</value>
 							</systemProperty>
 						</systemProperties>
+
+						<!--
+
+						IP address to find the HwManager at:
+
+						-->
 						<commandlineArgs>djava.dyndns.org</commandlineArgs>
+
 					</configuration>
 				</plugin>
 			</plugins>
 		</build>
 	</profile>
+
+
+		<profile>
+
+			<!-- aws user -->
+
+			<id>user</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.swimr.aws.system.HwUser</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>policy</value>
+								</systemProperty>
+							</systemProperties>
+							<commandlineArgs>djava.dyndns.org</commandlineArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+
+
+
+		<!--
+
+		UserLocal
+		Connects to localhost manager
+
+		-->
+		<profile>
+
+			<!-- aws user -->
+
+			<id>userLocal</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.swimr.aws.system.HwUser</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>policy</value>
+								</systemProperty>
+							</systemProperties>
+							<commandlineArgs>localhost</commandlineArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+
+
+		<!--
+
+		computerLocal
+
+		Run computer to connect to a manager at localhost
+		-->
+
+		<profile>
+
+			<!-- run computer -->
+			<!-- mvn test -Pcomputer -->
+
+
+			<id>computerLocal</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.swimr.aws.system.HwComputer</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>policy</value>
+								</systemProperty>
+							</systemProperties>
+							<commandlineArgs>localhost</commandlineArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+
+
+
 
 	</profiles>
 </project>

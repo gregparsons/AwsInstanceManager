@@ -219,8 +219,9 @@ public class HwUser implements HwUserInterface {
 	// ***** 5 Connect to the Hardware Manager *****
 	void connectHwManager(){
 
+		//Make this a thread that keeps trying in the background.
 
-		String url = "rmi://" + _domainName + ":" + HwManager._port + "/" + HwManager._serviceName;
+		String url = "//" + _domainName + ":" + HwManager._port + "/" + HwManager._serviceName;
 		System.out.println("[HwUser.main] Connecting to: "+url);
 		try {
 
@@ -235,12 +236,21 @@ public class HwUser implements HwUserInterface {
 				System.out.println("[HwUser.HwUser] Naming.lookup returned null.");
 			}
 
-		} catch (NotBoundException|MalformedURLException|RemoteException e) {
-			System.out.println("Could not connect to Diva Hardware Manager.");
+		}
+		catch (NotBoundException|MalformedURLException e)
+		{
+			System.out.println("[HwUser.main] Non-network error connecting to Hardware Manager.");
 			// e.printStackTrace();
 
 		}
-		System.out.println("[HwUser.main] Connected to: " + url);
+		catch(RemoteException e){
+			System.out.println("[HwUser.main] Network error: Could not connect to Hardware Manager.");
+
+		}
+		if(_connectedToHwManager)
+			System.out.println("[HwUser.main] Connected to: " + url);
+		else
+			System.out.println("[HwUser.main] Connect failed to: " + url);
 	}
 
 
