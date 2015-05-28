@@ -119,7 +119,7 @@
 								<value>policy</value>
 							</systemProperty>
 						</systemProperties>
-						<commandlineArgs>localhost</commandlineArgs>
+						<commandlineArgs>djava.dyndns.org</commandlineArgs>
 					</configuration>
 				</plugin>
 			</plugins>
