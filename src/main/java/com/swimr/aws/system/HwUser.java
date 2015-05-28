@@ -93,7 +93,7 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 2:{
-				getSystemStatusFromManager();
+				printSystemStatusFromManager();
 				break;
 			}
 			case 3:{
@@ -129,31 +129,60 @@ public class HwUser implements HwUserInterface {
 	// *** 1 ***
 	void runTsp(){
 
-		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/computer.sh";
+		// 1. Run Client Job/Task/Application
+		//runTspApplication_0();
+
+		// 2. Run Space
+		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
+		runTspSpace_1();
+
+		// 3. Run Computers
+		int numComputersDesired = 1;
+		runTspComputers_2(numComputersDesired);
+
+
+	}
+
+
+	// DOES NOTHING CURRENTLY: CHANGE THIS SCRIPT TO RUN THE TSP APPLICATION LOCALLY
+	void runTspApplication_0(){
+
+		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/ZZZZZZZZZZZZZZZ.sh";
 		String[] commands = {computerStartCommand};
-
 		try {
-
 			Process p = Runtime.getRuntime().exec(commands);
-			System.out.println("[HwComputer.startLogicalComputers] pid: " + p.toString() + ", isAlive: " + p.isAlive());
+			System.out.println("[HwUser.runTspApplication] pid: " + p.toString() + ", isAlive: " + p.isAlive());
 
 		} catch (IOException/*|InterruptedException*/ e) {
 			e.printStackTrace();
 		}
+	}
 
+	void runTspSpace_1(){
+		try {
+			if(_hwManager!=null) {
+				_hwManager.startApplicationSpaceOnHwManager();
+				return;
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		System.out.println("[HwUser.runTspSpace] Net call to startApplicationSpaceOnHwManager failed.");
+	}
 
-
+	void runTspComputers_2(int numComputersDesired){
+		// Tell the HwManager how many computers to start for this space.
 	}
 
 
 
 
 	// *** 2 ***
-	void getSystemStatusFromManager(){
+	void printSystemStatusFromManager(){
 
 		try {
 			if(_hwManager == null){
-				System.out.println("[HwUser.getSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
+				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
 
 				return;
 			}
@@ -166,16 +195,16 @@ public class HwUser implements HwUserInterface {
 			//print all this here!!!
 			if(statusObject==null){
 
-				System.out.println("[HwUser.getSystemStatusFromManager] Error: Status came back null.");
+				System.out.println("[HwUser.printSystemStatusFromManager] Error: Status came back null.");
 				return;
 			}
 
 
 
-			System.out.println("[HwUser.getSystemStatusFromManager] System Status\n");
+			System.out.println("[HwUser.printSystemStatusFromManager] System Status\n");
 
 			if(statusObject._awsInstances!=null) {
-				System.out.println("[HwUser.getSystemStatusFromManager] Hardware Computers Running (AWS Instances): "
+				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Computers Running (AWS Instances): "
 					+ statusObject._awsInstances.size());
 				//statusObject._awsInstances.forEach(System.out::println);
 
@@ -186,7 +215,7 @@ public class HwUser implements HwUserInterface {
 
 			}
 			if(statusObject._logicalComputerProcesses!=null){
-				System.out.println("[HwUser.getSystemStatusFromManager] Logical compute processes running: "
+				System.out.println("[HwUser.printSystemStatusFromManager] Logical compute processes running: "
 					+ statusObject._logicalComputerProcesses.size());
 
 				statusObject._logicalComputerProcesses.forEach(System.out::println);
@@ -196,19 +225,28 @@ public class HwUser implements HwUserInterface {
 
 
 
+			if(statusObject._logicalSpaceProcessesOnHwManager!=null){
+				System.out.println("[HwUser.printSystemStatusFromManager] Space processes running (on hw mgr): "
+					+ statusObject._logicalSpaceProcessesOnHwManager.size());
+
+				statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
+
+			}
+
+
 
 
 
 
 
 		} catch (RemoteException e) {
-			System.out.println("[HwUser.getSystemStatusFromManager] Call to manager failed. Setting hwMgr to null.");
+			System.out.println("[HwUser.printSystemStatusFromManager] Call to manager failed. Setting hwMgr to null.");
 			_hwManager = null;
 			e.printStackTrace();
 		}
 
 		if(instances!=null)
-			System.out.println("[HwUser.getSystemStatusFromManager] Running instances: ");
+			System.out.println("[HwUser.printSystemStatusFromManager] Running instances: ");
 			instances.forEach(System.out::println);	// print all running instances
 
 

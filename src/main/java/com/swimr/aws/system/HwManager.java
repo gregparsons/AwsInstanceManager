@@ -4,6 +4,7 @@ package com.swimr.aws.system;
 //  mvn package exec:java
 
 import java.io.File;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
@@ -40,6 +41,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	static List<Instance> _instances = new ArrayList<Instance>();
 	static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 
+	static List<Process> _spaceProcesses = new ArrayList<>();
+
 	public HwManager() throws RemoteException {
 		super(_port);
 	}
@@ -71,15 +74,20 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		StatusTransportObject transportObj = new StatusTransportObject();
 
 
+
+		// AWS computers and logical computer processes on them
 		for(HwComputerInterface computer: _awsComputers) {
-			// computer.startLogicalComputers(1, "hello");
-
 			transportObj._awsInstances.add(computer);
-			List<Process> processList = computer.getRunningProcessList();
-			//transportObj._logicalComputerProcesses.put(computer.getAwsInstanceId(), processList);
+			List<String> processList = computer.getRunningProcessStrings();
 			transportObj._logicalComputerProcesses.addAll(processList);
-
 		}
+
+
+		// Space processes
+		for(Process process:_spaceProcesses){
+			transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+		}
+
 
 		return transportObj;
 	}
@@ -92,6 +100,43 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public String userJustCheckingIn() {
 		return "hello from manager!";
 	}
+
+
+
+
+
+
+	// ************************* APPLICATION helper functions **************************************************
+
+
+
+
+	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
+	@Override
+	public void startApplicationSpaceOnHwManager() throws RemoteException
+	{
+
+		String scriptToRun = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/runApplicationSpace.sh";
+		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
+
+		String[] commands = {scriptToRun};
+		try {
+			Process p = Runtime.getRuntime().exec(commands);
+			// Save a reference to the process just started, so you can kill it later.
+			_spaceProcesses.add(p);
+			System.out.println("[HwComputer.startLogicalComputers] pid: "
+				+ p.toString() + ", isAlive: "
+				+ p.isAlive() + ", \ntotal processes: " + _spaceProcesses.size());
+		} catch (IOException/*|InterruptedException*/ e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+
+
+	// ************************* END user application helper functions *************
 
 
 
@@ -204,19 +249,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
         }
     }
 
-
-
-
-	/*
-
-	TEST ONLY. JUST STARTS one EC2 instance right now.
-
-	This starts an instance. When the instance startup script comes back and
-	registers the computer then _awsComputers will be incremented.
-
-	 */
-
-
 	@Override
 	public void spaceRequestsLogicalComputers(int requestedCores) {
 
@@ -291,9 +323,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 	}
 
-
-
-
 	// TERMINATE all instances
 	private static void terminateAllAWSInstances(   ) {
 
@@ -312,9 +341,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 	}
 
-
-
-
+	// Keeps the HwManager running indefinitely
 	private class Scheduler implements Runnable{
 
 		@Override
@@ -330,11 +357,17 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 	}
 
-
+	// A means for HwComputers to check if the HwManager is still running.
 	@Override
 	public String computerRequestsHeartbeatOfHwManager() throws RemoteException {
 		return "HwManager is still alive.";
 	}
+
+
+
+
+
+
 
 	// MAIN
     public static void main(String[] args) throws Exception

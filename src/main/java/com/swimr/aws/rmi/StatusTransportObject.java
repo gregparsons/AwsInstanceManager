@@ -23,6 +23,10 @@ public class StatusTransportObject implements Serializable {
 	// Map of 290b computers running on the above computers. Above computers' id
 	// is the key. List is the list of computer process IDs.
 
-	public List<Process> _logicalComputerProcesses = new ArrayList<>();
+	public List<String> _logicalComputerProcesses = new ArrayList<>();
+
+
+	//Processes are not serializable
+	public List<String> _logicalSpaceProcessesOnHwManager = new ArrayList<>();
 
 }

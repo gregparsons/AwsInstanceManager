@@ -42,10 +42,8 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 /usr/bin/java -Djava.security.policy=/Users/aaa/temp/policy -cp /Users/aaa/temp/h4.jar system.ComputerImpl localhost multi
 
  */
-		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/computer.sh"; //"/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java -Djava.security.policy=/Users/aaa/temp/policy -cp '/Users/aaa/temp/h4.jar' system.ComputerImpl localhost multi";
-
+		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/computer.sh";
 		String[] commands = {computerStartCommand};
-
 		try {
 
 			Process p = Runtime.getRuntime().exec(commands);
@@ -64,11 +62,16 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 
 
+	// java.lang.Process is not serializable
+	@Override
+	public List<String> getRunningProcessStrings(){
 
-
-	public List<Process> getRunningProcessList(){
-
-		return _processes;
+		List<String> processStrings = new ArrayList<>();
+		if(_processes!=null){
+			for(Process process:_processes)
+				processStrings.add(process.toString());
+		}
+		return processStrings;
 	}
 
 

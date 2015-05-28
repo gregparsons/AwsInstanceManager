@@ -12,7 +12,7 @@ public interface HwComputerInterface extends Remote {
 	 */
 	boolean startLogicalComputers(int numComputers, String spaceURL) throws RemoteException;
 
-	List<Process> getRunningProcessList() throws RemoteException;
+	List<String> getRunningProcessStrings() throws RemoteException;
 
 	String getAwsInstanceId() throws RemoteException;
 }

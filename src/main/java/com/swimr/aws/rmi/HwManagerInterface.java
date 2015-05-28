@@ -31,4 +31,6 @@ public interface HwManagerInterface extends Remote {
 
 
 
+	void startApplicationSpaceOnHwManager() throws RemoteException;
+
 }
