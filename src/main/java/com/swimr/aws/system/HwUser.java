@@ -180,6 +180,8 @@ public class HwUser implements HwUserInterface {
 	// *** 2 ***
 	void printSystemStatusFromManager(){
 
+
+		System.out.println("[HwUser.printSystemStatusFromManager]");
 		if(_hwManager == null){
 			System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
 			return;

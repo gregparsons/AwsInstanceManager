@@ -65,6 +65,19 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
+
+	private void cleanDeadSpaceProcesses()
+	{
+
+		for(int i=_spaceProcesses.size()-1; i>=0; i--)
+		{
+			Process p = _spaceProcesses.get(i);
+			if(p.isAlive() != true)
+				_spaceProcesses.remove(p);
+		}
+	}
+
+
 	// * User calls this. Returns the object containing all the hardware and logical computers.
 	public
 	StatusTransportObject getSystemStatus() throws RemoteException
@@ -74,13 +87,12 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		StatusTransportObject transportObj = new StatusTransportObject();
 
+
 		// Space processes
+		cleanDeadSpaceProcesses();
 		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
 		for(Process process:_spaceProcesses){
-			if(process.isAlive())
-				transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
-			else
-				_spaceProcesses.remove(process);
+			transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
 		}
 
 
@@ -129,6 +141,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		try {
 			Process p = Runtime.getRuntime().exec(commands);
 			// Save a reference to the process just started, so you can kill it later.
+			cleanDeadSpaceProcesses();
 			_spaceProcesses.add(p);
 			System.out.println("[HwComputer.startLogicalComputers] pid: "
 				+ p.toString() + ", isAlive: "
