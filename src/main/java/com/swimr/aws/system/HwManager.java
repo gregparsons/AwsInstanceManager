@@ -100,8 +100,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 		// Space processes
-		cleanDeadSpaceProcesses();
 		cleanDeadComputerInstances();
+		cleanDeadSpaceProcesses();
 
 		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
 		for(Process process:_spaceProcesses){
@@ -112,8 +112,18 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// AWS computers and logical computer processes on them
 		for(HwComputerInterface computer: _awsComputers) {
 			transportObj._awsInstances.add(computer);
-			List<String> processList = computer.getRunningProcessStrings();
-			transportObj._logicalComputerProcesses.addAll(processList);
+
+			try {
+				List<String> processList = computer.getRunningProcessStrings();
+				transportObj._logicalComputerProcesses.addAll(processList);
+			}
+			catch(RemoteException e){
+				System.out.println("[HwManager.getSystemStatus] Connection attempt to computer failed. Removing.");
+				transportObj._awsInstances.remove(computer);
+				//_awsComputers.remove(computer);	// this will screw up the for loop iterator
+				computer = null; //this will let cleanDead find it
+
+			}
 		}
 
 
@@ -145,7 +155,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
 	@Override
-	public void startApplicationSpaceOnHwManager() throws RemoteException
+	public void startApplicationSpaceOnHwManager() // throws RemoteException
 	{
 
 //		String scriptToRun = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/runApplicationSpace.sh";

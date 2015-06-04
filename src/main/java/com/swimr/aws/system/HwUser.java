@@ -63,20 +63,41 @@ public class HwUser implements HwUserInterface {
 	}
 
 
+	boolean isHwManagerAlive(){
+		if(_hwManager == null)
+			return false;
+
+		try {
+			_hwManager.computerRequestsHeartbeatOfHwManager();
+			return true;
+		} catch (RemoteException e) {
+			return false;
+		}
+
+	}
+
 	void printMenu(){
 
+
+		if(isHwManagerAlive() == true){
+			_connectedToHwManager = true;
+		}
+		else
+			_connectedToHwManager = false;
+
+
 		 System.out.println("\n\n\n******************************************************************\n"
-				 + "Welcome to DivA. Connected: " + _connectedToHwManager
+				 + "Welcome. Connected to HwManager: " + _connectedToHwManager
 				 + "\n\nSelect an option:\n\n"
 				 + "0. Menu\n"
 				 + "1. System Status\n"
 				 + "2. Run TSP...\n"
 				 //+ "3. Clear All Worker Processes\n"
 				 //+ "4. Terminate AWS Instance...\n"
-				 + "5. Connect to Hw_Manager\n"
-				 + "6. Start Hw_Manager\n"
-				 + "7. Start Hw_Computer (demo only)\n"
-				 + "8. Exit"
+				 + "3. Connect to Hw_Manager\n"
+				 //+ "6. Start Hw_Manager\n"
+				 + "4. Add a Hw_Computer (demo only)\n"
+				 + "9. Exit"
 				 + "\n\n\n"
 		 );
 		 //System.out.print("> ");
@@ -86,24 +107,24 @@ public class HwUser implements HwUserInterface {
 
 	void processInput(int selection){
 
-		System.out.println("Selection: " + selection);
+		//System.out.println("Selection: " + selection);
 
 		switch (selection){
-			case 2: {
-				runTsp();
-				break;
-			}
 			case 1:{
 				printSystemStatusFromManager();
 				break;
 			}
-			case 3:{
-				break;
-			}
-			case 4:{
+			case 2: {
+				// runTsp();
 				break;
 			}
 			case 5:{
+				break;
+			}
+			case 7:{
+				break;
+			}
+			case 3:{
 				connectHwManager();
 				break;
 			}
@@ -111,11 +132,11 @@ public class HwUser implements HwUserInterface {
 				printMenu();
 				break;
 			}
-			case 7:{
+			case 4:{
 				break;
 			}
 			//Exit
-			case 8:{
+			case 9:{
 				exitProgramFromMenu();
 				break;
 			}
