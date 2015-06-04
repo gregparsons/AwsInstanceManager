@@ -30,11 +30,13 @@ import javax.print.DocFlavor;
 
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
 
-	static final int MAX_EC2_INSTANCES_AT_A_TIME = 2;
+	static final int MAX_EC2_INSTANCES_AT_A_TIME = 5;
 
     static AmazonEC2 ec2;
     //static AmazonS3  s3;
-	static final String _ami = "ami-85467ab5";	//ami-85467ab5
+
+	//HW_COMPUTER AMI
+	static final String _ami = "ami-113d0221";	//ami-85467ab5
 	static final InstanceType _type = InstanceType.T2Micro;
 	static final String _keyName = "290b-java";
 	static final String _securityGroup = "RMI";
@@ -219,6 +221,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			 //* Set region.
 
 
+			//https://docs.aws.amazon.com/general/latest/gr/rande.html
 			com.amazonaws.regions.Region usWest2 = com.amazonaws.regions.Region.getRegion(com.amazonaws.regions.Regions.US_WEST_2);
             ec2.setRegion(usWest2);
 
@@ -365,6 +368,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 			String id = result.getReservation().getInstances().get(0).getImageId();
 		}
+		else{
+			try {
+				initAWS();
+			} catch (Exception e) {
+
+				e.printStackTrace();
+			}
+		}
 	}
 
 	// TERMINATE all instances
@@ -424,7 +435,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//System.out.println("[main] args: " + args.length);
 		//Arrays.asList(args).forEach(System.out::println);
 
-        // initAWS();
+        initAWS();
 
 
 

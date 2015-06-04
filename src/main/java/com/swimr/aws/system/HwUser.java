@@ -132,7 +132,18 @@ public class HwUser implements HwUserInterface {
 				printMenu();
 				break;
 			}
+			// add hw_computer
 			case 4:{
+				if(_hwManager!=null) {
+					try {
+						_hwManager.spaceRequestsLogicalComputers(1);
+					} catch (RemoteException e) {
+						System.out.println("Not connected to hardware manager (exception).");
+
+					}
+				}
+				else
+					System.out.println("Not connected to hardware manager.");
 				break;
 			}
 			//Exit
