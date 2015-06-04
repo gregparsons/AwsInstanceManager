@@ -68,14 +68,15 @@ public class HwUser implements HwUserInterface {
 		 System.out.println("\n\n\n******************************************************************\n"
 				 + "Welcome to DivA. Connected: " + _connectedToHwManager
 				 + "\n\nSelect an option:\n\n"
-				 + "0. Show This Menu\n"
-				 + "1. Run Traveling Salesman Problem...\n"
-				 + "2. System Status\n"
-				 + "3. Clear All Worker Processes\n"
-				 + "4. Terminate AWS Instance...\n"
-				 + "5. Connect to Diva Manager (hardware manager/space instance)\n"
-				 + "6. Start Diva Hardware Manager (on AWS)\n"
-				 + "7. Start a hardware computer (AWS instance) TEST\n"
+				 + "0. Menu\n"
+				 + "1. System Status\n"
+				 + "2. Run TSP...\n"
+				 //+ "3. Clear All Worker Processes\n"
+				 //+ "4. Terminate AWS Instance...\n"
+				 + "5. Connect to Hw_Manager\n"
+				 + "6. Start Hw_Manager\n"
+				 + "7. Start Hw_Computer (demo only)\n"
+				 + "8. Exit"
 				 + "\n\n\n"
 		 );
 		 //System.out.print("> ");
@@ -88,11 +89,11 @@ public class HwUser implements HwUserInterface {
 		System.out.println("Selection: " + selection);
 
 		switch (selection){
-			case 1: {
+			case 2: {
 				runTsp();
 				break;
 			}
-			case 2:{
+			case 1:{
 				printSystemStatusFromManager();
 				break;
 			}
@@ -111,7 +112,12 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 7:{
-
+				break;
+			}
+			//Exit
+			case 8:{
+				exitProgramFromMenu();
+				break;
 			}
 			default:{
 				System.out.println("Select something else: " + selection);
@@ -154,7 +160,10 @@ public class HwUser implements HwUserInterface {
 			System.out.println("[HwUser.runTspApplication] pid: " + p.toString() + ", isAlive: " + p.isAlive());
 
 		} catch (IOException/*|InterruptedException*/ e) {
-			e.printStackTrace();
+
+			System.out.println("[HwUser.runTspApplication] IOException running local TSP client/job script.");
+
+			// e.printStackTrace();
 		}
 	}
 
@@ -241,7 +250,8 @@ public class HwUser implements HwUserInterface {
 		} catch (RemoteException e) {
 			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
 			_hwManager = null;
-			e.printStackTrace();
+			_connectedToHwManager = false;
+			// e.printStackTrace();
 		}
 
 		if(instances!=null)
@@ -292,6 +302,10 @@ public class HwUser implements HwUserInterface {
 
 
 
+	// Menu item 8
+	void exitProgramFromMenu(){
+		System.exit(0);
+	}
 
 
 

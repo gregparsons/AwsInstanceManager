@@ -78,6 +78,17 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
+	void cleanDeadComputerInstances(){
+		for(int i=_awsComputers.size()-1; i>=0; i--)
+		{
+			HwComputerInterface computerInterface = _awsComputers.get(i);
+			if(computerInterface == null){
+				_awsComputers.remove(computerInterface);
+			}
+		}
+	}
+
+
 	// * User calls this. Returns the object containing all the hardware and logical computers.
 	public
 	StatusTransportObject getSystemStatus() throws RemoteException
@@ -90,6 +101,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// Space processes
 		cleanDeadSpaceProcesses();
+		cleanDeadComputerInstances();
+
 		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
 		for(Process process:_spaceProcesses){
 			transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
@@ -108,6 +121,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		return transportObj;
 	}
+
+
 
 
 

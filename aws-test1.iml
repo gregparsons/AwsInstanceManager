@@ -532,6 +532,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.3.2" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.3.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.3.2" level="project" />
-    <orderEntry type="library" name="Maven: joda-time:joda-time:2.7" level="project" />
+    <orderEntry type="library" name="Maven: joda-time:joda-time:2.8" level="project" />
   </component>
 </module>
