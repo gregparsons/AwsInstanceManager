@@ -160,8 +160,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void startApplicationSpaceOnHwManager() // throws RemoteException
 	{
 
-//		String scriptToRun = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/runApplicationSpace.sh";
-		String scriptToRun = "scripts/runApplicationSpace.sh";
+		String scriptToRun = "scripts/sw_space_startup.sh";
 		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
 
 		String[] commands = {scriptToRun};

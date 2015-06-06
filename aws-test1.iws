@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scripts/runApplicationSpace.sh" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
     </list>
     <ignored path="aws-test1.iws" />
@@ -214,16 +214,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.21843003">
-              <caret line="170" column="20" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
+            <state vertical-scroll-proportion="-7.2222223">
+              <caret line="209" column="59" selection-start-line="209" selection-start-column="27" selection-end-line="209" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -236,7 +238,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -246,23 +250,25 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.111111">
-              <caret line="427" column="52" selection-start-line="427" selection-start-column="50" selection-end-line="427" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.4095563">
+              <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
                 <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-                <element signature="e#8749#8826#0" expanded="false" />
-                <element signature="e#9070#9101#0" expanded="false" />
-                <element signature="e#9575#9612#0" expanded="false" />
+                <element signature="e#8647#8724#0" expanded="false" />
+                <element signature="e#8968#8999#0" expanded="false" />
+                <element signature="e#9473#9510#0" expanded="false" />
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -322,8 +328,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../../../../290D_biz_processes_su/Activiti/myProcess2.bpmn20.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
       </list>
     </option>
   </component>
@@ -887,7 +893,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -899,9 +907,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -913,7 +921,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -931,7 +941,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -939,7 +951,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -951,9 +965,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1019,7 +1033,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1048,9 +1064,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1069,7 +1085,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1077,7 +1095,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,7 +1127,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1136,9 +1158,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1157,7 +1179,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1165,7 +1189,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1183,7 +1209,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1212,9 +1240,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1226,7 +1254,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="34" selection-start-line="24" selection-start-column="34" selection-end-line="24" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1265,9 +1295,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1283,9 +1313,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
@@ -1325,7 +1355,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1345,7 +1377,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1353,24 +1387,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.111111">
-          <caret line="427" column="52" selection-start-line="427" selection-start-column="50" selection-end-line="427" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
-            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="e#8749#8826#0" expanded="false" />
-            <element signature="e#9070#9101#0" expanded="false" />
-            <element signature="e#9575#9612#0" expanded="false" />
-            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1395,10 +1413,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21843003">
-          <caret line="170" column="20" selection-start-line="170" selection-start-column="20" selection-end-line="170" selection-end-column="20" />
+        <state vertical-scroll-proportion="-7.2222223">
+          <caret line="209" column="59" selection-start-line="209" selection-start-column="27" selection-end-line="209" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4095563">
+          <caret line="162" column="0" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8647#8724#0" expanded="false" />
+            <element signature="e#8968#8999#0" expanded="false" />
+            <element signature="e#9473#9510#0" expanded="false" />
+            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
           </folding>
         </state>
       </provider>

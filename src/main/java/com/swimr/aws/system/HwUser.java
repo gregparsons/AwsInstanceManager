@@ -172,7 +172,7 @@ public class HwUser implements HwUserInterface {
 
 		// 2. Run Space
 		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
-		//runTspSpace_1();
+		runTspSpace_1();
 
 		// 3. Run Computers
 		//int numComputersDesired = 1;
