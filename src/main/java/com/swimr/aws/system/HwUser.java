@@ -115,7 +115,7 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 2: {
-				// runTsp();
+				runTsp();
 				break;
 			}
 			case 5:{
@@ -168,25 +168,30 @@ public class HwUser implements HwUserInterface {
 	void runTsp(){
 
 		// 1. Run Client Job/Task/Application
-		//runTspApplication_0();
+		runTspClient_0();
 
 		// 2. Run Space
 		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
-		runTspSpace_1();
+		//runTspSpace_1();
 
 		// 3. Run Computers
-		int numComputersDesired = 1;
-		runTspComputers_2(numComputersDesired);
+		//int numComputersDesired = 1;
+		//runTspComputers_2(numComputersDesired);
 
 
 	}
 
 
 	// DOES NOTHING CURRENTLY: CHANGE THIS SCRIPT TO RUN THE TSP APPLICATION LOCALLY
-	void runTspApplication_0(){
+	void runTspClient_0(){
 
-		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/ZZZZZZZZZZZZZZZ.sh";
-		String[] commands = {computerStartCommand};
+		//String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/ZZZZZZZZZZZZZZZ.sh";
+
+		String startSwClientScript = "scripts/sw_client_startup.sh";
+		String[] commands = {startSwClientScript};
+
+		System.out.println("[HwUser.runTspApplication] running script: " + startSwClientScript);
+
 		try {
 			Process p = Runtime.getRuntime().exec(commands);
 			System.out.println("[HwUser.runTspApplication] pid: " + p.toString() + ", isAlive: " + p.isAlive());
