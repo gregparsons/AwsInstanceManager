@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #/System/Library/Frameworks/JavaVM.framework/Versions/A/Commands/java
-java -Djava.security.policy=jars/policy -cp 'jars/h4.jar' system.ComputerImpl djava.dyndns.org multi
+java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' system.ComputerImpl djava.dyndns.org multi
 
 
 
