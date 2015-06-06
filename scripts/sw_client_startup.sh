@@ -5,7 +5,7 @@
 #java -Djava.security.policy=jars/policy -cp 'jars/h4.jar' applications.euclideantsp.JobEuclideanTsp localhost
 
 
-java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' applications.euclideantsp.JobEuclideanTsp localhost
+java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' applications.euclideantsp.JobEuclideanTsp djava.dyndns.org
 
 # temp junk to keep the process running for a while. TESTING only.
 #counter=0
