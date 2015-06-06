@@ -15,4 +15,4 @@ hs_err_pid*
 
 
 #include the 290b jar file
-scripts/jars/*.jar
+!scripts/jars/*.jar
