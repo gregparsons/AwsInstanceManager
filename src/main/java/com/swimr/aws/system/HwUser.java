@@ -104,6 +104,20 @@ public class HwUser implements HwUserInterface {
 
 	 }
 
+	void printTspMenu(){
+
+		System.out.println("\n\n\n******************************************************************\n"
+				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
+				+ "\n\nSelect an option:\n\n"
+				+ "10. Start Space\n"
+				+ "11. Start Computer\n"
+				+ "15. Run Tsp Application"
+				+ "\n\n\n"
+		);
+
+
+	}
+
 
 	void processInput(int selection){
 
@@ -115,7 +129,8 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 2: {
-				runTsp();
+				//runTsp();
+				printTspMenu();
 				break;
 			}
 			case 5:{
@@ -151,6 +166,20 @@ public class HwUser implements HwUserInterface {
 				exitProgramFromMenu();
 				break;
 			}
+
+			//TSP
+			case 10:{
+				runTspSpace_1();
+				break;
+			}
+			case 11:{
+				runTspComputers_2(1);
+				break;
+			}
+			case 15:{
+				runTspClient_0();
+				break;
+			}
 			default:{
 				System.out.println("Select something else: " + selection);
 
@@ -168,7 +197,7 @@ public class HwUser implements HwUserInterface {
 	void runTsp(){
 
 		// 1. Run Client Job/Task/Application
-		runTspClient_0();
+		//runTspClient_0();
 
 		// 2. Run Space
 		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
