@@ -137,9 +137,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			+ _computer_lists.get(Utils.Hw_Computer_Size.large).size() + " m3.large\n"
 			+ _computer_lists.get(Utils.Hw_Computer_Size.two_xl).size() + " c4.2xlarge\n"
 
-			+ ", getting logical compute processes...");
+			+ "Getting logical compute processes...");
 
-		StatusTransportObject transportObj = new StatusTransportObject();
+		StatusTransportObject transportObj = new StatusTransportObject(_computer_lists);
 
 
 		// Space processes
@@ -152,11 +152,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 
 
-		// AWS computers and logical computer processes on them
-		/*
-		for(HwComputerInterface computer: _awsComputers) {
-			transportObj._awsInstances.add(computer);
+		// Load AWS computers and logical computer processes into a transport object.
 
+		//for(HwComputerInterface computer: _awsComputers) {
+
+			//transportObj._awsInstances.add(computer);
+
+
+			/*
 			try {
 				List<String> processList = computer.getRunningProcessStrings();
 				transportObj._logicalComputerProcesses.addAll(processList);
@@ -168,8 +171,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				computer = null; //this will let cleanDead find it
 
 			}
-		}
-		*/
+
+			*/
+
+		//}
+
 
 
 
