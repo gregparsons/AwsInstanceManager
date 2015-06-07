@@ -8,7 +8,6 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.server.RMIClassLoader;
 import java.util.List;
 import java.util.Scanner;
 
@@ -145,7 +144,8 @@ public class HwUser implements HwUserInterface {
 
 	void runTspTest(){
 
-		Utils.TspTestRequest hwRequest = new Utils.TspTestRequest();
+		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
+		int numCities = 10;
 
 		System.out.print("\nWhat size EC2 instance (1=micro, 2=Large, 3=2XL? > ");
 		//int input = readUserInput();
@@ -171,10 +171,10 @@ public class HwUser implements HwUserInterface {
 		}
 
 
-		System.out.print("\nHow many cities? [" + hwRequest.numCities  +"] > ");
+		System.out.print("\nHow many cities? [" + numCities  +"] > ");
 		input = readUserInput();
 		if(input>0)
-			hwRequest.numCities = input;
+			numCities = input;
 
 		// Start the instance(s)
 
@@ -184,7 +184,14 @@ public class HwUser implements HwUserInterface {
 		}
 
 
-//		runTspClient_0();
+		try {
+			_hwManager.startApplicationSpaceAndComputers(hwRequest);
+		} catch (RemoteException e) {
+			System.out.println("[HwUser.startComputeInstance] Hardware Manager isn't started.");
+		}
+
+
+//		runTspClient_0(); // with numCities entered above
 
 	}
 

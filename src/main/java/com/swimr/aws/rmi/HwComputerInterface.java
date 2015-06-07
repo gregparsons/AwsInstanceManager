@@ -15,4 +15,5 @@ public interface HwComputerInterface extends Remote {
 	List<String> getRunningProcessStrings() throws RemoteException;
 
 	String getAwsInstanceId() throws RemoteException;
+	Utils.Hw_Computer_Size getEc2Size() throws RemoteException;
 }

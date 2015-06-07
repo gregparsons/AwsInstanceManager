@@ -18,13 +18,6 @@ public class Utils {
 		public int numHwComputers = 1;
 	}
 
-	public static class TspTestRequest{
-		public Hw_Computer_Size size = Hw_Computer_Size.micro;
-		public int numHwComputers = 1;
-		public int numCities = 10;
-	}
-
-
 
 
 	public static Hw_Computer_Size convertSizeString(String awsSizeString){

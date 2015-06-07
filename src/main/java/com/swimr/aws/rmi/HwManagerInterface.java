@@ -32,7 +32,7 @@ public interface HwManagerInterface extends Remote {
 	// AWS Managment for Hw_User
 	void startHardwareComputer(Utils.Hw_Request hwRequest) throws RemoteException;
 
-	void startSpaceAndApplicationComputers(Utils.Hw_Request hwRequest) throws RemoteException;
+	void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException;
 
 
 

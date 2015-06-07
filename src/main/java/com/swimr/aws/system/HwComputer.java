@@ -34,6 +34,9 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 		return _amazonInstanceId;
 	}
 
+	public Utils.Hw_Computer_Size getEc2Size(){
+		return _amazonInstanceType;
+	}
 
 
 	// @Override

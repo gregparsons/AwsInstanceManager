@@ -43,7 +43,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// Make all these thread safe:
 	static List<Instance> _instances = new ArrayList<Instance>();
-	static List<HwComputerInterface> _awsComputers = new ArrayList<>();
+	//static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
 
@@ -71,9 +71,18 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
 
 		System.out.println("[HwManager.registerAsComputer]");
-
-		if(!_awsComputers.contains(hwComputer))
+		/*
+		if(!_awsComputers.contains(hwComputer)) {
 			_awsComputers.add(hwComputer);
+		}
+		*/
+		if(!(_computer_lists.get(hwComputer.getEc2Size()).contains(hwComputer))) {
+			//is this making an RMI call somewhere just to get a local var passed in this object?
+
+			_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
+
+		}
+
 
 	}
 
@@ -91,12 +100,30 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 	void cleanDeadComputerInstances(){
+		/*
 		for(int i=_awsComputers.size()-1; i>=0; i--)
 		{
 			HwComputerInterface computerInterface = _awsComputers.get(i);
 			if(computerInterface == null){
 				_awsComputers.remove(computerInterface);
 			}
+		}
+		*/
+
+		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.micro).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.micro).get(i);
+			if(c == null)
+				_computer_lists.get(Utils.Hw_Computer_Size.micro).remove(c);
+		}
+		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.large).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.large).get(i);
+			if(c == null)
+				_computer_lists.get(Utils.Hw_Computer_Size.large).remove(c);
+		}
+		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.two_xl).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.two_xl).get(i);
+			if(c == null)
+				_computer_lists.get(Utils.Hw_Computer_Size.two_xl).remove(c);
 		}
 	}
 
@@ -105,7 +132,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public
 	StatusTransportObject getSystemStatus() throws RemoteException
 	{
-		System.out.println("[HwManager.getSystemStatus] connected computers: " + _awsComputers.size()
+		System.out.println("[HwManager.getSystemStatus] Computers: \n"
+			+ _computer_lists.get(Utils.Hw_Computer_Size.micro).size() + " t2.micro\n"
+			+ _computer_lists.get(Utils.Hw_Computer_Size.large).size() + " m3.large\n"
+			+ _computer_lists.get(Utils.Hw_Computer_Size.two_xl).size() + " c4.2xlarge\n"
+
 			+ ", getting logical compute processes...");
 
 		StatusTransportObject transportObj = new StatusTransportObject();
@@ -122,6 +153,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 		// AWS computers and logical computer processes on them
+		/*
 		for(HwComputerInterface computer: _awsComputers) {
 			transportObj._awsInstances.add(computer);
 
@@ -137,7 +169,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 			}
 		}
-
+		*/
 
 
 
@@ -373,7 +405,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 	@Override
-	public void startSpaceAndApplicationComputers(Utils.Hw_Request hwRequest) throws RemoteException {
+	public void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException {
 
 
 		/*
