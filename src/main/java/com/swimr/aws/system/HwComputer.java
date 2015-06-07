@@ -19,11 +19,14 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 	List<Process> _processes = new ArrayList<>();
 	String _amazonInstanceId = "UNKNOWN";
+	String _amazonInstanceType = "UNKNOWN";
+
 
 
 
 	public HwComputer() throws RemoteException{
 		setMyAmazonInstanceId();
+		setMyAmazonInstanceSize();
 	}
 
 
@@ -84,6 +87,18 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 			return true;
 		else
 			return false;
+	}
+
+	private void setMyAmazonInstanceSize(){
+
+		_amazonInstanceType = EC2MetadataUtils.getInstanceType();
+
+
+
+		 System.out.println("[HwComputer.setMyAmazonInstanceSize] " + _amazonInstanceType);
+
+
+
 	}
 
 

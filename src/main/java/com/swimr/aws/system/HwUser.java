@@ -1,20 +1,28 @@
 package com.swimr.aws.system;
 
 import com.amazonaws.services.ec2.model.Instance;
-import com.swimr.aws.rmi.HwComputerInterface;
-import com.swimr.aws.rmi.HwManagerInterface;
-import com.swimr.aws.rmi.HwUserInterface;
-import com.swimr.aws.rmi.StatusTransportObject;
+import com.swimr.aws.rmi.*;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.rmi.server.RMIClassLoader;
 import java.util.List;
 import java.util.Scanner;
 
 public class HwUser implements HwUserInterface {
+
+
+
+	class TestSettings{
+		int num_cities = 10;
+		int num_hw_computers = 1;
+		Utils.Hw_Computer_Size size_hw_computers = Utils.Hw_Computer_Size.micro;	// 1=micro; 2=large; 3=2XL
+	}
+
+	TestSettings _testSettings = new TestSettings();
 
 	HwManagerInterface _hwManager;
 	boolean _connectedToHwManager = false;
@@ -31,11 +39,32 @@ public class HwUser implements HwUserInterface {
 	}
 
 
+	int readUserInput(){
+		// Read from stdin
+		Scanner in = new Scanner(System.in);
+		int selection = 0;
+
+		try {
+			if(in.hasNextInt()) {
+				selection = in.nextInt();
+			}
+			else if(in.hasNextLine())
+				in.nextLine();
+		}catch(Exception e){
+			// do nothing
+			selection = 0;
+		}
+		return selection;
+	}
 
 	void runConsole(){
 
 		// Try connecting right away.
 		connectHwManager();
+
+
+
+
 
 		// Read from stdin
 		Scanner in = new Scanner(System.in);
@@ -44,9 +73,9 @@ public class HwUser implements HwUserInterface {
 		// Infinite loop user interface
 		printMenu();
 		while(true){
-			//printMenu();
-			System.out.print("> ");
 
+			System.out.print("> ");
+			/*
 			try {
 				if(in.hasNextInt()) {
 					selection = in.nextInt();
@@ -59,9 +88,12 @@ public class HwUser implements HwUserInterface {
 				// do nothing
 				selection = 0;
 			}
+			*/
+
+			processInput(readUserInput());
+
 		}
 	}
-
 
 	boolean isHwManagerAlive(){
 		if(_hwManager == null)
@@ -89,16 +121,11 @@ public class HwUser implements HwUserInterface {
 		 System.out.println("\n\n\n******************************************************************\n"
 				 + "Welcome. Connected to HwManager: " + _connectedToHwManager
 				 + "\n\nSelect an option:\n\n"
-				 + "0. Menu\n"
-				 + "1. System Status\n"
-				 + "2. Run TSP...\n"
-				 //+ "3. Clear All Worker Processes\n"
-				 //+ "4. Terminate AWS Instance...\n"
-				 + "3. Connect to Hw_Manager\n"
-				 //+ "6. Start Hw_Manager\n"
-				 + "4. Add a Hw_Computer (demo only)\n"
-				 + "9. Exit"
-				 + "\n\n\n"
+				 + "1. Status\n"
+				 + "2. Run Application...\n"
+				 + "3. This Menu\n"
+				 + "4. AWS Management...\n"
+				 + "5. Exit\n"
 		 );
 		 //System.out.print("> ");
 
@@ -111,13 +138,120 @@ public class HwUser implements HwUserInterface {
 				+ "\n\nSelect an option:\n\n"
 				+ "10. Start Space\n"
 				+ "11. Start Computer\n"
-				+ "15. Run Tsp Application"
+				+ "15. Run Tsp Test..."
 				+ "\n\n\n"
 		);
+	}
 
+	void runTspTest(){
+
+		Utils.TspTestRequest hwRequest = new Utils.TspTestRequest();
+
+		System.out.print("\nWhat size EC2 instance (1=micro, 2=Large, 3=2XL? > ");
+		//int input = readUserInput();
+		switch (readUserInput()){
+			case 1:
+				hwRequest.size = Utils.Hw_Computer_Size.micro;
+				break;
+			case 2:
+				hwRequest.size = Utils.Hw_Computer_Size.large;
+				break;
+			case 3:
+				hwRequest.size = Utils.Hw_Computer_Size.two_xl;
+				break;
+		}
+
+		System.out.print("\nHow many EC2 instances? [" + _testSettings.num_hw_computers + "] > ");
+		int input = readUserInput();
+		if(input > 0 && input <= Utils.MAX_EC2_INSTANCES_AT_A_TIME){
+			hwRequest.numHwComputers = input;
+		}
+		else {
+			System.out.print("Try something smaller than " + Utils.MAX_EC2_INSTANCES_AT_A_TIME + " > ");
+		}
+
+
+		System.out.print("\nHow many cities? [" + hwRequest.numCities  +"] > ");
+		input = readUserInput();
+		if(input>0)
+			hwRequest.numCities = input;
+
+		// Start the instance(s)
+
+		if(_hwManager == null){
+			System.out.println("[HwUser.startComputeInstance] Hardware Manager isn't started.");
+			return;
+		}
+
+
+//		runTspClient_0();
 
 	}
 
+
+
+	void printAwsMenu(){
+		System.out.println("\n\n\n******************************************************************\n"
+				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
+				+ "\n\nSelect an option:\n\n"
+				//+"Start hardware manager"
+				+ "41. Connect to Hardware Manager\n"
+				+ "42. Start Compute Instance(s)...\n"
+				+ "43. \n"
+				+ "\n\n\n"
+		);
+	}
+
+	void startComputeInstanceMenu(){
+
+		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
+
+
+		//
+		System.out.print("\nWhat size instance (1=micro, 2=Large, 3=2XL? > ");
+		//int input = readUserInput();
+		switch (readUserInput()){
+			case 1:
+				hwRequest.size = Utils.Hw_Computer_Size.micro;
+				break;
+			case 2:
+				hwRequest.size = Utils.Hw_Computer_Size.large;
+				break;
+			case 3:
+				hwRequest.size = Utils.Hw_Computer_Size.two_xl;
+				break;
+		}
+
+
+
+		System.out.print("\nHow many? [" + _testSettings.num_hw_computers + "] > ");
+		int input = readUserInput();
+		if(input > 0 && input <= Utils.MAX_EC2_INSTANCES_AT_A_TIME){
+			hwRequest.numHwComputers = input;
+		}
+		else {
+			System.out.print("Try something smaller than " + Utils.MAX_EC2_INSTANCES_AT_A_TIME + " > ");
+		}
+
+
+
+
+
+		// Start the instance(s)
+
+		if(_hwManager == null){
+			System.out.println("[HwUser.startComputeInstance] Hardware Manager isn't started.");
+			return;
+		}
+
+
+		try {
+			_hwManager.startHardwareComputer(hwRequest);
+		} catch (RemoteException e) {
+			System.out.println("[HwUser.startComputeInstance] Network call to Hardware Manager failed.");
+		}
+
+	}
 
 	void processInput(int selection){
 
@@ -133,21 +267,33 @@ public class HwUser implements HwUserInterface {
 				printTspMenu();
 				break;
 			}
-			case 5:{
-				break;
-			}
-			case 7:{
-				break;
-			}
 			case 3:{
-				connectHwManager();
-				break;
-			}
-			case 0:{
+				// main menu
 				printMenu();
 				break;
 			}
-			// add hw_computer
+			case 4:{
+				// AWS Management
+				printAwsMenu();
+				break;
+			}
+			case 5:{
+				exitProgramFromMenu();
+				break;
+			}
+
+			//
+			case 41:{
+				connectHwManager();
+				break;
+			}
+			case 42:{
+				// start hw-computers
+				startComputeInstanceMenu();
+				break;
+			}
+			/*
+			// add sw_computer
 			case 4:{
 				if(_hwManager!=null) {
 					try {
@@ -161,11 +307,8 @@ public class HwUser implements HwUserInterface {
 					System.out.println("Not connected to hardware manager.");
 				break;
 			}
+			*/
 			//Exit
-			case 9:{
-				exitProgramFromMenu();
-				break;
-			}
 
 			//TSP
 			case 10:{
@@ -177,7 +320,8 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 15:{
-				runTspClient_0();
+				runTspTest();
+				//runTspClient_0();
 				break;
 			}
 			default:{

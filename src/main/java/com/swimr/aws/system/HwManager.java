@@ -18,35 +18,46 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
-/*import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
-*/
 import com.swimr.aws.rmi.HwComputerInterface;
 import com.swimr.aws.rmi.HwManagerInterface;
 import com.swimr.aws.rmi.StatusTransportObject;
-
-import javax.print.DocFlavor;
+import com.swimr.aws.rmi.Utils;
 
 
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
 
-	static final int MAX_EC2_INSTANCES_AT_A_TIME = 5;
+	//static final int MAX_EC2_INSTANCES_AT_A_TIME = 5;
 
     static AmazonEC2 ec2;
     //static AmazonS3  s3;
 
 	//HW_COMPUTER AMI
-	static final String _ami = "ami-113d0221";	//ami-85467ab5
+	static final String _computerAmi = "ami-113d0221";	//ami-85467ab5
+	//static final String _computerAmi = "ami-113d0221";	//ami-85467ab5
+
 	static final InstanceType _type = InstanceType.T2Micro;
 	static final String _keyName = "290b-java";
 	static final String _securityGroup = "RMI";
+
+
+
+	// Make all these thread safe:
 	static List<Instance> _instances = new ArrayList<Instance>();
 	static List<HwComputerInterface> _awsComputers = new ArrayList<>();
-
 	static List<Process> _spaceProcesses = new ArrayList<>();
+
+
+	static Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> _computer_lists = Collections.synchronizedMap(new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>());
+
+
 
 	public HwManager() throws RemoteException {
 		super(_port);
+
+		_computer_lists.put(Utils.Hw_Computer_Size.micro, new ArrayList<HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.large, new ArrayList<HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.two_xl, new ArrayList<HwComputerInterface>());
+
 	}
 
 
@@ -70,7 +81,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	private void cleanDeadSpaceProcesses()
 	{
-
 		for(int i=_spaceProcesses.size()-1; i>=0; i--)
 		{
 			Process p = _spaceProcesses.get(i);
@@ -155,28 +165,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 
-	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
-	@Override
-	public void startApplicationSpaceOnHwManager() // throws RemoteException
-	{
-
-		String scriptToRun = "scripts/sw_space_startup.sh";
-		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
-
-		String[] commands = {scriptToRun};
-		try {
-			Process p = Runtime.getRuntime().exec(commands);
-			// Save a reference to the process just started, so you can kill it later.
-			cleanDeadSpaceProcesses();
-			_spaceProcesses.add(p);
-			System.out.println("[HwComputer.startLogicalComputers] pid: "
-				+ p.toString() + ", isAlive: "
-				+ p.isAlive() + ", \ntotal processes: " + _spaceProcesses.size());
-		} catch (IOException/*|InterruptedException*/ e) {
-			e.printStackTrace();
-		}
-	}
-
 
 
 
@@ -254,7 +242,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				);
 
 				//if pending or running
-				if(i.getImageId().equals(_ami))
+				if(i.getImageId().equals(_computerAmi))
 				{
 					if(i.getState().getCode() == 16 || i.getState().getCode()==0)
 					{
@@ -295,65 +283,50 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
         }
     }
 
+	// AWS Managment for Hw_User
 	@Override
-	public void spaceRequestsLogicalComputers(int requestedCores) {
+	public void startHardwareComputer(Utils.Hw_Request hwRequest){
 
-		// TO DO: CONVERT CORES TO INSTANCES. IMPLIES KNOWLEDGE OF NUMBER OF CORES ON
-		// THE EC2 INSTANCE THAT WILL START.
+		InstanceType instanceSize = InstanceType.T2Micro;
+
+		switch(hwRequest.size){
+			case micro:{
+				instanceSize = InstanceType.T2Micro;
+				break;
+			}
+			case large:{
+				instanceSize = InstanceType.M3Large;		//4 vCPU
+				break;
+			}
+			case two_xl:{
+				instanceSize = InstanceType.C42xlarge;		//8 vCPU
+				break;
+			}
+			default:{
+				System.out.println("HwManager: No size specified");
+				instanceSize = InstanceType.T2Micro;
+				break;
+			}
 
 
-		if(_awsComputers.size() >= MAX_EC2_INSTANCES_AT_A_TIME)
-		{
-			System.out.println("[HwManager.spaceRequestsLogicalComputers] Max EC2 instances reached. ");
-			return;
 		}
 
 
-		launchAWSInstance();
-
-
-		//right now this will not work.
-
-		// Instances are not registering on startup yet.
-
-
-	}
-
-	// Start an Amazon instance. Need to correlate this image id later with the computer object
-	// when the hwComputer registers.
-	private static void launchAWSInstance()
-	{
-
 		// https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/run-instance.html
-		System.out.println("Launching instance of ami: " + _ami + " and size: " + _type);
+		System.out.println("Launching instance of ami: " + _computerAmi + " and size: " + _type);
 
 		RunInstancesRequest runRqst = new RunInstancesRequest();
 
-
-
-
-
-
-
-
-		// Put startup script in here somehow
+		// Put startup script in here
 		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 		//
 		String startupUserData = "";
 
 
-
-
-
-
-
-
-
-
-		runRqst.withImageId(_ami)
-			.withInstanceType(_type)
-			.withMinCount(1)
-			.withMaxCount(2)
+		runRqst.withImageId(_computerAmi)
+			.withInstanceType(instanceSize)
+			.withMinCount(hwRequest.numHwComputers)
+			.withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME)
 			.withKeyName(_keyName)
 			.withSecurityGroups(_securityGroup)
 			.withUserData(startupUserData);
@@ -362,11 +335,10 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		if(ec2!=null)
 		{
 			RunInstancesResult result = ec2.runInstances(runRqst);
-			//	DryRunResult<RunInstancesResult> dryRunResult = ec2.dryRun(DryRunSupportedRequest<RunInstancesRequest>)
 			System.out.println("Run Result: " + result.toString());
-
-			String id = result.getReservation().getInstances().get(0).getImageId();
+			//String id = result.getReservation().getInstances().get(0).getImageId();
 		}
+		/*
 		else{
 			try {
 				initAWS();
@@ -375,8 +347,57 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				e.printStackTrace();
 			}
 		}
+		*/
 	}
 
+	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
+	private void startApplicationSpaceOnHwManager() // throws RemoteException
+	{
+
+		String scriptToRun = "scripts/sw_space_startup.sh";
+		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
+
+		String[] commands = {scriptToRun};
+		try {
+			Process p = Runtime.getRuntime().exec(commands);
+			// Save a reference to the process just started, so you can kill it later.
+			cleanDeadSpaceProcesses();
+			_spaceProcesses.add(p);
+			System.out.println("[HwComputer.startLogicalComputers] pid: "
+				+ p.toString() + ", isAlive: "
+				+ p.isAlive() + ", \ntotal processes: " + _spaceProcesses.size());
+		} catch (IOException/*|InterruptedException*/ e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	@Override
+	public void startSpaceAndApplicationComputers(Utils.Hw_Request hwRequest) throws RemoteException {
+
+
+		/*
+		if(_awsComputers)
+
+*/
+
+
+		startApplicationSpaceOnHwManager();
+
+
+		// start several logical computers
+	}
+
+
+
+
+	// Start an Amazon instance. Need to correlate this image id later with the computer object
+	// when the hwComputer registers.
+/*	private static void launchAWSInstance()
+	{
+		//use startHArdwareComputer() instead
+	}
+*/
 	// TERMINATE all instances
 	private static void terminateAllAWSInstances(   ) {
 

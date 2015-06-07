@@ -22,15 +22,18 @@ public interface HwManagerInterface extends Remote {
 
 
 	// Interfaces for Space
-	void spaceRequestsLogicalComputers(int requestedCores) throws RemoteException;
+	//void spaceRequestsLogicalComputers(int requestedCores) throws RemoteException;
 
 
 
 	// For HwComputers
 	String computerRequestsHeartbeatOfHwManager() throws RemoteException;
 
+	// AWS Managment for Hw_User
+	void startHardwareComputer(Utils.Hw_Request hwRequest) throws RemoteException;
+
+	void startSpaceAndApplicationComputers(Utils.Hw_Request hwRequest) throws RemoteException;
 
 
-	void startApplicationSpaceOnHwManager() throws RemoteException;
 
 }
