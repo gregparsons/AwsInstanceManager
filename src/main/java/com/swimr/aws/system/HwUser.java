@@ -429,17 +429,44 @@ public class HwUser implements HwUserInterface {
 
 			System.out.println("[HwUser.printSystemStatusFromManager] System Status\n");
 
+			List<HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
+			if(list !=null){
+				System.out.println("Micro instances: \n");
+				for(HwComputerInterface c:list){
+					System.out.println(c.getAwsInstanceId());
+				}
+
+			}
+
+			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
+			if(list !=null){
+				System.out.println("Large instances: \n");
+				for(HwComputerInterface c:list){
+					System.out.println(c.getAwsInstanceId());
+				}
+
+			}
+
+			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
+			if(list !=null){
+				System.out.println("2XL instances: \n");
+				for(HwComputerInterface c:list){
+					System.out.println(c.getAwsInstanceId());
+				}
+
+			}
+/*
+
 			if(statusObject._awsInstances!=null) {
-				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Computers Running (AWS Instances): "
+				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Computers Running: "
 					+ statusObject._awsInstances.size());
-				//statusObject._awsInstances.forEach(System.out::println);
 
 				for(HwComputerInterface awsComputer:statusObject._awsInstances){
-
 					System.out.println("  Aws Id: " + awsComputer.getAwsInstanceId());
 				}
 
 			}
+*/
 			if(statusObject._logicalComputerProcesses!=null){
 				System.out.println("[HwUser.printSystemStatusFromManager] Logical compute processes running: "
 					+ statusObject._logicalComputerProcesses.size());

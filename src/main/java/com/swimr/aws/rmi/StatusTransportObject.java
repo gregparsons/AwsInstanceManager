@@ -4,10 +4,7 @@ import com.amazonaws.services.ec2.model.Instance;
 import com.swimr.aws.system.HwComputer;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -18,7 +15,11 @@ import java.util.Map;
  */
 public class StatusTransportObject implements Serializable {
 
-	public List<HwComputerInterface> _awsInstances = new ArrayList<>();
+	// public List<HwComputerInterface> _awsInstances = new ArrayList<>();
+
+	public Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> computer_lists = new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>();
+
+
 
 	// Map of 290b computers running on the above computers. Above computers' id
 	// is the key. List is the list of computer process IDs.
