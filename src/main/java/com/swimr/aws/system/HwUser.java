@@ -312,11 +312,11 @@ public class HwUser implements HwUserInterface {
 
 			//TSP
 			case 10:{
-				runTspSpace_1();
+				//runTspSpace_1();
 				break;
 			}
 			case 11:{
-				runTspComputers_2(1);
+				//runTspComputers_2(1);
 				break;
 			}
 			case 15:{
@@ -345,7 +345,7 @@ public class HwUser implements HwUserInterface {
 
 		// 2. Run Space
 		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
-		runTspSpace_1();
+		//runTspSpace_1();
 
 		// 3. Run Computers
 		//int numComputersDesired = 1;
@@ -376,7 +376,7 @@ public class HwUser implements HwUserInterface {
 			// e.printStackTrace();
 		}
 	}
-
+/*
 	void runTspSpace_1(){
 		try {
 			if(_hwManager!=null) {
@@ -388,11 +388,12 @@ public class HwUser implements HwUserInterface {
 		}
 		System.out.println("[HwUser.runTspSpace] Net call to startApplicationSpaceOnHwManager failed.");
 	}
-
+*/
+/*
 	void runTspComputers_2(int numComputersDesired){
 		// Tell the HwManager how many computers to start for this space.
 	}
-
+*/
 
 
 

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aws-test1.iws" afterPath="$PROJECT_DIR$/aws-test1.iws" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -226,21 +222,14 @@
       <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
+            <state vertical-scroll-proportion="-22.333334">
+              <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
               <folding>
                 <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
                 <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
                 <element signature="e#6305#6311#0" expanded="false" />
-                <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-                <element signature="e#6627#6664#0" expanded="false" />
-                <element signature="e#6830#6849#0" expanded="false" />
-                <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-                <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-                <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-                <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-                <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-                <element signature="method#main#0;class#HwUser#0" expanded="false" />
+                <element signature="e#11456#11457#0" expanded="true" />
+                <element signature="e#11477#11478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -266,10 +255,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7581967">
+            <state vertical-scroll-proportion="-20.555555">
               <caret line="381" column="2" selection-start-line="381" selection-start-column="2" selection-end-line="381" selection-end-column="2" />
               <folding>
                 <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
@@ -290,11 +279,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+            <state vertical-scroll-proportion="0.04893964">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -349,11 +338,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../../../../290D_biz_processes_su/Activiti/myProcess2.bpmn20.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
       </list>
     </option>
   </component>
@@ -801,7 +790,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20457797" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18551461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18551461" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -961,15 +950,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1042,15 +1024,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1100,15 +1075,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1203,15 +1171,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1294,15 +1255,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1362,15 +1316,8 @@
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1483,43 +1430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="185" column="0" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-          <folding>
-            <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
-            <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6305#6311#0" expanded="false" />
-            <element signature="method#runTsp#0;class#HwUser#0" expanded="false" />
-            <element signature="e#6627#6664#0" expanded="false" />
-            <element signature="e#6830#6849#0" expanded="false" />
-            <element signature="method#runTspClient_0#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspSpace_1#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runTspComputers_2#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#main#0;class#HwUser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="2" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1532,7 +1442,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7581967">
+        <state vertical-scroll-proportion="-20.555555">
           <caret line="381" column="2" selection-start-line="381" selection-start-column="2" selection-end-line="381" selection-end-column="2" />
           <folding>
             <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
@@ -1549,6 +1459,36 @@
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
             <element signature="e#12603#12655#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.333334">
+          <caret line="366" column="0" selection-start-line="366" selection-start-column="0" selection-end-line="366" selection-end-column="0" />
+          <folding>
+            <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
+            <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
+            <element signature="e#6305#6311#0" expanded="false" />
+            <element signature="e#11456#11457#0" expanded="true" />
+            <element signature="e#11477#11478#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04893964">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

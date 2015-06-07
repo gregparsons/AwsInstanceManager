@@ -1,6 +1,5 @@
 package com.swimr.aws.rmi;
 
-import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
 
 public class Utils {
 
