@@ -154,10 +154,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		cleanDeadSpaceProcesses();
 
 		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
-		for(Process process:_spaceProcesses){
-			transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+		if(_spaceProcesses!= null && _spaceProcesses.size()>0) {
+			for (Process process : _spaceProcesses) {
+				transportObj._logicalSpaceProcessesOnHwManager.add(process.toString());
+			}
 		}
-
 
 		// Load AWS computers and logical computer processes into a transport object.
 
