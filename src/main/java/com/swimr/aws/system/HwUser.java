@@ -169,12 +169,12 @@ public class HwUser implements HwUserInterface {
 			System.out.print("Try something smaller than " + Utils.MAX_EC2_INSTANCES_AT_A_TIME + " > ");
 		}
 
-
+/*
 		System.out.print("\nHow many cities? [" + numCities  +"] > ");
 		input = readUserInput();
 		if(input>0)
 			numCities = input;
-
+*/
 		// Start the instance(s)
 
 		if(_hwManager == null){
