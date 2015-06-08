@@ -18,6 +18,7 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
+import com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen;
 import com.swimr.aws.rmi.*;
 
 
@@ -368,9 +369,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//
 		//https://help.ubuntu.com/community/CloudInit
 
-		// IyEvYmluL2Jhc2gNCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgDQptdm4gdGVzdCAtUGNvbXB1dGVy
-		String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
+		//String startupUserData =  "IyEvYmluL2Jhc2gNCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgDQptdm4gdGVzdCAtUGNvbXB1dGVy";
 
+		String startupUserData = "#!/bin/bash\ncd /home/ubuntu/290b/AwsInstanceManager;\nmvn test -Pcomputer\nEOF\n";
+
+		startupUserData = org.apache.commons.codec.binary.Base64.encodeBase64String(startupUserData.getBytes());
 
 		runRqst.withImageId(_computerAmi)
 			.withInstanceType(instanceSize)
