@@ -6,14 +6,4 @@ java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' system
 
 
 
-# do nothing slowly, to see if the process stays running
-counter=0
-while [ $counter -lt 1000 ]; do
-	echo $counter
-	let counter=counter+1
-
-	#sleep seconds
-	sleep 1
-done
-
 
