@@ -131,7 +131,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 			String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
 
 
-			//while(true) {
+			while(true) {
 
 				System.out.println("[HwComputer.main] Attempting: " + hwRegistryUrl);
 				try {
@@ -154,8 +154,8 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 						hwManagerStub.registerComputer(c);
 
 					}
-					//else
-					//	continue;
+					else
+						continue;
 
 
 					System.out.println("[HwComputer.main] Connected.");
@@ -188,7 +188,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 					// break if no hwmanager at all; go back up to reconnect.
 					if(hwManagerStub==null){
 						System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
-					//	break;
+						break;
 					}
 
 					// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
@@ -200,7 +200,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 					} catch (RemoteException e) {
 
 						System.out.println("[HwComputer.main] No heartbeat, retrying connect.");
-					//	break;	//break out of this while, go back into the connect attempt loop
+						break;	//break out of this while, go back into the connect attempt loop
 						//					e.printStackTrace();
 					}
 				//}
