@@ -19,4 +19,6 @@ public interface HwComputerInterface extends Remote {
 
 	void terminateSwComputers() throws RemoteException;
 
+	boolean isAlive() throws RemoteException;
+
 }

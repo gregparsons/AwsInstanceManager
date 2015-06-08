@@ -219,8 +219,11 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	}
 
 
-
-
+	// Let's manager check if this computer is still responding. If no answer, then remove at manager.
+	@Override
+	public boolean isAlive() throws RemoteException {
+		return true;
+	}
 
 	/**
 	 * First parameter should be URL to the hardware manager.

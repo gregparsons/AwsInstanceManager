@@ -137,8 +137,8 @@ public class HwUser implements HwUserInterface {
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
 				+ "21. Start Space and Computers...\n"
-				+ "22. Run Tsp Test...\n"
-				+ "23. Terminate all test processes\n"
+				+ "22. Run Tsp Application\n"
+				+ "23. Terminate All Test Processes\n"
 				+ "\n\n\n"
 		);
 	}
@@ -436,7 +436,7 @@ public class HwUser implements HwUserInterface {
 			}
 
 			if(statusObject._logicalComputerProcesses!=null){
-				System.out.println("[HwUser.printSystemStatusFromManager] Logical compute processes running: "
+				System.out.println("\nComputer processes running: "
 					+ statusObject._logicalComputerProcesses.size());
 
 				statusObject._logicalComputerProcesses.forEach(System.out::println);
@@ -444,7 +444,7 @@ public class HwUser implements HwUserInterface {
 
 
 			if(statusObject._logicalSpaceProcessesOnHwManager!=null){
-				System.out.println("[HwUser.printSystemStatusFromManager] Space processes running (on hw mgr): "
+				System.out.println("\nSpace processes (on HwMgr): "
 					+ statusObject._logicalSpaceProcessesOnHwManager.size());
 
 				statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);

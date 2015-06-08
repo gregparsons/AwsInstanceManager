@@ -24,6 +24,7 @@ import com.swimr.aws.rmi.*;
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
 
 	//static final int MAX_EC2_INSTANCES_AT_A_TIME = 5;
+	static HwManager _thisHwManager;
 
     static AmazonEC2 ec2;
     //static AmazonS3  s3;
@@ -42,19 +43,22 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	//static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
-
-	static Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> _computer_lists = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
+	//list of all computers
+	static Map<String, HwComputerProxy> _all_computers = new HashMap<>();
+	//separate list of computers to query by size
+	static Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> _computer_lists_by_size = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
 
 
 
 	public HwManager() throws RemoteException {
 		super(_port);
 
-		_computer_lists.put(Utils.Hw_Computer_Size.micro, new HashMap<String, HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.large, new HashMap<String, HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.two_xl, new HashMap<String, HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.unknown, new HashMap<String, HwComputerInterface>());
+		_computer_lists_by_size.put(Utils.Hw_Computer_Size.micro, new HashMap<String, HwComputerInterface>());
+		_computer_lists_by_size.put(Utils.Hw_Computer_Size.large, new HashMap<String, HwComputerInterface>());
+		_computer_lists_by_size.put(Utils.Hw_Computer_Size.two_xl, new HashMap<String, HwComputerInterface>());
+		_computer_lists_by_size.put(Utils.Hw_Computer_Size.unknown, new HashMap<String, HwComputerInterface>());
 
+		_thisHwManager = this;
 	}
 
 
@@ -67,23 +71,21 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		System.out.println("[HwManager.registerComputer]");
 		System.out.println("[HwManager.registerComputer] Computer registering id: " + computerReg.id + ", size: " + computerReg.size);
 
-		//System.out.println("[HwManager.registerComputer] " + hwComputer._amazonInstanceId);
-			//is this making an RMI call somewhere just to get a local var passed in this object?
-
-		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 
-
-
-
-
-		// ERROR below, only fetching the micro map.
+		//Add new computer to master computer list
+		if(_all_computers.containsKey(computerReg.id)){
+			_all_computers.remove(computerReg.id);
+		}
+		HwComputerProxy proxy = new HwComputerProxy(computerReg.id, computerReg.hwComputerInterface);
+		_all_computers.put(computerReg.id, proxy);
 
 
 
 
+		//Add new computer to the list according to it's AWS size
 
-		Map<String, HwComputerInterface> computersOfSize = _computer_lists.get(Utils.Hw_Computer_Size.micro);
+		Map<String, HwComputerInterface> computersOfSize = _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro);
 
 		if(computersOfSize==null){
 
@@ -101,7 +103,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
 /*
-		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists.get(computerReg.size).entrySet()){
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(computerReg.size).entrySet()){
 
 			System.out.println("Id: " + entry.getKey() + ", " +entry.getValue());
 
@@ -133,27 +135,28 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			}
 		}
 		*/
-
-		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.micro).size()-1; i>=0; i--){
-			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.micro).get(i);
+/*
+		for(int i= _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).get(i);
 			if(c == null)
-				_computer_lists.get(Utils.Hw_Computer_Size.micro).remove(c);
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).remove(c);
 		}
-		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.large).size()-1; i>=0; i--){
-			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.large).get(i);
+		for(int i= _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).get(i);
 			if(c == null)
-				_computer_lists.get(Utils.Hw_Computer_Size.large).remove(c);
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.large).remove(c);
 		}
-		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.two_xl).size()-1; i>=0; i--){
-			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.two_xl).get(i);
+		for(int i= _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).get(i);
 			if(c == null)
-				_computer_lists.get(Utils.Hw_Computer_Size.two_xl).remove(c);
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).remove(c);
 		}
-		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.unknown).size()-1; i>=0; i--){
-			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.unknown).get(i);
+		for(int i= _computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).get(i);
 			if(c == null)
-				_computer_lists.get(Utils.Hw_Computer_Size.unknown).remove(c);
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).remove(c);
 		}
+		*/
 	}
 
 
@@ -162,14 +165,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	StatusTransportObject getSystemStatus() throws RemoteException
 	{
 		System.out.println("[HwManager.getSystemStatus] Computers: \n"
-			+ _computer_lists.get(Utils.Hw_Computer_Size.micro).size() + " t2.micro\n"
-			+ _computer_lists.get(Utils.Hw_Computer_Size.large).size() + " m3.large\n"
-			+ _computer_lists.get(Utils.Hw_Computer_Size.two_xl).size() + " c4.2xlarge\n"
+			+ _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).size() + " t2.micro\n"
+			+ _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).size() + " m3.large\n"
+			+ _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).size() + " c4.2xlarge\n"
 
 			+ "Getting logical compute processes...");
 
 		//Load this object with all the status info to pass back to the HwUser.
-		StatusTransportObject transportObj = new StatusTransportObject(_computer_lists);
+		StatusTransportObject transportObj = new StatusTransportObject(_computer_lists_by_size);
 
 		// Space processes
 		cleanDeadComputerInstances();
@@ -184,23 +187,23 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// Load AWS computers and logical computer processes into a transport object.
 
-		//for(HwComputerInterface computer: (_computer_lists.get(Utils.Hw_Computer_Size.micro))) {
+		//for(HwComputerInterface computer: (_computer_lists_by_size.get(Utils.Hw_Computer_Size.micro))) {
 
 		//transportObj._awsInstances.add(computer);
 
 
 		List<String> processList;
 		try {
-			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.micro).entrySet()) {
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).entrySet()) {
 				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
-			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.large).entrySet()) {
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).entrySet()) {
 				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
-			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.two_xl).entrySet()) {
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).entrySet()) {
 				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
-			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.unknown).entrySet()) {
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).entrySet()) {
 				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
 		}
@@ -448,16 +451,16 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// kill sw_computer processes
 
-		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.micro).entrySet()){
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).entrySet()){
 			entry.getValue().terminateSwComputers();
 		}
-		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.large).entrySet()){
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).entrySet()){
 			entry.getValue().terminateSwComputers();
 		}
-		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.two_xl).entrySet()){
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).entrySet()){
 			entry.getValue().terminateSwComputers();
 		}
-		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.unknown).entrySet()){
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).entrySet()){
 			entry.getValue().terminateSwComputers();
 		}
 
@@ -499,7 +502,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
 
 			int availComputers = 0;
-			Map<String,HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
+			Map<String,HwComputerInterface> computers = _computer_lists_by_size.get(hwRequest.size);
 			if(computers !=null ){
 				availComputers = computers.size();
 				System.out.println("Computers available: " + availComputers);
@@ -583,6 +586,22 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
+	//synchronized
+	void removeComputerFromLists(String id){
+		if(id==null)
+			return;
+		_all_computers.remove(id);
+		_computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).remove(id);
+		_computer_lists_by_size.get(Utils.Hw_Computer_Size.large).remove(id);
+		_computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).remove(id);
+		_computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).remove(id);
+
+
+	}
+
+
+
+
 
 
 
@@ -618,4 +637,40 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
     }
+
+
+	class HwComputerProxy implements Runnable{
+
+		public String _awsId = "unknown";
+		public HwComputerInterface _hwComputerInterface = null;
+
+		public HwComputerProxy(String awsId, HwComputerInterface hwComputerInterface){
+			_awsId = awsId;
+			_hwComputerInterface = hwComputerInterface;
+		}
+
+
+		@Override
+		public void run() {
+
+			while(true){
+
+				if(_hwComputerInterface!=null) {
+					try {
+						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
+						Thread.sleep(5000);
+					} catch (RemoteException e) {
+
+
+						// remove hwcomputer
+						System.out.println("Computer " + _awsId + " failed. Removing.");
+						HwManager._thisHwManager.removeComputerFromLists(_awsId);
+						return;
+
+					}
+					catch (InterruptedException e) { /* for thread sleep, nothing */}
+				}
+			}
+		}
+	}
 }
