@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -194,16 +191,17 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36324787">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.63247865">
+              <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#1605#1662#0" expanded="true" />
-                <element signature="e#8232#8233#0" expanded="true" />
-                <element signature="e#8267#8268#0" expanded="true" />
-                <element signature="e#9580#9595#0" expanded="false" />
+                <element signature="e#8287#8288#0" expanded="true" />
+                <element signature="e#8322#8323#0" expanded="true" />
+                <element signature="e#9635#9650#0" expanded="false" />
                 <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-                <element signature="e#12973#13002#0" expanded="false" />
-                <element signature="e#13264#13366#0" expanded="false" />
+                <element signature="e#13028#13057#0" expanded="false" />
+                <element signature="e#13319#13421#0" expanded="false" />
                 <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
                 <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
                 <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -963,13 +961,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1065,13 +1064,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1153,13 +1153,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1229,13 +1230,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1284,13 +1286,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1307,13 +1310,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
@@ -1479,16 +1483,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36324787">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.63247865">
+          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#1605#1662#0" expanded="true" />
-            <element signature="e#8232#8233#0" expanded="true" />
-            <element signature="e#8267#8268#0" expanded="true" />
-            <element signature="e#9580#9595#0" expanded="false" />
+            <element signature="e#8287#8288#0" expanded="true" />
+            <element signature="e#8322#8323#0" expanded="true" />
+            <element signature="e#9635#9650#0" expanded="false" />
             <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#12973#13002#0" expanded="false" />
-            <element signature="e#13264#13366#0" expanded="false" />
+            <element signature="e#13028#13057#0" expanded="false" />
+            <element signature="e#13319#13421#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />

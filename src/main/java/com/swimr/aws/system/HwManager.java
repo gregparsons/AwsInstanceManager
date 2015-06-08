@@ -79,6 +79,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		}
 		HwComputerProxy proxy = new HwComputerProxy(computerReg.id, computerReg.hwComputerInterface);
 		_all_computers.put(computerReg.id, proxy);
+		Thread thread = new Thread(proxy);
+		thread.start();
 
 
 
