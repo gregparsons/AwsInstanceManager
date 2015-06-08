@@ -369,13 +369,10 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//
 		//https://help.ubuntu.com/community/CloudInit
 
-		//String startupUserData =  "IyEvYmluL2Jhc2gNCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgDQptdm4gdGVzdCAtUGNvbXB1dGVy";
+		String startupUserData =  "IyEvYmluL2Jhc2ggCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgCm12biB0ZXN0IC1QY29tcHV0ZXI=";
 
-		String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
-
-
-
-		startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
+		//String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
+		//startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
 
 		runRqst.withImageId(_computerAmi)
 			.withInstanceType(instanceSize)
