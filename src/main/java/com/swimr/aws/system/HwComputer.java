@@ -146,6 +146,7 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 					ComputerRegistration c = new ComputerRegistration();
 					c.id = hwComputer._amazonInstanceId;
 					c.hwComputerInterface = hwComputer;
+					c.size = hwComputer._amazonInstanceType;
 					//hwManagerStub.registerComputer(hwComputer);
 					hwManagerStub.registerComputer(c);
 				}
