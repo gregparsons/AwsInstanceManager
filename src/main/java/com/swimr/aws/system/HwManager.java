@@ -38,15 +38,15 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 
-	// Make all these thread safe:
+	// Make all these thread safe? 
 	static List<Instance> _instances = new ArrayList<Instance>();
 	//static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
 	//list of all computers
-	static Map<String, HwComputerProxy> _all_computers = new HashMap<>();
+	static Map<String, HwComputerProxy> _all_computers = Collections.synchronizedMap(new HashMap<>());
 	//separate list of computers to query by size
-	static Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> _computer_lists_by_size = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
+	static Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> _computer_lists_by_size = Collections.synchronizedMap(new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>());
 
 
 
@@ -640,7 +640,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
     }
 
-
+	// The only purpose of this is to check if the computer is running. If it's not, remove it.
 	class HwComputerProxy implements Runnable{
 
 		public String _awsId = "unknown";

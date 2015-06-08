@@ -92,6 +92,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 				process.destroy();
 			}
 		}
+		_processes.clear();
 	}
 
 	private boolean setMyAmazonInstanceId(){
