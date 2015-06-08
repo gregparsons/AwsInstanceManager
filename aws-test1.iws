@@ -193,17 +193,27 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4755043">
-              <caret line="107" column="81" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
+            <state vertical-scroll-proportion="1.2391931">
+              <caret line="539" column="12" selection-start-line="539" selection-start-column="12" selection-end-line="539" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1421#1478#0" expanded="true" />
-                <element signature="e#7067#7068#0" expanded="true" />
-                <element signature="e#7102#7103#0" expanded="true" />
+                <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+                <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+                <element signature="e#2390#2475#0" expanded="false" />
+                <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+                <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+                <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+                <element signature="e#6159#6236#0" expanded="false" />
+                <element signature="e#7115#7223#0" expanded="false" />
+                <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+                <element signature="e#8419#8434#0" expanded="false" />
+                <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+                <element signature="e#11812#11841#0" expanded="false" />
+                <element signature="e#12103#12205#0" expanded="false" />
+                <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+                <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-                <element signature="method#main#0;class#HwManager#0" expanded="false" />
-                <element signature="e#17620#17672#0" expanded="false" />
+                <element signature="e#17749#17817#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -968,14 +978,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1035,14 +1055,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1152,14 +1182,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1248,14 +1288,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1332,14 +1382,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1393,14 +1453,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1410,14 +1480,24 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1559,17 +1639,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4755043">
-          <caret line="107" column="81" selection-start-line="107" selection-start-column="81" selection-end-line="107" selection-end-column="81" />
+        <state vertical-scroll-proportion="1.2391931">
+          <caret line="539" column="12" selection-start-line="539" selection-start-column="12" selection-end-line="539" selection-end-column="12" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="e#7067#7068#0" expanded="true" />
-            <element signature="e#7102#7103#0" expanded="true" />
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="e#2390#2475#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#6159#6236#0" expanded="false" />
+            <element signature="e#7115#7223#0" expanded="false" />
+            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
+            <element signature="e#8419#8434#0" expanded="false" />
+            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11812#11841#0" expanded="false" />
+            <element signature="e#12103#12205#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17620#17672#0" expanded="false" />
+            <element signature="e#17749#17817#0" expanded="false" />
           </folding>
         </state>
       </provider>

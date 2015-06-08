@@ -102,13 +102,13 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		System.out.println("[HwManager.registerComputer] computerReg.hwComputerInterface: " + computerReg.hwComputerInterface);
 
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
-
+/*
 		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists.get(computerReg.size).entrySet()){
 
 			System.out.println("Id: " + entry.getKey() + ", " +entry.getValue());
 
 		}
-
+*/
 
 	}
 
@@ -498,6 +498,26 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			}
 
 			System.out.println("[startApplicationSpaceAndComputers] Calling hw_computers to start sw_computers...");
+
+
+			int i=0;
+			for(Map.Entry<String, HwComputerInterface> entry:computers.entrySet()){
+
+				HwComputerInterface c = entry.getValue();
+				if(i<hwRequest.numHwComputers && c!=null){
+					System.out.println("Starting application computer." );
+					c.startLogicalComputers(1);
+
+				}
+				else {
+					break;
+				}
+				i++;
+
+			}
+
+
+/*
 			for(int i = 0; i< hwRequest.numHwComputers; i++){
 
 				HwComputerInterface computer = computers.get(i);
@@ -516,6 +536,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 				}
 			}
+*/
 			System.out.println("[startApplicationSpaceAndComputers] Done calling hw_computers to start sw_computers...");
 		}
 	}
@@ -581,9 +602,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	{
 
 		System.out.println("[main] Starting Hardware Manager");
-        System.out.println("===========================================");
-        System.out.println("Welcome to DIstributed jaVA (DIVA)");
-        System.out.println("===========================================");
+        //System.out.println("===========================================");
+        //System.out.println("Welcome to DIstributed jaVA (DIVA)");
+        //System.out.println("===========================================");
 		//System.out.println("[main] args: " + args.length);
 		//Arrays.asList(args).forEach(System.out::println);
 
