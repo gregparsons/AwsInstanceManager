@@ -30,8 +30,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
     //static AmazonS3  s3;
 
 	//HW_COMPUTER AMI
-	static final String _computerAmi = "ami-e16a52d1";	//ami-85467ab5
-	//static final String _computerAmi = "ami-113d0221";	//ami-85467ab5
+	static final String _computerAmi = "ami-1d50682d";
 
 	static final InstanceType _type = InstanceType.T2Micro;
 	static final String _keyName = "290b-java";
