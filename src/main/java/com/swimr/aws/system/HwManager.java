@@ -70,21 +70,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public
 	void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
 
-		System.out.println("[HwManager.registerComputer]");
-		/*
-		if(!_awsComputers.contains(hwComputer)) {
-			_awsComputers.add(hwComputer);
-		}
-		*/
-		//if(!(_computer_lists.get(hwComputer.getEc2Size()).contains(hwComputer))) {
+		System.out.println("[HwManager.registerComputer] " + hwComputer.getAwsInstanceId());
 			//is this making an RMI call somewhere just to get a local var passed in this object?
 
-			System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
-
-			_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
-
-		//}
-
+		System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
+		_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
 
 	}
 
