@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -249,7 +250,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+              <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HwUserInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwUserInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -258,17 +269,17 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3739726">
-              <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.4150685">
+              <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
               <folding>
-                <element signature="e#5573#5574#0" expanded="true" />
-                <element signature="e#5608#5609#0" expanded="true" />
-                <element signature="e#6921#6936#0" expanded="false" />
+                <element signature="e#5676#5677#0" expanded="true" />
+                <element signature="e#5711#5712#0" expanded="true" />
+                <element signature="e#7024#7039#0" expanded="false" />
                 <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#main#0;class#HwManager#0" expanded="false" />
-                <element signature="e#14152#14204#0" expanded="false" />
+                <element signature="e#14255#14307#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -331,12 +342,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwUserInterface.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../../../../290D_biz_processes_su/Activiti/myProcess2.bpmn20.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
       </list>
     </option>
@@ -912,14 +923,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -970,14 +981,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1073,14 +1084,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1162,14 +1173,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1239,14 +1250,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1293,14 +1304,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1310,14 +1321,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1333,13 +1344,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwUserInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07936508">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1363,14 +1367,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.888889">
@@ -1380,24 +1376,6 @@
             <element signature="e#965#966#0" expanded="true" />
             <element signature="e#998#999#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding>
-            <element signature="e#544#595#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1424,19 +1402,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="63" selection-start-line="17" selection-start-column="63" selection-end-line="17" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwUserInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding>
+            <element signature="e#544#595#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3739726">
-          <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.4150685">
+          <caret line="74" column="89" selection-start-line="74" selection-start-column="89" selection-end-line="74" selection-end-column="89" />
           <folding>
-            <element signature="e#5573#5574#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#6921#6936#0" expanded="false" />
+            <element signature="e#5676#5677#0" expanded="true" />
+            <element signature="e#5711#5712#0" expanded="true" />
+            <element signature="e#7024#7039#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#14152#14204#0" expanded="false" />
+            <element signature="e#14255#14307#0" expanded="false" />
           </folding>
         </state>
       </provider>
