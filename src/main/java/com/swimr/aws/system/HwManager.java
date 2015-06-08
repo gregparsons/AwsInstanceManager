@@ -89,6 +89,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			computersOfSize.remove(computerReg.id);
 
 		computersOfSize.put(computerReg.id, computerReg.hwComputerInterface);
+		System.out.println("[HwManager.registerComputer] computerReg.hwComputerInterface: " + computerReg.hwComputerInterface);
 
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
 
