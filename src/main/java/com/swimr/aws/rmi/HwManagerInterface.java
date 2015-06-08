@@ -30,7 +30,7 @@ public interface HwManagerInterface extends Remote {
 	String computerRequestsHeartbeatOfHwManager() throws RemoteException;
 
 	// AWS Managment for Hw_User
-	void startHardwareComputer(Utils.Hw_Request hwRequest) throws RemoteException;
+	void startHardwareComputers(Utils.Hw_Request hwRequest) throws RemoteException;
 
 	void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException;
 

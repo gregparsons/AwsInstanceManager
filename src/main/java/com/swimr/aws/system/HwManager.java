@@ -323,7 +323,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// AWS Managment for Hw_User
 	@Override
-	public void startHardwareComputer(Utils.Hw_Request hwRequest){
+	public void startHardwareComputers(Utils.Hw_Request hwRequest){
 
 		InstanceType instanceSize = InstanceType.T2Micro;
 

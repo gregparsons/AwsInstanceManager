@@ -1,6 +1,5 @@
 package com.swimr.aws.system;
 
-import com.amazonaws.services.ec2.model.Instance;
 import com.swimr.aws.rmi.*;
 
 import java.io.IOException;
@@ -27,7 +26,7 @@ public class HwUser implements HwUserInterface {
 	boolean _connectedToHwManager = false;
 	String _domainName = "";
 
-	List<Instance> instances;
+	// List<Instance> instances;
 
 
 
@@ -253,9 +252,11 @@ public class HwUser implements HwUserInterface {
 
 
 		try {
-			_hwManager.startHardwareComputer(hwRequest);
+			_hwManager.startHardwareComputers(hwRequest);
 		} catch (RemoteException e) {
+
 			System.out.println("[HwUser.startComputeInstance] Network call to Hardware Manager failed.");
+			e.printStackTrace();
 		}
 
 	}
@@ -407,8 +408,6 @@ public class HwUser implements HwUserInterface {
 	// *** 2 ***
 	void printSystemStatusFromManager(){
 
-
-		System.out.println("[HwUser.printSystemStatusFromManager]");
 		if(_hwManager == null){
 			System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
 			return;
@@ -427,55 +426,45 @@ public class HwUser implements HwUserInterface {
 			}
 
 
-			System.out.println("[HwUser.printSystemStatusFromManager] System Status\n");
+			System.out.println("[HwUser.printSystemStatusFromManager]\n***** System Status *****\n");
 
+
+			// Print micro instances
 			List<HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
 			if(list !=null){
-				System.out.println("Micro instances: \n");
+				System.out.println("Micro instances:");
 				for(HwComputerInterface c:list){
 					System.out.println(c.getAwsInstanceId());
 				}
 
 			}
 
+			// Print large instances
 			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
 			if(list !=null){
-				System.out.println("Large instances: \n");
+				System.out.println("Large instances:");
 				for(HwComputerInterface c:list){
 					System.out.println(c.getAwsInstanceId());
 				}
 
 			}
 
+			// Print 2XL instances
 			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
 			if(list !=null){
-				System.out.println("2XL instances: \n");
+				System.out.println("2XL instances:");
 				for(HwComputerInterface c:list){
 					System.out.println(c.getAwsInstanceId());
 				}
 
 			}
-/*
 
-			if(statusObject._awsInstances!=null) {
-				System.out.println("[HwUser.printSystemStatusFromManager] Hardware Computers Running: "
-					+ statusObject._awsInstances.size());
-
-				for(HwComputerInterface awsComputer:statusObject._awsInstances){
-					System.out.println("  Aws Id: " + awsComputer.getAwsInstanceId());
-				}
-
-			}
-*/
 			if(statusObject._logicalComputerProcesses!=null){
 				System.out.println("[HwUser.printSystemStatusFromManager] Logical compute processes running: "
 					+ statusObject._logicalComputerProcesses.size());
 
 				statusObject._logicalComputerProcesses.forEach(System.out::println);
 			}
-
-
-
 
 
 			if(statusObject._logicalSpaceProcessesOnHwManager!=null){
@@ -485,26 +474,12 @@ public class HwUser implements HwUserInterface {
 				statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
 
 			}
-
-
-
-
-
-
-
 		} catch (RemoteException e) {
 			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
 			_hwManager = null;
 			_connectedToHwManager = false;
 			// e.printStackTrace();
 		}
-
-		if(instances!=null)
-			System.out.println("[HwUser.printSystemStatusFromManager] Running instances: ");
-			instances.forEach(System.out::println);	// print all running instances
-
-
-
 	}
 
 

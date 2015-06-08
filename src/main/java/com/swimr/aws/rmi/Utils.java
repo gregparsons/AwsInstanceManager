@@ -1,6 +1,7 @@
 package com.swimr.aws.rmi;
 
 
+import java.io.Serializable;
 
 public class Utils {
 
@@ -13,7 +14,7 @@ public class Utils {
 		MAX_DO_NOT_USE
 	}
 
-	public static class Hw_Request{
+	public static class Hw_Request implements Serializable{
 		public Hw_Computer_Size size = Hw_Computer_Size.micro;
 		public int numHwComputers = 1;
 	}
