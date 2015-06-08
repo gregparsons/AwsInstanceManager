@@ -6,8 +6,8 @@ public class ComputerRegistration implements Serializable {
 
 	public HwComputerInterface hwComputerInterface;
 
-	public String id = "";
-	public Utils.Hw_Computer_Size size = Utils.Hw_Computer_Size.MAX_DO_NOT_USE;
+	public String id = "none";
+	public Utils.Hw_Computer_Size size = Utils.Hw_Computer_Size.micro;
 
 
 }

@@ -44,7 +44,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
 
-	static Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> _computer_lists = Collections.synchronizedMap(new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>());
+	static Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> _computer_lists = new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>();
 
 
 
@@ -64,15 +64,29 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	@Override
 	public void registerComputer(ComputerRegistration computerReg) throws RemoteException {
 
+		System.out.println("[HwManager.registerComputer]");
 
-		System.out.println("[HwManager.registerComputer] " + computerReg.id);
+		if(computerReg.id!=null)
+			System.out.println("[HwManager.registerComputer] " + computerReg.id);
 		//System.out.println("[HwManager.registerComputer] " + hwComputer._amazonInstanceId);
 			//is this making an RMI call somewhere just to get a local var passed in this object?
 
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
-		_computer_lists.get(computerReg.size).add(computerReg.hwComputerInterface);
 
-		System.out.println("[HwManager.registerComputer] 2");
+		if(computerReg.hwComputerInterface == null){
+			System.out.println("computers_lists is null");
+
+		}
+		else
+			System.out.println("computers_lists is not null");
+
+		if(computerReg.size == null || computerReg.size == Utils.Hw_Computer_Size.MAX_DO_NOT_USE)
+			//just register as micro for now, if on localhost
+			_computer_lists.get(Utils.Hw_Computer_Size.micro).add(computerReg.hwComputerInterface);
+		else
+			_computer_lists.get(computerReg.size).add(computerReg.hwComputerInterface);
+
+		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
 
 
 
