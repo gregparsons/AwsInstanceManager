@@ -400,9 +400,31 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		*/
 	}
 
+	void killAllSpaceProcesses(){
+
+		if(_spaceProcesses!=null && _spaceProcesses.size() > 0){
+
+			for(Process process:_spaceProcesses){
+				process.destroy();
+			}
+		}
+
+		//give them time to clean up
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			//
+		}
+	}
+
+
 	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
 	private void startApplicationSpaceOnHwManager() // throws RemoteException
 	{
+
+		killAllSpaceProcesses();
+
+
 
 		String scriptToRun = "scripts/sw_space_startup.sh";
 		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
@@ -430,12 +452,32 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		if(_awsComputers)
 
 */
+		if(hwRequest != null && hwRequest.size != Utils.Hw_Computer_Size.MAX_DO_NOT_USE) {
+			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
 
 
-		startApplicationSpaceOnHwManager();
+			startApplicationSpaceOnHwManager();
+
+			try {
+				Thread.sleep(3000);//let the space start
+			} catch (InterruptedException e) {
+				//e.printStackTrace();
+			}
 
 
-		// start several logical computers
+
+			List<HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
+			if(computers !=null ){
+
+				System.out.println("Computers available: " + computers.size());
+
+
+			}
+
+
+
+
+		}
 	}
 
 

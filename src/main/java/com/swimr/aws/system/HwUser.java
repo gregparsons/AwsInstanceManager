@@ -134,14 +134,13 @@ public class HwUser implements HwUserInterface {
 		System.out.println("\n\n\n******************************************************************\n"
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
-				+ "10. Start Space\n"
-				+ "11. Start Computer\n"
+				+ "10. Start Space and Computers...\n"
 				+ "15. Run Tsp Test..."
 				+ "\n\n\n"
 		);
 	}
 
-	void runTspTest(){
+	void runTspTestPrep(){
 
 		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
 		int numCities = 10;
@@ -240,9 +239,6 @@ public class HwUser implements HwUserInterface {
 		}
 
 
-
-
-
 		// Start the instance(s)
 
 		if(_hwManager == null){
@@ -320,7 +316,7 @@ public class HwUser implements HwUserInterface {
 
 			//TSP
 			case 10:{
-				//runTspSpace_1();
+				runTspTestPrep();	//start space and computers
 				break;
 			}
 			case 11:{
@@ -328,7 +324,7 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 15:{
-				runTspTest();
+				//runTspTest();
 				//runTspClient_0();
 				break;
 			}
@@ -425,8 +421,6 @@ public class HwUser implements HwUserInterface {
 			_connectedToHwManager = false;
 			e.printStackTrace();
 		}
-
-		System.out.println("Hello??????");
 
 			//print all this here!!!
 			if(statusObject==null){
