@@ -455,8 +455,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException {
 
 
-
-
 		if(hwRequest != null && hwRequest.size != Utils.Hw_Computer_Size.MAX_DO_NOT_USE) {
 			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
 
