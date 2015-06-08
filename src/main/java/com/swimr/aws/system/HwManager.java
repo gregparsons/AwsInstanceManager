@@ -359,7 +359,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 		//
 		//https://help.ubuntu.com/community/CloudInit
-		String startupUserData = "#! mvn test -Pcomputer";
+		String startupUserData = "#! cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
 
 
 		runRqst.withImageId(_computerAmi)
