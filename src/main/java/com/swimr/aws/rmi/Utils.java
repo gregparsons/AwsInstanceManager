@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Utils {
 
 	//HW_COMPUTER AMI
-	public static final String HW_COMPUTER_AMI = "ami-412d1571";
+	public static final String HW_COMPUTER_AMI = "ami-e32119d3";
 
 	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
 

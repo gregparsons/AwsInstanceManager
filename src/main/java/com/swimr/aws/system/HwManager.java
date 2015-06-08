@@ -663,6 +663,13 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 					}
 				}
+				else
+				{
+					System.out.println("omputer " + _awsId + " is null. Removing.");
+					HwManager._thisHwManager.removeComputerFromLists(_awsId);
+					return;
+
+				}
 				// should remove if it's null also
 
 				try {
