@@ -70,7 +70,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public
 	void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
 
-		System.out.println("[HwManager.registerAsComputer]");
+		System.out.println("[HwManager.registerComputer]");
 		/*
 		if(!_awsComputers.contains(hwComputer)) {
 			_awsComputers.add(hwComputer);
@@ -78,6 +78,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		*/
 		if(!(_computer_lists.get(hwComputer.getEc2Size()).contains(hwComputer))) {
 			//is this making an RMI call somewhere just to get a local var passed in this object?
+
+			System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 			_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
 
@@ -359,7 +361,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 		//
 		//https://help.ubuntu.com/community/CloudInit
-		String startupUserData = "#! cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
+
+		// IyEvYmluL2Jhc2gNCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgDQptdm4gdGVzdCAtUGNvbXB1dGVy
+		String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
 
 
 		runRqst.withImageId(_computerAmi)
