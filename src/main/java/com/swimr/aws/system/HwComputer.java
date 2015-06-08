@@ -173,7 +173,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 
 
-				//while(true){
+				while(true){
 					//stay connected
 
 					//Do heartbeat. If HwManager doesn't respond, break, start trying to connect again.
@@ -203,8 +203,8 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 						break;	//break out of this while, go back into the connect attempt loop
 						//					e.printStackTrace();
 					}
-				//}
-			//}
+				}
+			}
 		}
 	}
 

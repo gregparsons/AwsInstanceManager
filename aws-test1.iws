@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwComputer$Reconnector.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwComputer$Reconnector.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwComputer.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwComputer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$1.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$Scheduler.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$Scheduler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwUser.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aws-test1.iws" afterPath="$PROJECT_DIR$/aws-test1.iws" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -188,8 +181,8 @@
       <file leaf-file-name="HwComputer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63544667">
-              <caret line="190" column="20" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+            <state vertical-scroll-proportion="1.1945245">
+              <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1611,8 +1604,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63544667">
-          <caret line="190" column="20" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.1945245">
+          <caret line="175" column="16" selection-start-line="175" selection-start-column="16" selection-end-line="175" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
