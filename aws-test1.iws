@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
-    </list>
+    <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="" />
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -193,8 +191,8 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24180327">
-              <caret line="373" column="115" selection-start-line="373" selection-start-column="115" selection-end-line="373" selection-end-column="115" />
+            <state vertical-scroll-proportion="0.5696721">
+              <caret line="389" column="66" selection-start-line="389" selection-start-column="40" selection-end-line="389" selection-end-column="66" />
               <folding>
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
@@ -1372,8 +1370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24180327">
-          <caret line="373" column="115" selection-start-line="373" selection-start-column="115" selection-end-line="373" selection-end-column="115" />
+        <state vertical-scroll-proportion="0.5696721">
+          <caret line="389" column="66" selection-start-line="389" selection-start-column="40" selection-end-line="389" selection-end-column="66" />
           <folding>
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
