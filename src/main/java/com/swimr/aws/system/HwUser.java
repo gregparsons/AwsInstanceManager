@@ -7,13 +7,14 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class HwUser implements HwUserInterface {
 
-
+	List<Process> _applicationProcesses = new ArrayList<>();
 
 	class TestSettings{
 		int num_cities = 10;
@@ -136,7 +137,8 @@ public class HwUser implements HwUserInterface {
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
 				+ "21. Start Space and Computers...\n"
-				+ "22. Run Tsp Test..."
+				+ "22. Run Tsp Test...\n"
+				+ "23. Terminate all test processes\n"
 				+ "\n\n\n"
 		);
 	}
@@ -296,31 +298,17 @@ public class HwUser implements HwUserInterface {
 				startComputeInstanceMenu();
 				break;
 			}
-			/*
-			// add sw_computer
-			case 4:{
-				if(_hwManager!=null) {
-					try {
-						_hwManager.spaceRequestsLogicalComputers(1);
-					} catch (RemoteException e) {
-						System.out.println("Not connected to hardware manager (exception).");
 
-					}
-				}
-				else
-					System.out.println("Not connected to hardware manager.");
-				break;
-			}
-			*/
-			//Exit
-
-			//TSP
 			case 21:{
 				runTspTestPrep();	//start space and computers
 				break;
 			}
 			case 22:{
 				runTspClient_0();
+				break;
+			}
+			case 23:{
+				terminateAllApplicationProcesses();
 				break;
 			}
 			default:{
@@ -330,31 +318,26 @@ public class HwUser implements HwUserInterface {
 		}
 	}
 
+	void terminateAllApplicationProcesses(){
 
+		// client processes
+		for(Process process:_applicationProcesses){
+			if(process!=null){
+				process.destroy();
+			}
+		}
 
-
-
-
-
-	// *** 1 ***
-	void runTsp(){
-
-		// 1. Run Client Job/Task/Application
-		//runTspClient_0();
-
-		// 2. Run Space
-		//String urlForSpaceRegistry = "//:pathToThisSpace:PORT/space_registry_OR_USE_HW_MANAGER_REGISTRY";
-		//runTspSpace_1();
-
-		// 3. Run Computers
-		//int numComputersDesired = 1;
-		//runTspComputers_2(numComputersDesired);
-
+		// tell manager to clear space and all computer processes
+		if(_hwManager!=null){
+			try {
+				_hwManager.terminateApplicationSpaceAndComputers();
+			} catch (RemoteException e) {
+				System.out.println("Network error calling manager in terminateAllApplicationProcesses.");
+			}
+		}
 
 	}
 
-
-	// DOES NOTHING CURRENTLY: CHANGE THIS SCRIPT TO RUN THE TSP APPLICATION LOCALLY
 	void runTspClient_0(){
 
 
@@ -363,37 +346,16 @@ public class HwUser implements HwUserInterface {
 
 		System.out.println("[HwUser.runTspApplication] running script: " + startSwClientScript);
 
+		// Run system command to run application client script
 		try {
 			Process p = Runtime.getRuntime().exec(commands);
+			if(p!=null)
+				_applicationProcesses.add(p);
 			System.out.println("[HwUser.runTspApplication] pid: " + p.toString() + ", isAlive: " + p.isAlive());
-
 		} catch (IOException/*|InterruptedException*/ e) {
-
 			System.out.println("[HwUser.runTspApplication] IOException running local TSP client/job script.");
-
-			// e.printStackTrace();
 		}
 	}
-/*
-	void runTspSpace_1(){
-		try {
-			if(_hwManager!=null) {
-				_hwManager.startApplicationSpaceOnHwManager();
-				return;
-			}
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		System.out.println("[HwUser.runTspSpace] Net call to startApplicationSpaceOnHwManager failed.");
-	}
-*/
-/*
-	void runTspComputers_2(int numComputersDesired){
-		// Tell the HwManager how many computers to start for this space.
-	}
-*/
-
-
 
 	// *** 2 ***
 	void printSystemStatusFromManager(){

@@ -16,4 +16,7 @@ public interface HwComputerInterface extends Remote {
 
 	String getAwsInstanceId() throws RemoteException;
 	Utils.Hw_Computer_Size getEc2Size() throws RemoteException;
+
+	void terminateSwComputers() throws RemoteException;
+
 }

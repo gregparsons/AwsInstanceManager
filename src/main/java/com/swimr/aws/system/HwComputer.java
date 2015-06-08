@@ -5,7 +5,6 @@ import com.swimr.aws.rmi.*; // rmi.HwComputerInterface;
 // import rmi.HwManagerInterface;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -17,21 +16,21 @@ import java.util.List;
 public class HwComputer extends UnicastRemoteObject implements Runnable, HwComputerInterface {
 
 
-	List<Process> _processes = new ArrayList<>();
+	public List<Process> _processes = new ArrayList<>();
 	String _amazonInstanceId = new String("unknown");
 	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.micro;
 
 	public HwManagerInterface hwManagerStub = null;
 	private static HwComputerInterface _hwComputerInterface = null;
 
-	String _hostname = "";
+	String _registryHostname = "";
 
 
 
 
 	public HwComputer(String hostname) throws RemoteException{
 
-		_hostname = hostname;
+		_registryHostname = hostname;
 		setMyAmazonInstanceId();
 		setMyAmazonInstanceSize();
 		_hwComputerInterface = this;
@@ -84,6 +83,17 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	}
 
 
+	@Override
+	public void terminateSwComputers() throws RemoteException {
+
+		System.out.println("[HwComputer.terminateSwComputers]");
+		for(Process process:_processes){
+			if(process!=null){
+				process.destroy();
+			}
+		}
+	}
+
 	private boolean setMyAmazonInstanceId(){
 
 		String result = EC2MetadataUtils.getInstanceId();
@@ -128,7 +138,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 		@Override
 		public void run() {
-			String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
+			String hwRegistryUrl = "//" + _registryHostname + ":" + HwManager._port + "/" + HwManager._serviceName;
 
 
 			while(true) {

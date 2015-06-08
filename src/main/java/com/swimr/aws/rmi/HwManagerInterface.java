@@ -34,6 +34,6 @@ public interface HwManagerInterface extends Remote {
 
 	void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException;
 
-
+	void terminateApplicationSpaceAndComputers() throws RemoteException;
 
 }

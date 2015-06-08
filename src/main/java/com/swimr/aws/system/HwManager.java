@@ -168,8 +168,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 			+ "Getting logical compute processes...");
 
+		//Load this object with all the status info to pass back to the HwUser.
 		StatusTransportObject transportObj = new StatusTransportObject(_computer_lists);
-
 
 		// Space processes
 		cleanDeadComputerInstances();
@@ -186,28 +186,31 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		//for(HwComputerInterface computer: (_computer_lists.get(Utils.Hw_Computer_Size.micro))) {
 
-			//transportObj._awsInstances.add(computer);
+		//transportObj._awsInstances.add(computer);
 
 
-			/*
-			try {
-				List<String> processList = computer.getRunningProcessStrings();
-				transportObj._logicalComputerProcesses.addAll(processList);
+		List<String> processList;
+		try {
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.micro).entrySet()) {
+				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
-			catch(RemoteException e){
-				System.out.println("[HwManager.getSystemStatus] Connection attempt to computer failed. Removing.");
-				transportObj._awsInstances.remove(computer);
-				//_awsComputers.remove(computer);	// this will screw up the for loop iterator
-				computer = null; //this will let cleanDead find it
-
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.large).entrySet()) {
+				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
 			}
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.two_xl).entrySet()) {
+				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
+			}
+			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists.get(Utils.Hw_Computer_Size.unknown).entrySet()) {
+				transportObj._logicalComputerProcesses.addAll(entry.getValue().getRunningProcessStrings());
+			}
+		}
+		//Catch HwComputer remote exception at the manager, instead of passing it back to the computer as would happen if this wasn't here.
+		catch(RemoteException e){
+			System.out.println("[HwManager.getSystemStatus] Connection attempt to computer failed while getting processes.");
+		}
 
-			*/
 
-		//}
-
-
-		System.out.println("[HwManager.getSystemStatus] returning");
+		System.out.println("[HwManager.getSystemStatus] Status snapshot complete. Returning to user.");
 
 		return transportObj;
 	}
@@ -424,22 +427,43 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 	void killAllSpaceProcesses(){
-
 		if(_spaceProcesses!=null && _spaceProcesses.size() > 0){
-
 			for(Process process:_spaceProcesses){
 				process.destroy();
 			}
 		}
-
 		//give them time to clean up
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(500);
 		} catch (InterruptedException e) {
 			//
 		}
 	}
 
+
+	@Override
+	public void terminateApplicationSpaceAndComputers() throws RemoteException {
+		// Kill space process
+		killAllSpaceProcesses();
+
+		// kill sw_computer processes
+
+		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.micro).entrySet()){
+			entry.getValue().terminateSwComputers();
+		}
+		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.large).entrySet()){
+			entry.getValue().terminateSwComputers();
+		}
+		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.two_xl).entrySet()){
+			entry.getValue().terminateSwComputers();
+		}
+		for(Map.Entry<String, HwComputerInterface> entry:_computer_lists.get(Utils.Hw_Computer_Size.unknown).entrySet()){
+			entry.getValue().terminateSwComputers();
+		}
+
+
+
+	}
 
 	// Start an application SPACE on this instance. Save the PID so it can be killed, etc.
 	private void startApplicationSpaceOnHwManager() // throws RemoteException
@@ -513,42 +537,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				i++;
 
 			}
-
-
-/*
-			for(int i = 0; i< hwRequest.numHwComputers; i++){
-
-				HwComputerInterface computer = computers.get(i);
-				if(computer!=null) {
-					System.out.println("Starting application computer." );
-
-					//only start one 290B computer instance per hardware instance
-					//let 290B multiprocessor decide how many computers to spawn
-					//we're only comparing cost/time of aws machines, not num threads etc
-					computer.startLogicalComputers(1);
-				}
-				else {
-
-					System.out.println("[startApplicationSpaceAndComputers] Computer " + i + " is null.");
-
-
-				}
-			}
-*/
 			System.out.println("[startApplicationSpaceAndComputers] Done calling hw_computers to start sw_computers...");
 		}
 	}
 
 
-
-
-	// Start an Amazon instance. Need to correlate this image id later with the computer object
-	// when the hwComputer registers.
-/*	private static void launchAWSInstance()
-	{
-		//use startHArdwareComputer() instead
-	}
-*/
 	// TERMINATE all instances
 	private static void terminateAllAWSInstances(   ) {
 
