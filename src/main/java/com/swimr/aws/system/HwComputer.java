@@ -14,17 +14,23 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HwComputer extends UnicastRemoteObject implements HwComputerInterface {
+public class HwComputer extends UnicastRemoteObject implements Runnable, HwComputerInterface {
 
 
 	List<Process> _processes = new ArrayList<>();
 	String _amazonInstanceId = new String("unknown");
 	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.micro;
 
+	public HwManagerInterface hwManagerStub = null;
+
+	String _hostname = "";
 
 
 
-	public HwComputer() throws RemoteException{
+
+	public HwComputer(String hostname) throws RemoteException{
+
+		_hostname = hostname;
 		setMyAmazonInstanceId();
 		setMyAmazonInstanceSize();
 	}
@@ -106,33 +112,15 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 	}
 
 
-
-	/**
-	 * First parameter should be URL to the hardware manager.
-	 * "//domain:port/space_name"
-	 */
-	public static void main(String[] args){
+	// Runnable
+	@Override
+	public void run() {
 
 
-		HwManagerInterface hwManagerStub = null;
-
-
-		if(args.length == 0) {
-			System.out.println("[HwComputer.main] First argument should be domain to hardware manager registry.");
-			return;
-		}
-		System.out.println("[HwComputer.main] arg: " + args[0]);
-		String hwRegistryUrl = "//" + args[0] + ":" + HwManager._port + "/" + HwManager._serviceName;
+		String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
 
 
 
-		// Create the computer to be registered below.
-		HwComputer hwComputer = null;
-		try {
-			hwComputer = new HwComputer();
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
 
 		while(true) {
 
@@ -148,13 +136,14 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 					//System.out.println("hwManager: " + hwManager);
 					ComputerRegistration c = new ComputerRegistration();
 
-					System.out.println("instance id: " + hwComputer._amazonInstanceId);
+					System.out.println("instance id: " + _amazonInstanceId);
 
-					c.id = hwComputer._amazonInstanceId;
-					c.hwComputerInterface = hwComputer;
-					c.size = hwComputer._amazonInstanceType;
-					//hwManagerStub.registerComputer(hwComputer);
+					c.id = _amazonInstanceId;
+					c.hwComputerInterface = this;
+					c.size = _amazonInstanceType;
+
 					hwManagerStub.registerComputer(c);
+
 				}
 				else
 					continue;
@@ -205,5 +194,36 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 				}
 			}
 		}
+
+	}
+
+	/**
+	 * First parameter should be URL to the hardware manager.
+	 * "//domain:port/space_name"
+	 */
+	public static void main(String[] args){
+
+
+		HwManagerInterface hwManagerStub = null;
+
+
+		if(args.length == 0) {
+			System.out.println("[HwComputer.main] First argument should be domain to hardware manager registry.");
+			return;
+		}
+		System.out.println("[HwComputer.main] arg: " + args[0]);
+
+
+
+		// Create the computer to be registered below.
+		HwComputer hwComputer = null;
+		try {
+			hwComputer = new HwComputer(args[0]);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+
+		hwComputer.run();
+
 	}
 }
