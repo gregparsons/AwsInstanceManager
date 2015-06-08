@@ -458,6 +458,15 @@ public class HwUser implements HwUserInterface {
 				}
 
 			}
+			// Print unknown instances
+			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.unknown);
+			if(list !=null){
+				System.out.println("Unknown instances:");
+				for(HwComputerInterface c:list){
+					System.out.println(c.getAwsInstanceId());
+				}
+
+			}
 
 			if(statusObject._logicalComputerProcesses!=null){
 				System.out.println("[HwUser.printSystemStatusFromManager] Logical compute processes running: "

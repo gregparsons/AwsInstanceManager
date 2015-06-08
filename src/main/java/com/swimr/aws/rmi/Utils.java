@@ -11,6 +11,7 @@ public class Utils {
 		micro,		//t2.micro
 		large,		//m3.large
 		two_xl,		//c4.2xlarge
+		unknown,
 		MAX_DO_NOT_USE
 	}
 
@@ -22,7 +23,9 @@ public class Utils {
 
 
 	public static Hw_Computer_Size convertSizeString(String awsSizeString){
-		Hw_Computer_Size size = Hw_Computer_Size.MAX_DO_NOT_USE;
+
+		Hw_Computer_Size size = Hw_Computer_Size.unknown;
+
 		if(awsSizeString!=null) {
 			if (awsSizeString.equals("t2.micro"))
 				size = Hw_Computer_Size.micro;

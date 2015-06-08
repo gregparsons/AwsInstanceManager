@@ -18,8 +18,8 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 
 	List<Process> _processes = new ArrayList<>();
-	String _amazonInstanceId = "UNKNOWN";
-	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.MAX_DO_NOT_USE;
+	String _amazonInstanceId = new String("unknown");
+	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.micro;
 
 
 
@@ -83,7 +83,10 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 	private boolean setMyAmazonInstanceId(){
 
-		_amazonInstanceId = EC2MetadataUtils.getInstanceId();
+		String result = EC2MetadataUtils.getInstanceId();
+		if(result!=null)
+			_amazonInstanceId = result;
+
 		System.out.println("[HwComputer.setMyAmazonInstanceId] id: " + _amazonInstanceId);
 
 		if(_amazonInstanceId != null)
@@ -144,6 +147,9 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 				if(hwManagerStub!=null) {
 					//System.out.println("hwManager: " + hwManager);
 					ComputerRegistration c = new ComputerRegistration();
+
+					System.out.println("instance id: " + hwComputer._amazonInstanceId);
+
 					c.id = hwComputer._amazonInstanceId;
 					c.hwComputerInterface = hwComputer;
 					c.size = hwComputer._amazonInstanceType;

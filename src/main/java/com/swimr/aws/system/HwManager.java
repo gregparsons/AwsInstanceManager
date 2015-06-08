@@ -54,6 +54,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		_computer_lists.put(Utils.Hw_Computer_Size.micro, new ArrayList<HwComputerInterface>());
 		_computer_lists.put(Utils.Hw_Computer_Size.large, new ArrayList<HwComputerInterface>());
 		_computer_lists.put(Utils.Hw_Computer_Size.two_xl, new ArrayList<HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.unknown, new ArrayList<HwComputerInterface>());
 
 	}
 
@@ -65,6 +66,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void registerComputer(ComputerRegistration computerReg) throws RemoteException {
 
 		System.out.println("[HwManager.registerComputer]");
+		System.out.println("[HwManager.registerComputer] Computer registering id: " + computerReg.id + ", size: " + computerReg.size);
 
 		if(computerReg.id!=null)
 			System.out.println("[HwManager.registerComputer] " + computerReg.id);
@@ -73,14 +75,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
-		if(computerReg.hwComputerInterface == null){
-			System.out.println("computers_lists is null");
 
-		}
-		else
-			System.out.println("computers_lists is not null");
-
-		if(computerReg.size == null || computerReg.size == Utils.Hw_Computer_Size.MAX_DO_NOT_USE)
+		if(computerReg.size == null)
 			//just register as micro for now, if on localhost
 			_computer_lists.get(Utils.Hw_Computer_Size.micro).add(computerReg.hwComputerInterface);
 		else
@@ -130,6 +126,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.two_xl).get(i);
 			if(c == null)
 				_computer_lists.get(Utils.Hw_Computer_Size.two_xl).remove(c);
+		}
+		for(int i=_computer_lists.get(Utils.Hw_Computer_Size.unknown).size()-1; i>=0; i--){
+			HwComputerInterface c = _computer_lists.get(Utils.Hw_Computer_Size.unknown).get(i);
+			if(c == null)
+				_computer_lists.get(Utils.Hw_Computer_Size.unknown).remove(c);
 		}
 	}
 
