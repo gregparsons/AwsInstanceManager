@@ -75,6 +75,16 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 
+
+
+
+
+		// ERROR below, only fetching the micro map.
+
+
+
+
+
 		Map<String, HwComputerInterface> computersOfSize = _computer_lists.get(Utils.Hw_Computer_Size.micro);
 
 		if(computersOfSize==null){
@@ -92,6 +102,13 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		System.out.println("[HwManager.registerComputer] computerReg.hwComputerInterface: " + computerReg.hwComputerInterface);
 
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
+
+		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists.get(computerReg.size).entrySet()){
+
+			System.out.println("Id: " + entry.getKey() + ", " +entry.getValue());
+
+		}
+
 
 	}
 
