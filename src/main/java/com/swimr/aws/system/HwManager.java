@@ -659,8 +659,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 							HwManager._thisHwManager.removeComputerFromLists(_awsId);
 							return;
 						}
-
-
 					}
 				}
 				else
