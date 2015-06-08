@@ -14,7 +14,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HwComputer extends UnicastRemoteObject implements HwComputerInterface, Serializable {
+public class HwComputer extends UnicastRemoteObject implements HwComputerInterface {
 
 
 	List<Process> _processes = new ArrayList<>();
