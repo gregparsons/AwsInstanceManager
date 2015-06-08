@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -204,8 +203,8 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6367521">
-              <caret line="665" column="90" selection-start-line="665" selection-start-column="90" selection-end-line="665" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.8717949">
+              <caret line="676" column="17" selection-start-line="676" selection-start-column="17" selection-end-line="676" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#8274#8275#0" expanded="true" />
@@ -1468,8 +1467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6367521">
-          <caret line="665" column="90" selection-start-line="665" selection-start-column="90" selection-end-line="665" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.8717949">
+          <caret line="676" column="17" selection-start-line="676" selection-start-column="17" selection-end-line="676" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#8274#8275#0" expanded="true" />

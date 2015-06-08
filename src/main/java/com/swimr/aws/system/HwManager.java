@@ -659,7 +659,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				if(_hwComputerInterface!=null) {
 					try {
 						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
-						Thread.sleep(5000);
 					} catch (RemoteException e) {
 
 						fail_count++;
@@ -671,8 +670,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 							return;
 						}
 					}
-					catch (InterruptedException e) { /* for thread sleep, nothing */}
 				}
+				try {
+					Thread.sleep(5000);
+				}
+				catch (InterruptedException e) { /* for thread sleep, nothing */}
 			}
 		}
 	}
