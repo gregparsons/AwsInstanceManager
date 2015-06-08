@@ -200,7 +200,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 					// Sleep for a while, then check for a heartbeat.
 					try {
-						Thread.sleep(5000);
+						Thread.sleep(10000);
 					} catch (InterruptedException e) {
 						//do nothing
 					}
