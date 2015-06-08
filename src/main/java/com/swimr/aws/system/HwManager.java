@@ -76,14 +76,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			_awsComputers.add(hwComputer);
 		}
 		*/
-		if(!(_computer_lists.get(hwComputer.getEc2Size()).contains(hwComputer))) {
+		//if(!(_computer_lists.get(hwComputer.getEc2Size()).contains(hwComputer))) {
 			//is this making an RMI call somewhere just to get a local var passed in this object?
 
 			System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 			_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
 
-		}
+		//}
 
 
 	}
