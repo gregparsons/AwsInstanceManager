@@ -324,8 +324,7 @@ public class HwUser implements HwUserInterface {
 				break;
 			}
 			case 15:{
-				//runTspTest();
-				//runTspClient_0();
+				runTspClient_0();
 				break;
 			}
 			default:{
@@ -362,7 +361,6 @@ public class HwUser implements HwUserInterface {
 	// DOES NOTHING CURRENTLY: CHANGE THIS SCRIPT TO RUN THE TSP APPLICATION LOCALLY
 	void runTspClient_0(){
 
-		//String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/scripts/ZZZZZZZZZZZZZZZ.sh";
 
 		String startSwClientScript = "scripts/sw_client_startup.sh";
 		String[] commands = {startSwClientScript};
