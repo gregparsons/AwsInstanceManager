@@ -22,7 +22,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.micro;
 
 	public HwManagerInterface hwManagerStub = null;
-	private HwComputerInterface _hwComputerInterface = null;
+	private static HwComputerInterface _hwComputerInterface = null;
 
 	String _hostname = "";
 
