@@ -8,6 +8,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 public class HwUser implements HwUserInterface {
@@ -432,7 +433,7 @@ public class HwUser implements HwUserInterface {
 
 
 			// Print micro instances
-			List<HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
+			Map<String,HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
 			if(list !=null){
 				System.out.println("Micro instances: " + list.size());
 				/*

@@ -17,7 +17,7 @@ public class StatusTransportObject implements Serializable {
 
 	// public List<HwComputerInterface> _awsInstances = new ArrayList<>();
 
-	public Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> computer_lists = new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>();
+	public Map<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>> computer_lists = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
 
 
 	// Map of 290b computers running on the above computers. Above computers' id
@@ -29,7 +29,7 @@ public class StatusTransportObject implements Serializable {
 	//Processes are not serializable
 	public List<String> _logicalSpaceProcessesOnHwManager = new ArrayList<>();
 
-	public StatusTransportObject(Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> computers){
+	public StatusTransportObject(Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> computers){
 		computer_lists = computers;
 
 

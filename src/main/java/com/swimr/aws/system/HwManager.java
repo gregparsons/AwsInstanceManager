@@ -18,7 +18,6 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
-import com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen;
 import com.swimr.aws.rmi.*;
 
 
@@ -44,17 +43,17 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
 
-	static Map<Utils.Hw_Computer_Size, List<HwComputerInterface>> _computer_lists = new HashMap<Utils.Hw_Computer_Size, List<HwComputerInterface>>();
+	static Map<Utils.Hw_Computer_Size, Map<String, HwComputerInterface>> _computer_lists = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
 
 
 
 	public HwManager() throws RemoteException {
 		super(_port);
 
-		_computer_lists.put(Utils.Hw_Computer_Size.micro, new ArrayList<HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.large, new ArrayList<HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.two_xl, new ArrayList<HwComputerInterface>());
-		_computer_lists.put(Utils.Hw_Computer_Size.unknown, new ArrayList<HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.micro, new HashMap<String, HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.large, new HashMap<String, HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.two_xl, new HashMap<String, HwComputerInterface>());
+		_computer_lists.put(Utils.Hw_Computer_Size.unknown, new HashMap<String, HwComputerInterface>());
 
 	}
 
@@ -76,21 +75,22 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 
-		List<HwComputerInterface> list = _computer_lists.get(Utils.Hw_Computer_Size.micro);
+		Map<String, HwComputerInterface> computersOfSize = _computer_lists.get(Utils.Hw_Computer_Size.micro);
 
-		if(list==null){
+		if(computersOfSize==null){
 
 			System.out.println("[HwManager.registerComputer] Can't register computer. List is null.");
 			return;
 		}
 
+		// if run from localhost the ID will be "unknown" and only one computer will ever register, FYI
 
-		if(list.contains(computerReg.hwComputerInterface))
-			list.remove(computerReg.hwComputerInterface);
-		list.add(computerReg.hwComputerInterface);
+		if(computersOfSize.containsKey(computerReg.id))
+			computersOfSize.remove(computerReg.id);
+
+		computersOfSize.put(computerReg.id, computerReg.hwComputerInterface);
+
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
-
-
 
 	}
 
@@ -461,7 +461,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
 
 			int availComputers = 0;
-			List<HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
+			Map<String,HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
 			if(computers !=null ){
 				availComputers = computers.size();
 				System.out.println("Computers available: " + availComputers);
