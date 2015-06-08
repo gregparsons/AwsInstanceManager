@@ -365,7 +365,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		runRqst.withImageId(_computerAmi)
 			.withInstanceType(instanceSize)
 			.withMinCount(hwRequest.numHwComputers)
-			.withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME)
+			// .withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME) // NOT THIS
+			.withMaxCount(hwRequest.numHwComputers)
 			.withKeyName(_keyName)
 			.withSecurityGroups(_securityGroup)
 			.withUserData(startupUserData);
