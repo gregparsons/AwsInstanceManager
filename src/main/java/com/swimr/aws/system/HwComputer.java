@@ -143,7 +143,11 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 				// Register this computer with the Manager
 				if(hwManagerStub!=null) {
 					//System.out.println("hwManager: " + hwManager);
-					hwManagerStub.registerComputer(hwComputer);
+					ComputerRegistration c = new ComputerRegistration();
+					c.id = hwComputer._amazonInstanceId;
+					c.hwComputerInterface = hwComputer;
+					//hwManagerStub.registerComputer(hwComputer);
+					hwManagerStub.registerComputer(c);
 				}
 				else
 					continue;

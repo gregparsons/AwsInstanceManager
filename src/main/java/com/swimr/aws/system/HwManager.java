@@ -18,10 +18,7 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
-import com.swimr.aws.rmi.HwComputerInterface;
-import com.swimr.aws.rmi.HwManagerInterface;
-import com.swimr.aws.rmi.StatusTransportObject;
-import com.swimr.aws.rmi.Utils;
+import com.swimr.aws.rmi.*;
 
 
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
@@ -65,15 +62,15 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	// ********** Interface Methods ***********************
 
 	@Override
-	public void registerComputer(HwComputerInterface hwComputer) throws RemoteException {
+	public void registerComputer(ComputerRegistration computerReg) throws RemoteException {
 
 
-		System.out.println("[HwManager.registerComputer] 1");
+		System.out.println("[HwManager.registerComputer] " + computerReg.id);
 		//System.out.println("[HwManager.registerComputer] " + hwComputer._amazonInstanceId);
 			//is this making an RMI call somewhere just to get a local var passed in this object?
 
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
-		_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
+		//_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
 
 		System.out.println("[HwManager.registerComputer] 2");
 
