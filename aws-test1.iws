@@ -203,15 +203,15 @@
       <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8717949">
-              <caret line="676" column="17" selection-start-line="676" selection-start-column="17" selection-end-line="676" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.7606838">
+              <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8274#8275#0" expanded="true" />
-                <element signature="e#8309#8310#0" expanded="true" />
-                <element signature="e#9622#9637#0" expanded="false" />
-                <element signature="e#13033#13062#0" expanded="false" />
-                <element signature="e#13324#13426#0" expanded="false" />
+                <element signature="e#7908#7909#0" expanded="true" />
+                <element signature="e#7943#7944#0" expanded="true" />
+                <element signature="e#9256#9271#0" expanded="false" />
+                <element signature="e#12667#12696#0" expanded="false" />
+                <element signature="e#12958#13060#0" expanded="false" />
                 <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
                 <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
                 <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -969,11 +969,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1068,11 +1068,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1153,11 +1153,11 @@
           <caret line="277" column="34" selection-start-line="277" selection-start-column="34" selection-end-line="277" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1226,11 +1226,11 @@
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1278,11 +1278,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1298,11 +1298,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
@@ -1467,15 +1467,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8717949">
-          <caret line="676" column="17" selection-start-line="676" selection-start-column="17" selection-end-line="676" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.7606838">
+          <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8274#8275#0" expanded="true" />
-            <element signature="e#8309#8310#0" expanded="true" />
-            <element signature="e#9622#9637#0" expanded="false" />
-            <element signature="e#13033#13062#0" expanded="false" />
-            <element signature="e#13324#13426#0" expanded="false" />
+            <element signature="e#7908#7909#0" expanded="true" />
+            <element signature="e#7943#7944#0" expanded="true" />
+            <element signature="e#9256#9271#0" expanded="false" />
+            <element signature="e#12667#12696#0" expanded="false" />
+            <element signature="e#12958#13060#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />

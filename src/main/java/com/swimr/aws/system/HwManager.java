@@ -67,48 +67,35 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void registerComputer(ComputerRegistration computerReg) throws RemoteException {
 
 		System.out.println("[HwManager.registerComputer]");
-		System.out.println("[HwManager.registerComputer] Computer registering id: " + computerReg.id + ", size: " + computerReg.size);
+		System.out.println("[HwManager.registerComputer] Registering: " + computerReg.id + ", size: " + computerReg.size);
 
 
 
-		//Add new computer to master computer list
+		//Add to master computer list
 		if(_all_computers.containsKey(computerReg.id)){
 			_all_computers.remove(computerReg.id);
 		}
 		HwComputerProxy proxy = new HwComputerProxy(computerReg.id, computerReg.hwComputerInterface);
 		_all_computers.put(computerReg.id, proxy);
-		Thread thread = new Thread(proxy);
-		thread.start();
 
 
-
-
-		//Add new computer to the list according to it's AWS size
-
+		//Add to the size list
 		Map<String, HwComputerInterface> computersOfSize = _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro);
-
 		if(computersOfSize==null){
 
 			System.out.println("[HwManager.registerComputer] Can't register computer. List is null.");
 			return;
 		}
-
 		// if run from localhost the ID will be "unknown" and only one computer will ever register, FYI
-
 		if(computersOfSize.containsKey(computerReg.id))
 			computersOfSize.remove(computerReg.id);
-
 		computersOfSize.put(computerReg.id, computerReg.hwComputerInterface);
-		//System.out.println("[HwManager.registerComputer] computerReg.hwComputerInterface: " + computerReg.hwComputerInterface);
+		System.out.println("[HwManager.registerComputer] Registered: " + computerReg.id + ", size: " + computerReg.size);
 
-		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
-/*
-		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(computerReg.size).entrySet()){
 
-			System.out.println("Id: " + entry.getKey() + ", " +entry.getValue());
-
-		}
-*/
+		// Start proxy heartbeat check
+		Thread thread = new Thread(proxy);
+		thread.start();
 
 	}
 
