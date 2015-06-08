@@ -72,7 +72,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//System.out.println("[HwManager.registerComputer] " + hwComputer._amazonInstanceId);
 			//is this making an RMI call somewhere just to get a local var passed in this object?
 
-		System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
+		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 		_computer_lists.get(hwComputer.getEc2Size()).add(hwComputer);
 
 		System.out.println("[HwManager.registerComputer] 2");
