@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -200,11 +201,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7606838">
-              <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+            <state vertical-scroll-proportion="-23.777779">
+              <caret line="665" column="50" selection-start-line="665" selection-start-column="50" selection-end-line="665" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#7908#7909#0" expanded="true" />
@@ -232,15 +233,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="177" column="54" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.5982906">
+              <caret line="180" column="35" selection-start-line="180" selection-start-column="35" selection-end-line="180" selection-end-column="35" />
               <folding>
                 <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
                 <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-                <element signature="n#build#0;n#profile#5;n#profiles#0;n#project#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -342,13 +342,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/scripts/hw_manager_startup.sh" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -1000,7 +1000,6 @@
           <folding>
             <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
             <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#5;n#profiles#0;n#project#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1036,7 +1035,6 @@
           <folding>
             <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
             <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#5;n#profiles#0;n#project#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1121,7 +1119,6 @@
           <folding>
             <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
             <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#5;n#profiles#0;n#project#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1405,18 +1402,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="54" selection-start-line="177" selection-start-column="54" selection-end-line="177" selection-end-column="54" />
-          <folding>
-            <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#5;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1467,8 +1452,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7606838">
-          <caret line="92" column="67" selection-start-line="92" selection-start-column="67" selection-end-line="92" selection-end-column="67" />
+        <state vertical-scroll-proportion="-23.777779">
+          <caret line="665" column="50" selection-start-line="665" selection-start-column="50" selection-end-line="665" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#7908#7909#0" expanded="true" />
@@ -1481,6 +1466,17 @@
             <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5982906">
+          <caret line="180" column="35" selection-start-line="180" selection-start-column="35" selection-end-line="180" selection-end-column="35" />
+          <folding>
+            <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

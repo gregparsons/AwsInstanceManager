@@ -173,10 +173,12 @@
 									<key>java.security.policy</key>
 									<value>policy</value>
 								</systemProperty>
+								<!--
 								<systemProperty>
 									<key>java.rmi.server.hostname</key>
 									<value>52.25.230.6</value>
 								</systemProperty>
+								-->
 								<systemProperty>
 									<key>java.net.preferIPv4Stack</key>
 									<value>true</value>

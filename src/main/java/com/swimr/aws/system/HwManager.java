@@ -648,6 +648,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
 					} catch (RemoteException e) {
 
+						e.printStackTrace();
+
+
 						fail_count++;
 						System.out.println("Computer " + _awsId + " failed. " + fail_count);
 						if(fail_count > 5) {
@@ -656,8 +659,12 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 							HwManager._thisHwManager.removeComputerFromLists(_awsId);
 							return;
 						}
+
+
 					}
 				}
+				// should remove if it's null also
+
 				try {
 					Thread.sleep(5000);
 				}
