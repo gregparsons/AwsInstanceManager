@@ -412,14 +412,21 @@ public class HwUser implements HwUserInterface {
 			System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
 			return;
 		}
-
+		StatusTransportObject statusObject = null;
 		try {
 
 
 			// Ask AWS Hardware Manager to get the status of all running HwComputers and logical compute processes.
-			StatusTransportObject statusObject = _hwManager.getSystemStatus();
+			statusObject = _hwManager.getSystemStatus();
 
-			System.out.println("Hello??????");
+		} catch (RemoteException e) {
+			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
+			_hwManager = null;
+			_connectedToHwManager = false;
+			e.printStackTrace();
+		}
+
+		System.out.println("Hello??????");
 
 			//print all this here!!!
 			if(statusObject==null){
@@ -434,40 +441,48 @@ public class HwUser implements HwUserInterface {
 			// Print micro instances
 			List<HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
 			if(list !=null){
-				System.out.println("Micro instances:");
+				System.out.println("Micro instances: " + list.size());
+				/*
 				for(HwComputerInterface c:list){
-					System.out.println(c.getAwsInstanceId());
-				}
 
+					if(c!=null)
+						System.out.println(c.getAwsInstanceId());
+				}
+				*/
 			}
 
 			// Print large instances
 			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
 			if(list !=null){
-				System.out.println("Large instances:");
-				for(HwComputerInterface c:list){
-					System.out.println(c.getAwsInstanceId());
+				System.out.println("Large instances: " + list.size());
+				/*for(HwComputerInterface c:list){
+					if(c!=null)
+						System.out.println(c.getAwsInstanceId());
 				}
-
+				*/
 			}
 
 			// Print 2XL instances
 			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
 			if(list !=null){
-				System.out.println("2XL instances:");
+				System.out.println("2XL instances: " + list.size());
+				/*
 				for(HwComputerInterface c:list){
-					System.out.println(c.getAwsInstanceId());
+					if(c!=null)
+						System.out.println(c.getAwsInstanceId());
 				}
-
+*/
 			}
+
 			// Print unknown instances
 			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.unknown);
 			if(list !=null){
-				System.out.println("Unknown instances:");
-				for(HwComputerInterface c:list){
-					System.out.println(c.getAwsInstanceId());
+				System.out.println("Unknown instances: " + list.size());
+				/*for(HwComputerInterface c:list){
+					if(c!=null)
+						System.out.println(c.getAwsInstanceId());
 				}
-
+				*/
 			}
 
 			if(statusObject._logicalComputerProcesses!=null){
@@ -485,12 +500,6 @@ public class HwUser implements HwUserInterface {
 				statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
 
 			}
-		} catch (RemoteException e) {
-			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
-			_hwManager = null;
-			_connectedToHwManager = false;
-			// e.printStackTrace();
-		}
 	}
 
 

@@ -14,12 +14,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 
 	</properties>
-
-
-
-
   	<dependencies>
-
 		<!-- http://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-ec2/1.9.0 -->
 		<dependency>
 			<groupId>com.amazonaws</groupId>
@@ -27,25 +22,8 @@
 			<version>1.9.38</version>
 		</dependency>
 
-<!--
-
-    	<dependency>
-      		<groupId>com.amazonaws</groupId>
-      		<artifactId>aws-java-sdk</artifactId>
-      		<version>[1.7.2,2.0.0)</version>
-    	</dependency>
--->
-<!-- https://stackoverflow.com/questions/1551697/getting-java-lang-classnotfoundexception-org-apache-commons-logging-logfactory -->
-<!--
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1.1</version>
-		</dependency>
--->
 
   	</dependencies>
-
 	<profiles>
 
 		<!--
@@ -105,10 +83,6 @@
 				</plugins>
 			</build>
 		</profile>
-
-
-
-
 		<!--
 
 		manager (not localhost)
@@ -164,70 +138,61 @@
 				</plugins>
 			</build>
 		</profile>
-
-
-
-
-
 		<profile>
-		<!-- run computer -->
-		<!-- mvn test -Pcomputer -->
-		<id>computer</id>
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
-					<configuration>
-						<source>1.8</source>
-						<target>1.8</target>
-					</configuration>
-				</plugin>
+			<!-- run computer -->
+			<!-- mvn test -Pcomputer -->
+			<id>computer</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
 
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>exec-maven-plugin</artifactId>
-					<version>1.2.1</version>
-					<executions>
-						<execution>
-							<phase>test</phase>
-							<goals>
-								<goal>java</goal>
-							</goals>
-						</execution>
-					</executions>
-					<configuration>
-						<mainClass>com.swimr.aws.system.HwComputer</mainClass>
-						<systemProperties>
-							<systemProperty>
-								<key>java.security.policy</key>
-								<value>policy</value>
-							</systemProperty>
-							<systemProperty>
-								<key>java.net.preferIPv4Stack</key>
-								<value>true</value>
-							</systemProperty>
-						</systemProperties>
-
-						<!--
-
-						IP address to find the HwManager at:
-
-						-->
-						<commandlineArgs>djava.dyndns.org</commandlineArgs>
-
-					</configuration>
-				</plugin>
-			</plugins>
-		</build>
-	</profile>
-
-
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<phase>test</phase>
+								<goals>
+									<goal>java</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<mainClass>com.swimr.aws.system.HwComputer</mainClass>
+							<systemProperties>
+								<systemProperty>
+									<key>java.security.policy</key>
+									<value>policy</value>
+								</systemProperty>
+								<systemProperty>
+									<key>java.rmi.server.hostname</key>
+									<value>djava.dyndns.org</value>
+								</systemProperty>
+								<systemProperty>
+									<key>java.net.preferIPv4Stack</key>
+									<value>true</value>
+								</systemProperty>
+							</systemProperties>
+							<!--
+							IP address to find the HwManager at:
+							-->
+							<commandlineArgs>djava.dyndns.org</commandlineArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 		<profile>
-
 			<!-- aws user -->
-
 			<id>user</id>
 			<build>
 				<plugins>
@@ -260,6 +225,16 @@
 									<key>java.security.policy</key>
 									<value>policy</value>
 								</systemProperty>
+<!--
+								<systemProperty>
+									<key>java.rmi.server.hostname</key>
+									<value>68.6.120.88</value>
+								</systemProperty>
+-->
+								<systemProperty>
+									<key>java.net.preferIPv4Stack</key>
+									<value>true</value>
+								</systemProperty>
 							</systemProperties>
 							<commandlineArgs>djava.dyndns.org</commandlineArgs>
 						</configuration>
@@ -267,20 +242,12 @@
 				</plugins>
 			</build>
 		</profile>
-
-
-
-
 		<!--
-
 		UserLocal
 		Connects to localhost manager
-
 		-->
 		<profile>
-
 			<!-- aws user -->
-
 			<id>userLocal</id>
 			<build>
 				<plugins>
@@ -320,22 +287,13 @@
 				</plugins>
 			</build>
 		</profile>
-
-
-
 		<!--
-
 		computerLocal
-
 		Run computer to connect to a manager at localhost
 		-->
-
 		<profile>
-
 			<!-- run computer -->
 			<!-- mvn test -Pcomputer -->
-
-
 			<id>computerLocal</id>
 			<build>
 				<plugins>
@@ -375,10 +333,5 @@
 				</plugins>
 			</build>
 		</profile>
-
-
-
-
-
 	</profiles>
 </project>

@@ -166,7 +166,7 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 			}
 
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				System.out.println("[HwComputer.main] Connect failed. Trying again.");
 			}
