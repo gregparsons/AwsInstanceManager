@@ -419,6 +419,8 @@ public class HwUser implements HwUserInterface {
 			// Ask AWS Hardware Manager to get the status of all running HwComputers and logical compute processes.
 			StatusTransportObject statusObject = _hwManager.getSystemStatus();
 
+			System.out.println("Hello??????");
+
 			//print all this here!!!
 			if(statusObject==null){
 				System.out.println("[HwUser.printSystemStatusFromManager] Error: Status came back null.");

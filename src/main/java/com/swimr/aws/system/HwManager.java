@@ -184,7 +184,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//}
 
 
-
+		System.out.println("[HwManager.getSystemStatus] returning");
 
 		return transportObj;
 	}
