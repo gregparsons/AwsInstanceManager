@@ -168,7 +168,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		// Load AWS computers and logical computer processes into a transport object.
 
-		//for(HwComputerInterface computer: _awsComputers) {
+		//for(HwComputerInterface computer: (_computer_lists.get(Utils.Hw_Computer_Size.micro))) {
 
 			//transportObj._awsInstances.add(computer);
 
@@ -479,6 +479,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				//e.printStackTrace();
 			}
 
+			System.out.println("[startApplicationSpaceAndComputers] Calling hw_computers to start sw_computers...");
 			for(int i = 0; i< hwRequest.numHwComputers; i++){
 
 				HwComputerInterface computer = computers.get(i);

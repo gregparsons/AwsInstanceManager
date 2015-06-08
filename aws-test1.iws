@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$Scheduler.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager$Scheduler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwUser.class" afterPath="$PROJECT_DIR$/target/classes/com/swimr/aws/system/HwUser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aws-test1.iws" afterPath="$PROJECT_DIR$/aws-test1.iws" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -190,18 +194,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="455" column="0" selection-start-line="455" selection-start-column="0" selection-end-line="455" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.80835736">
+              <caret line="481" column="113" selection-start-line="481" selection-start-column="113" selection-end-line="481" selection-end-column="113" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1421#1478#0" expanded="true" />
+                <element signature="e#6705#6706#0" expanded="true" />
+                <element signature="e#6740#6741#0" expanded="true" />
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#main#0;class#HwManager#0" expanded="false" />
-                <element signature="e#16887#16939#0" expanded="false" />
+                <element signature="e#17033#17085#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -266,10 +272,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39805827">
+            <state vertical-scroll-proportion="0.0">
               <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
               <folding>
                 <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
@@ -357,8 +363,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/scripts/hw_manager_startup.sh" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
       </list>
     </option>
   </component>
@@ -968,10 +974,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1033,10 +1041,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1148,10 +1158,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1242,10 +1254,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1324,10 +1338,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1383,10 +1399,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1398,10 +1416,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1507,21 +1527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="455" column="0" selection-start-line="455" selection-start-column="0" selection-end-line="455" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1421#1478#0" expanded="true" />
-            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#16887#16939#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.666666">
@@ -1534,7 +1539,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39805827">
+        <state vertical-scroll-proportion="0.0">
           <caret line="326" column="16" selection-start-line="326" selection-start-column="16" selection-end-line="326" selection-end-column="16" />
           <folding>
             <element signature="class#TestSettings#0;class#HwUser#0" expanded="false" />
@@ -1552,6 +1557,23 @@
             <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
             <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
             <element signature="method#main#0;class#HwUser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80835736">
+          <caret line="481" column="113" selection-start-line="481" selection-start-column="113" selection-end-line="481" selection-end-column="113" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1421#1478#0" expanded="true" />
+            <element signature="e#6705#6706#0" expanded="true" />
+            <element signature="e#6740#6741#0" expanded="true" />
+            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#main#0;class#HwManager#0" expanded="false" />
+            <element signature="e#17033#17085#0" expanded="false" />
           </folding>
         </state>
       </provider>
