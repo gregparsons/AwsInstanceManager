@@ -358,7 +358,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// Put startup script in here
 		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
 		//
-		String startupUserData = "";
+		//https://help.ubuntu.com/community/CloudInit
+		String startupUserData = "#! mvn test -Pcomputer";
 
 
 		runRqst.withImageId(_computerAmi)
