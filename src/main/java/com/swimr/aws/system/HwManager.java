@@ -427,7 +427,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 		String scriptToRun = "scripts/sw_space_startup.sh";
-		System.out.println("[HwManager.startLogicalComputeSpace] Exec: " + scriptToRun);
+		System.out.println("[HwManager.startApplicationSpace] Exec: " + scriptToRun);
 
 		String[] commands = {scriptToRun};
 		try {
@@ -435,7 +435,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			// Save a reference to the process just started, so you can kill it later.
 			cleanDeadSpaceProcesses();
 			_spaceProcesses.add(p);
-			System.out.println("[HwComputer.startLogicalComputers] pid: "
+			System.out.println("[HwComputer.startApplicationSpace] pid: "
 				+ p.toString() + ", isAlive: "
 				+ p.isAlive() + ", \ntotal processes: " + _spaceProcesses.size());
 		} catch (IOException/*|InterruptedException*/ e) {
@@ -448,12 +448,22 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	public void startApplicationSpaceAndComputers(Utils.Hw_Request hwRequest) throws RemoteException {
 
 
-		/*
-		if(_awsComputers)
 
-*/
+
 		if(hwRequest != null && hwRequest.size != Utils.Hw_Computer_Size.MAX_DO_NOT_USE) {
 			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
+
+			int availComputers = 0;
+			List<HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
+			if(computers !=null ){
+				availComputers = computers.size();
+				System.out.println("Computers available: " + availComputers);
+			}
+
+			if(availComputers <=0 || availComputers < hwRequest.numHwComputers){
+				System.out.println("[HwMgr.startSpace] Not enough hardware computers available. Requested: " + hwRequest.numHwComputers + ", Avail: " + availComputers);
+				return;
+			}
 
 
 			startApplicationSpaceOnHwManager();
@@ -464,19 +474,18 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				//e.printStackTrace();
 			}
 
+			for(int i = 0; i< hwRequest.numHwComputers; i++){
 
+				HwComputerInterface computer = computers.get(i);
+				if(computer!=null) {
+					System.out.println("Starting application computer." );
 
-			List<HwComputerInterface> computers = _computer_lists.get(hwRequest.size);
-			if(computers !=null ){
-
-				System.out.println("Computers available: " + computers.size());
-
-
+					//only start one 290B computer instance per hardware instance
+					//let 290B multiprocessor decide how many computers to spawn
+					//we're only comparing cost/time of aws machines, not num threads etc
+					computer.startLogicalComputers(1);
+				}
 			}
-
-
-
-
 		}
 	}
 

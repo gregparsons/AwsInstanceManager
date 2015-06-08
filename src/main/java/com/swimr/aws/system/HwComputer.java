@@ -40,15 +40,15 @@ public class HwComputer extends UnicastRemoteObject implements HwComputerInterfa
 
 
 	// @Override
-	public boolean startLogicalComputers(int numComputers, String spaceURL) {
-		System.out.println("[HwComputer.startLogicalComputers] Start " + numComputers + " computers w/ space URL: " + spaceURL);
+	public boolean startLogicalComputers(int numComputers) {
+		System.out.println("[HwComputer.startLogicalComputers] Start " + numComputers);// + " computers w/ space URL: " + spaceURL);
 /*
 
 
 /usr/bin/java -Djava.security.policy=/Users/aaa/temp/policy -cp /Users/aaa/temp/h4.jar system.ComputerImpl localhost multi
 
  */
-		String computerStartCommand = "/Users/aaa/290a/aws/aws-test1/aws-test1/computer.sh";
+		String computerStartCommand = "scripts/sw_computer_startup.sh";
 		String[] commands = {computerStartCommand};
 		try {
 

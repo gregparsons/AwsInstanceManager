@@ -10,7 +10,7 @@ public interface HwComputerInterface extends Remote {
 	 * Start the number of logical computers specified. They should be informed of the
 	 * RMI registry/space url to call back to.
 	 */
-	boolean startLogicalComputers(int numComputers, String spaceURL) throws RemoteException;
+	boolean startLogicalComputers(int numComputers) throws RemoteException;
 
 	List<String> getRunningProcessStrings() throws RemoteException;
 
