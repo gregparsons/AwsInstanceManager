@@ -491,6 +491,12 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 					//we're only comparing cost/time of aws machines, not num threads etc
 					computer.startLogicalComputers(1);
 				}
+				else {
+
+					System.out.println("[startApplicationSpaceAndComputers] Computer " + i + " is null.");
+
+
+				}
 			}
 			System.out.println("[startApplicationSpaceAndComputers] Done calling hw_computers to start sw_computers...");
 		}
