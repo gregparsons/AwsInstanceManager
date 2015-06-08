@@ -5,7 +5,11 @@ import java.io.Serializable;
 
 public class Utils {
 
+	//HW_COMPUTER AMI
+	public static final String HW_COMPUTER_AMI = "ami-412d1571";
+
 	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
+
 
 	public static  enum Hw_Computer_Size {
 		micro,		//t2.micro

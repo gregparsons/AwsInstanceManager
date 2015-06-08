@@ -29,8 +29,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
     static AmazonEC2 ec2;
     //static AmazonS3  s3;
 
-	//HW_COMPUTER AMI
-	static final String _computerAmi = "ami-1d50682d";
 
 	static final InstanceType _type = InstanceType.T2Micro;
 	static final String _keyName = "290b-java";
@@ -38,7 +36,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 
-	// Make all these thread safe? 
+	// Make all these thread safe?
 	static List<Instance> _instances = new ArrayList<Instance>();
 	//static List<HwComputerInterface> _awsComputers = new ArrayList<>();
 	static List<Process> _spaceProcesses = new ArrayList<>();
@@ -318,7 +316,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				);
 
 				//if pending or running
-				if(i.getImageId().equals(_computerAmi))
+				if(i.getImageId().equals(Utils.HW_COMPUTER_AMI))
 				{
 					if(i.getState().getCode() == 16 || i.getState().getCode()==0)
 					{
@@ -389,7 +387,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 		// https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/run-instance.html
-		System.out.println("Launching instance of ami: " + _computerAmi + " and size: " + _type);
+		System.out.println("Launching instance of ami: " + Utils.HW_COMPUTER_AMI + " and size: " + _type);
 
 		RunInstancesRequest runRqst = new RunInstancesRequest();
 
@@ -403,7 +401,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
 		//startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
 
-		runRqst.withImageId(_computerAmi)
+		runRqst.withImageId(Utils.HW_COMPUTER_AMI)
 			.withInstanceType(instanceSize)
 			.withMinCount(hwRequest.numHwComputers)
 			// .withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME) // NOT THIS
@@ -655,6 +653,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		@Override
 		public void run() {
 
+			int fail_count = 0;
 			while(true){
 
 				if(_hwComputerInterface!=null) {
@@ -663,12 +662,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 						Thread.sleep(5000);
 					} catch (RemoteException e) {
 
-
-						// remove hwcomputer
-						System.out.println("Computer " + _awsId + " failed. Removing.");
-						HwManager._thisHwManager.removeComputerFromLists(_awsId);
-						return;
-
+						fail_count++;
+						System.out.println("Computer " + _awsId + " failed. " + fail_count);
+						if(fail_count > 5) {
+							// remove hwcomputer
+							System.out.println("Computer " + _awsId + " failed. Removing.");
+							HwManager._thisHwManager.removeComputerFromLists(_awsId);
+							return;
+						}
 					}
 					catch (InterruptedException e) { /* for thread sleep, nothing */}
 				}
