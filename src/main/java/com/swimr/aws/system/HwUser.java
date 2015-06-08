@@ -148,7 +148,7 @@ public class HwUser implements HwUserInterface {
 		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
 		int numCities = 10;
 
-		System.out.print("\nWhat size EC2 instance (1=micro, 2=Large, 3=2XL? > ");
+		System.out.print("\nWhat size computer instance (1=micro, 2=Large, 3=2XL? > ");
 		//int input = readUserInput();
 		switch (readUserInput()){
 			case 1:
@@ -162,15 +162,20 @@ public class HwUser implements HwUserInterface {
 				break;
 		}
 
-		System.out.print("\nHow many EC2 instances? [" + _testSettings.num_hw_computers + "] > ");
-		int input = readUserInput();
-		if(input > 0 && input <= Utils.MAX_EC2_INSTANCES_AT_A_TIME){
-			hwRequest.numHwComputers = input;
-		}
-		else {
-			System.out.print("Try something smaller than " + Utils.MAX_EC2_INSTANCES_AT_A_TIME + " > ");
-		}
+		boolean notDone = true;
+		while(notDone) {
 
+
+			System.out.print("\nHow many computers? [" + _testSettings.num_hw_computers + "] > ");
+			int input = readUserInput();
+			if (input > 0 && input <= Utils.MAX_EC2_INSTANCES_AT_A_TIME) {
+				hwRequest.numHwComputers = input;
+				notDone = false;
+			} else {
+				System.out.print("Try something smaller than " + Utils.MAX_EC2_INSTANCES_AT_A_TIME + " > ");
+
+			}
+		}
 /*
 		System.out.print("\nHow many cities? [" + numCities  +"] > ");
 		input = readUserInput();
@@ -254,7 +259,7 @@ public class HwUser implements HwUserInterface {
 		} catch (RemoteException e) {
 
 			System.out.println("[HwUser.startComputeInstance] Network call to Hardware Manager failed.");
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 	}
@@ -375,7 +380,7 @@ public class HwUser implements HwUserInterface {
 			System.out.println("[HwUser.printSystemStatusFromManager] Network call to manager failed. Setting hwMgr to null.");
 			_hwManager = null;
 			_connectedToHwManager = false;
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 
 			//print all this here!!!
@@ -502,23 +507,9 @@ public class HwUser implements HwUserInterface {
 
 	public static void main(String[] args){
 		System.out.println("[system.HwUser.main] args: " + args[0]);
-
-		if(args.length>0)
-		{
-
+		if(args.length>0) {
 			HwUser hwUser = new HwUser(args[0]);
-
 			hwUser.runConsole();
-
-			/*
-
-
-			try {
-				hwUser._hwManager.getSystemStatus();
-			} catch (RemoteException e) {
-				e.printStackTrace();
-			}
-			*/
 		}
 	}
 }

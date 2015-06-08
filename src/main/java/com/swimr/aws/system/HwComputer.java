@@ -86,11 +86,20 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	@Override
 	public void terminateSwComputers() throws RemoteException {
 
+
+		// https://stackoverflow.com/questions/18113941/thread-launched-running-processes-wont-destroy-java
+		// this might not be working
+
 		System.out.println("[HwComputer.terminateSwComputers]");
 		for(Process process:_processes){
 			if(process!=null){
+				System.out.println("Attempting to destroy: " + process.destroyForcibly());
 				process.destroy();
+				process.destroyForcibly();
 			}
+
+//			getRuntime().exec(("taskkill /pid " + childPid + " /f").split("[ ]++"))
+
 		}
 		_processes.clear();
 	}

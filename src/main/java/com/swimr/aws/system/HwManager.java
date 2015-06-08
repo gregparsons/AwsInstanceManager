@@ -648,7 +648,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
 					} catch (RemoteException e) {
 
-						e.printStackTrace();
+						// e.printStackTrace();
 
 
 						fail_count++;
