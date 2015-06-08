@@ -373,7 +373,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
 
-		startupUserData = org.apache.commons.codec.binary.Base64.encodeBase64String(startupUserData.getBytes());
+
+
+		startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
 
 		runRqst.withImageId(_computerAmi)
 			.withInstanceType(instanceSize)
