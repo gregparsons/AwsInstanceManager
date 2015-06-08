@@ -50,12 +50,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	// @Override
 	public boolean startLogicalComputers(int numComputers) {
 		System.out.println("[HwComputer.startLogicalComputers] Start " + numComputers);// + " computers w/ space URL: " + spaceURL);
-/*
 
-
-/usr/bin/java -Djava.security.policy=/Users/aaa/temp/policy -cp /Users/aaa/temp/h4.jar system.ComputerImpl localhost multi
-
- */
 		String computerStartCommand = "scripts/sw_computer_startup.sh";
 		String[] commands = {computerStartCommand};
 		try {
@@ -65,7 +60,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 			// Save a reference to the process just started, so you can kill it later.
 			_processes.add(p);
-
+			return true;
 
 		} catch (IOException/*|InterruptedException*/ e) {
 			e.printStackTrace();
@@ -136,7 +131,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 			String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
 
 
-			while(true) {
+			//while(true) {
 
 				System.out.println("[HwComputer.main] Attempting: " + hwRegistryUrl);
 				try {
@@ -159,8 +154,10 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 						hwManagerStub.registerComputer(c);
 
 					}
-					else
-						continue;
+					//else
+					//	continue;
+
+
 					System.out.println("[HwComputer.main] Connected.");
 					// Stop trying to connect if success.
 					// break;
@@ -176,7 +173,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 
 
-				while(true){
+				//while(true){
 					//stay connected
 
 					//Do heartbeat. If HwManager doesn't respond, break, start trying to connect again.
@@ -191,7 +188,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 					// break if no hwmanager at all; go back up to reconnect.
 					if(hwManagerStub==null){
 						System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
-						break;
+					//	break;
 					}
 
 					// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
@@ -203,11 +200,11 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 					} catch (RemoteException e) {
 
 						System.out.println("[HwComputer.main] No heartbeat, retrying connect.");
-						break;	//break out of this while, go back into the connect attempt loop
+					//	break;	//break out of this while, go back into the connect attempt loop
 						//					e.printStackTrace();
 					}
-				}
-			}
+				//}
+			//}
 		}
 	}
 

@@ -135,8 +135,8 @@ public class HwUser implements HwUserInterface {
 		System.out.println("\n\n\n******************************************************************\n"
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
-				+ "10. Start Space and Computers...\n"
-				+ "15. Run Tsp Test..."
+				+ "21. Start Space and Computers...\n"
+				+ "22. Run Tsp Test..."
 				+ "\n\n\n"
 		);
 	}
@@ -315,15 +315,11 @@ public class HwUser implements HwUserInterface {
 			//Exit
 
 			//TSP
-			case 10:{
+			case 21:{
 				runTspTestPrep();	//start space and computers
 				break;
 			}
-			case 11:{
-				//runTspComputers_2(1);
-				break;
-			}
-			case 15:{
+			case 22:{
 				runTspClient_0();
 				break;
 			}
