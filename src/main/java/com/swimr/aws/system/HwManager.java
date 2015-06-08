@@ -76,12 +76,18 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// System.out.println("Registering " + hwComputer.getAwsInstanceId() + ", size: " + hwComputer.getEc2Size());
 
 
-		if(computerReg.size == null)
-			//just register as micro for now, if on localhost
-			_computer_lists.get(Utils.Hw_Computer_Size.micro).add(computerReg.hwComputerInterface);
-		else
-			_computer_lists.get(computerReg.size).add(computerReg.hwComputerInterface);
+		List<HwComputerInterface> list = _computer_lists.get(Utils.Hw_Computer_Size.micro);
 
+		if(list==null){
+
+			System.out.println("[HwManager.registerComputer] Can't register computer. List is null.");
+			return;
+		}
+
+
+		if(list.contains(computerReg.hwComputerInterface))
+			list.remove(computerReg.hwComputerInterface);
+		list.add(computerReg.hwComputerInterface);
 		System.out.println("[HwManager.registerComputer] Computer registered. Id: " + computerReg.id + ", size: " + computerReg.size);
 
 

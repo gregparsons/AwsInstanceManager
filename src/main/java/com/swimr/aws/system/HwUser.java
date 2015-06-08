@@ -202,7 +202,6 @@ public class HwUser implements HwUserInterface {
 				//+"Start hardware manager"
 				+ "41. Connect to Hardware Manager\n"
 				+ "42. Start Compute Instance(s)...\n"
-				+ "43. \n"
 				+ "\n\n\n"
 		);
 	}
