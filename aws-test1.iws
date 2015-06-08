@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -181,8 +182,8 @@
       <file leaf-file-name="HwComputer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9567723">
-              <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.6757925">
+              <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,7 +195,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-15.777778">
-              <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+              <caret line="494" column="74" selection-start-line="494" selection-start-column="74" selection-end-line="494" selection-end-column="74" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1421#1478#0" expanded="true" />
@@ -203,7 +204,7 @@
                 <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
                 <element signature="method#main#0;class#HwManager#0" expanded="false" />
-                <element signature="e#17033#17085#0" expanded="false" />
+                <element signature="e#17146#17198#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -975,7 +976,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1042,7 +1043,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1159,7 +1160,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1255,7 +1256,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1339,7 +1340,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1400,7 +1401,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1417,7 +1418,7 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1550,7 +1551,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.777778">
-          <caret line="472" column="0" selection-start-line="472" selection-start-column="0" selection-end-line="472" selection-end-column="0" />
+          <caret line="494" column="74" selection-start-line="494" selection-start-column="74" selection-end-line="494" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1421#1478#0" expanded="true" />
@@ -1559,15 +1560,15 @@
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#17033#17085#0" expanded="false" />
+            <element signature="e#17146#17198#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9567723">
-          <caret line="229" column="0" selection-start-line="229" selection-start-column="0" selection-end-line="229" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6757925">
+          <caret line="155" column="72" selection-start-line="155" selection-start-column="72" selection-end-line="155" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

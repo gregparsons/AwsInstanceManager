@@ -492,6 +492,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 					computer.startLogicalComputers(1);
 				}
 			}
+			System.out.println("[startApplicationSpaceAndComputers] Done calling hw_computers to start sw_computers...");
 		}
 	}
 

@@ -22,6 +22,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	Utils.Hw_Computer_Size _amazonInstanceType = Utils.Hw_Computer_Size.micro;
 
 	public HwManagerInterface hwManagerStub = null;
+	private HwComputerInterface _hwComputerInterface = null;
 
 	String _hostname = "";
 
@@ -33,6 +34,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 		_hostname = hostname;
 		setMyAmazonInstanceId();
 		setMyAmazonInstanceSize();
+		_hwComputerInterface = this;
 	}
 
 
@@ -117,85 +119,101 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 	public void run() {
 
 
-		String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
+		Reconnector reconnector = new Reconnector();
+		Thread thread = new Thread(reconnector);
+		thread.start();
 
 
 
 
-		while(true) {
-
-			System.out.println("[HwComputer.main] Attempting: " + hwRegistryUrl);
-			try {
-				hwManagerStub = ((HwManagerInterface) Naming.lookup(hwRegistryUrl));
-
-				System.out.println("");
+	}
 
 
-				// Register this computer with the Manager
-				if(hwManagerStub!=null) {
-					//System.out.println("hwManager: " + hwManager);
-					ComputerRegistration c = new ComputerRegistration();
+	class Reconnector implements Runnable{
 
-					System.out.println("instance id: " + _amazonInstanceId);
-
-					c.id = _amazonInstanceId;
-					c.hwComputerInterface = this;
-					c.size = _amazonInstanceType;
-
-					hwManagerStub.registerComputer(c);
-
-				}
-				else
-					continue;
-				System.out.println("[HwComputer.main] Connected.");
-				// Stop trying to connect if success.
-				// break;
-			} catch (RemoteException | NotBoundException | MalformedURLException e) {
-				System.out.println("[HwComputer.main] Connect failed. Trying...");
-			}
-
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException e) {
-				System.out.println("[HwComputer.main] Connect failed. Trying again.");
-			}
+		@Override
+		public void run() {
+			String hwRegistryUrl = "//" + _hostname + ":" + HwManager._port + "/" + HwManager._serviceName;
 
 
+			while(true) {
 
-			while(true){
-				//stay connected
-
-				//Do heartbeat. If HwManager doesn't respond, break, start trying to connect again.
-
-				// Sleep for a while, then check for a heartbeat.
+				System.out.println("[HwComputer.main] Attempting: " + hwRegistryUrl);
 				try {
-					Thread.sleep(5000);
+					hwManagerStub = ((HwManagerInterface) Naming.lookup(hwRegistryUrl));
+
+					System.out.println("");
+
+
+					// Register this computer with the Manager
+					if(hwManagerStub!=null) {
+						//System.out.println("hwManager: " + hwManager);
+						ComputerRegistration c = new ComputerRegistration();
+
+						System.out.println("instance id: " + _amazonInstanceId);
+
+						c.id = _amazonInstanceId;
+						c.hwComputerInterface = _hwComputerInterface; //
+						c.size = _amazonInstanceType;
+
+						hwManagerStub.registerComputer(c);
+
+					}
+					else
+						continue;
+					System.out.println("[HwComputer.main] Connected.");
+					// Stop trying to connect if success.
+					// break;
+				} catch (RemoteException | NotBoundException | MalformedURLException e) {
+					System.out.println("[HwComputer.main] Connect failed. Trying...");
+				}
+
+				try {
+					Thread.sleep(2000);
 				} catch (InterruptedException e) {
-					//do nothing
+					System.out.println("[HwComputer.main] Connect failed. Trying again.");
 				}
 
-				// break if no hwmanager at all; go back up to reconnect.
-				if(hwManagerStub==null){
-					System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
-					break;
-				}
 
-				// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
-				try {
-					String heartbeat = hwManagerStub.computerRequestsHeartbeatOfHwManager();
-					if(heartbeat!=null)
-						System.out.println("[HwComputer.main] Got heartbeat from HwManager: " + heartbeat);
 
-				} catch (RemoteException e) {
+				while(true){
+					//stay connected
 
-					System.out.println("[HwComputer.main] No heartbeat, retrying connect.");
-					break;	//break out of this while, go back into the connect attempt loop
-					//					e.printStackTrace();
+					//Do heartbeat. If HwManager doesn't respond, break, start trying to connect again.
+
+					// Sleep for a while, then check for a heartbeat.
+					try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						//do nothing
+					}
+
+					// break if no hwmanager at all; go back up to reconnect.
+					if(hwManagerStub==null){
+						System.out.println("[HwComputer.main] hwManagerStub is null. Can't get heartbeat.");
+						break;
+					}
+
+					// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
+					try {
+						String heartbeat = hwManagerStub.computerRequestsHeartbeatOfHwManager();
+						if(heartbeat!=null)
+							System.out.println("[HwComputer.main] Got heartbeat from HwManager: " + heartbeat);
+
+					} catch (RemoteException e) {
+
+						System.out.println("[HwComputer.main] No heartbeat, retrying connect.");
+						break;	//break out of this while, go back into the connect attempt loop
+						//					e.printStackTrace();
+					}
 				}
 			}
 		}
-
 	}
+
+
+
+
 
 	/**
 	 * First parameter should be URL to the hardware manager.
