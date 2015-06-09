@@ -70,7 +70,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 		//Add to the size list
-		Map<String, HwComputerInterface> computersOfSize = _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro);
+		Map<String, HwComputerInterface> computersOfSize = _computer_lists_by_size.get(computerReg.size);
 		if(computersOfSize==null){
 
 			System.out.println("[HwManager.registerComputer] Can't register computer. List is null.");
@@ -152,7 +152,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		StatusTransportObject transportObj = new StatusTransportObject(_computer_lists_by_size);
 
 		// Space processes
-		cleanDeadComputerInstances();
+		//cleanDeadComputerInstances();
 		cleanDeadSpaceProcesses();
 
 		System.out.println("[HwManager.getSystemStatus] " + _spaceProcesses.size() + " space processes.");
