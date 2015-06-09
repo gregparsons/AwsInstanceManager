@@ -370,7 +370,8 @@ public class HwUser implements HwUserInterface {
 	void startApplicationClient(){
 
 
-		String startSwClientScript = "scripts/sw_client_startup.sh";
+//		String startSwClientScript = "scripts/sw_client_startup.sh";
+		String startSwClientScript = "java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' applications.euclideantsp.JobEuclideanTsp djava.dyndns.org";
 		String[] commands = {startSwClientScript};
 
 		System.out.println("[HwUser.runTspApplication] running script: " + startSwClientScript);

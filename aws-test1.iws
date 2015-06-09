@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aws-test1.iws" afterPath="$PROJECT_DIR$/aws-test1.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/sw_client_startup.sh" afterPath="$PROJECT_DIR$/scripts/sw_client_startup.sh" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -217,7 +216,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="488" column="71" selection-start-line="488" selection-start-column="71" selection-end-line="488" selection-end-column="71" />
+              <caret line="515" column="74" selection-start-line="515" selection-start-column="74" selection-end-line="515" selection-end-column="74" />
               <folding>
                 <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
                 <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
@@ -247,42 +246,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManagerInterface.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="177" column="41" selection-start-line="177" selection-start-column="41" selection-end-line="177" selection-end-column="65" />
-              <folding>
-                <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-                <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="480" column="14" selection-start-line="480" selection-start-column="14" selection-end-line="480" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.2103825">
+              <caret line="373" column="170" selection-start-line="373" selection-start-column="170" selection-end-line="373" selection-end-column="170" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
                 <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
                 <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
                 <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-                <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sw_client_startup.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/sw_client_startup.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="132" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -332,8 +317,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
       </list>
     </option>
   </component>
@@ -432,8 +417,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -546,7 +531,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -795,7 +780,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20965692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16751638" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16678806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -931,7 +916,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1013,7 +997,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1056,7 +1039,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1152,7 +1134,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1237,7 +1218,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1301,7 +1281,6 @@
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1399,13 +1378,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/ComputerRegistration.java">
@@ -1458,9 +1437,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="177" column="41" selection-start-line="177" selection-start-column="41" selection-end-line="177" selection-end-column="65" />
+          <folding>
+            <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
+            <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42687747">
           <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
           <folding />
         </state>
@@ -1469,7 +1479,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="488" column="71" selection-start-line="488" selection-start-column="71" selection-end-line="488" selection-end-column="71" />
+          <caret line="515" column="74" selection-start-line="515" selection-start-column="74" selection-end-line="515" selection-end-column="74" />
           <folding>
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
@@ -1498,56 +1508,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
+    <entry file="file://$PROJECT_DIR$/scripts/sw_client_startup.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="132" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="480" column="14" selection-start-line="480" selection-start-column="14" selection-end-line="480" selection-end-column="14" />
+        <state vertical-scroll-proportion="0.2103825">
+          <caret line="373" column="170" selection-start-line="373" selection-start-column="170" selection-end-line="373" selection-end-column="170" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/sw_client_startup.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="177" column="41" selection-start-line="177" selection-start-column="41" selection-end-line="177" selection-end-column="65" />
-          <folding>
-            <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-            <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
