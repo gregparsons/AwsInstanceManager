@@ -67,7 +67,7 @@ public class HwUser implements HwUserInterface {
 	void runConsole(){
 
 		// Try connecting right away.
-		connectHwManager();
+		// connectHwManager();
 
 
 
@@ -107,7 +107,7 @@ public class HwUser implements HwUserInterface {
 			return false;
 
 		try {
-			_hwManager.computerRequestsHeartbeatOfHwManager();
+			_hwManager.getManagerHeartbeat();
 			return true;
 		} catch (RemoteException e) {
 			return false;
@@ -144,7 +144,7 @@ public class HwUser implements HwUserInterface {
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
 				+ "21. Start Space and Computers...\n"
-				+ "22. Run Tsp Application\n"
+				+ "22. Start Application\n"
 				+ "23. Terminate All Test Processes\n"
 				+ "\n\n\n"
 		);
@@ -210,8 +210,9 @@ public class HwUser implements HwUserInterface {
 				+ "41. Connect to Hardware Manager\n"
 				+ "42. Start Compute Instance(s)...\n"
 				+ "43. Start/Reboot Hardware Manager\n"
-				+ "44. Hardware Manager Status"
-				+ "\n\n\n"
+				+ "44. Hardware Manager Status\n"
+				+ "45. Terminate All Compute Instances\n"
+				+ "\n\n"
 		);
 	}
 
@@ -256,7 +257,7 @@ public class HwUser implements HwUserInterface {
 
 
 		try {
-			_hwManager.startHardwareComputers(hwRequest);
+			_hwManager.startHw_ComputerInstances(hwRequest);
 		} catch (RemoteException e) {
 
 			System.out.println("[HwUser.startComputeInstance] Network call to Hardware Manager failed.");
@@ -312,6 +313,15 @@ public class HwUser implements HwUserInterface {
 			case 44:{
 				initAWS();
 				break;
+			}
+			case 45:{
+				if(_hwManager!=null){
+					try {
+						_hwManager.terminateAllHw_ComputerInstances();
+					} catch (RemoteException e) {
+						System.out.println("Network call to Hardware Manager failed. No instances terminated.");
+					}
+				}
 			}
 
 
@@ -402,45 +412,45 @@ public class HwUser implements HwUserInterface {
 			return;
 		}
 
+		System.out.println("Instances Available:\n");
 
 			// Print micro instances
 		Map<String,HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
 		if(list !=null){
-			System.out.println("Micro instances: " + list.size());
+			System.out.println("   t2.micro\t(1 vCPU)\t" + list.size());
 		}
 
 		// Print large instances
 		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
 		if(list !=null){
-			System.out.println("Large instances: " + list.size());
+			System.out.println("   m3.large\t(2 vCPU)\t" + list.size());
 		}
 
 		// Print 2XL instances
 		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
 		if(list !=null){
-			System.out.println("2XL instances: " + list.size());
+			System.out.println("   c4.2xlarge\t(8 vCPU)\t" + list.size());
 		}
 
 		// Print unknown instances
 		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.unknown);
 		if(list !=null){
-			System.out.println("Unknown instances: " + list.size());
+			System.out.println("   Non-AWS\t\t\t" + list.size());
 		}
 
-		if(statusObject._logicalComputerProcesses!=null){
-			System.out.println("\nComputer processes running: "
-				+ statusObject._logicalComputerProcesses.size());
 
+		System.out.println("\nApplication Processes:\n");
+
+		if(statusObject._logicalComputerProcesses!=null){
+			System.out.println("   Computer\t\t\t"
+				+ statusObject._logicalComputerProcesses.size());
 			statusObject._logicalComputerProcesses.forEach(System.out::println);
 		}
 
-
 		if(statusObject._logicalSpaceProcessesOnHwManager!=null){
-			System.out.println("\nSpace processes (on HwMgr): "
+			System.out.println("   Space\t\t\t"
 				+ statusObject._logicalSpaceProcessesOnHwManager.size());
-
 			statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
-
 		}
 	}
 
@@ -455,7 +465,7 @@ public class HwUser implements HwUserInterface {
 		try {
 			_hwManager = (HwManagerInterface) Naming.lookup(url);
 			if (_hwManager != null) {
-				String reply = _hwManager.userJustCheckingIn();
+				String reply = _hwManager.getWelcomeMessage();
 				System.out.println("[HwUser.HwUser] reply from manager: " + reply);
 				_connectedToHwManager = true;
 			}
@@ -468,6 +478,7 @@ public class HwUser implements HwUserInterface {
 		}
 		catch(RemoteException e){
 			System.out.println("[HwUser.main] Network error: Could not connect to Hardware Manager.");
+			//e.printStackTrace();
 		}
 		if(_connectedToHwManager)
 			System.out.println("[HwUser.main] Connected to: " + url);

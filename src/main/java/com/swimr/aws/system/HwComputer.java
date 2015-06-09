@@ -213,7 +213,7 @@ public class HwComputer extends UnicastRemoteObject implements Runnable, HwCompu
 
 					// try for a heartbeat if there is a hwmanager. if that fails, break and reconnect
 					try {
-						String heartbeat = hwManagerStub.computerRequestsHeartbeatOfHwManager();
+						String heartbeat = hwManagerStub.getManagerHeartbeat();
 						if(heartbeat!=null)
 							System.out.println("[HwComputer.main] Got heartbeat from HwManager: " + heartbeat);
 

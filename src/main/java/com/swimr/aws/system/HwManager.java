@@ -202,7 +202,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// * Greeting to user/client, confirming connection.
 	@Override
-	public String userJustCheckingIn() {
+	public String getWelcomeMessage() {
 		return "hello from manager!";
 	}
 
@@ -293,7 +293,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// AWS Managment for Hw_User
 	@Override
-	public void startHardwareComputers(Utils.Hw_Request hwRequest){
+	public void startHw_ComputerInstances(Utils.Hw_Request hwRequest){
 
 		InstanceType instanceSize = InstanceType.T2Micro;
 
@@ -478,7 +478,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 
 	// TERMINATE all instances
-	private static void terminateAllAWSInstances(   ) {
+	@Override
+	public void terminateAllHw_ComputerInstances() {
 
 		System.out.println("[terminateAllInstances]");
 		if (_awsInstancesRunningHwComputerAMI.size() > 0) {
@@ -486,7 +487,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			List<String> instIds = new ArrayList<String>();
 			for (Instance i : _awsInstancesRunningHwComputerAMI) {
 				System.out.println("Deleting..." + i.getInstanceId() + " (" + i.getImageId() + ")");
-				instIds.add(i.getInstanceId());
+				if(i.getInstanceId().equals(Utils.HW_COMPUTER_AMI))
+					instIds.add(i.getInstanceId());
 			}
 			TerminateInstancesRequest terminateInstancesRequest = new TerminateInstancesRequest(instIds);
 			TerminateInstancesResult terminateInstancesResult = ec2.terminateInstances(terminateInstancesRequest);
@@ -513,7 +515,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	// A means for HwComputers to check if the HwManager is still running.
 	@Override
-	public String computerRequestsHeartbeatOfHwManager() throws RemoteException {
+	public String getManagerHeartbeat() throws RemoteException {
 		return "HwManager is still alive.";
 	}
 

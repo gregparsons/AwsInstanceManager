@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/aws-test1.iws" afterPath="$PROJECT_DIR$/aws-test1.iws" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -177,150 +182,126 @@
     <favorites_list name="aws-test1" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6508689">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="HwComputer.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="202" column="39" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HwComputerInterface.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="211" column="4" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="4" />
-                  <folding>
-                    <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
-                    <element signature="e#5967#6044#0" expanded="false" />
-                    <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-                    <element signature="e#7796#7861#0" expanded="false" />
-                    <element signature="e#8676#8690#0" expanded="false" />
-                    <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-                    <element signature="e#11967#11996#0" expanded="false" />
-                    <element signature="e#12264#12366#0" expanded="false" />
-                    <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
-                    <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#main#0;class#HwManager#0" expanded="false" />
-                    <element signature="e#18468#18536#0" expanded="false" />
-                    <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-                    <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/pom.xml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="177" column="41" selection-start-line="177" selection-start-column="41" selection-end-line="177" selection-end-column="65" />
-                  <folding>
-                    <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-                    <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="sw_client_startup.sh" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/scripts/sw_client_startup.sh">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="445" column="0" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="588" column="0" selection-start-line="588" selection-start-column="0" selection-end-line="588" selection-end-column="0" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-                    <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.27667984">
-                  <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="HwComputer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="202" column="39" selection-start-line="202" selection-start-column="39" selection-end-line="202" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HwComputerInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="488" column="71" selection-start-line="488" selection-start-column="71" selection-end-line="488" selection-end-column="71" />
+              <folding>
+                <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+                <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+                <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+                <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+                <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+                <element signature="e#5967#6044#0" expanded="false" />
+                <element signature="e#8675#8689#0" expanded="false" />
+                <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+                <element signature="e#11969#11998#0" expanded="false" />
+                <element signature="e#12266#12368#0" expanded="false" />
+                <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+                <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
+                <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
+                <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
+                <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
+                <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
+                <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
+                <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
+                <element signature="method#main#0;class#HwManager#0" expanded="false" />
+                <element signature="e#18518#18586#0" expanded="false" />
+                <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+                <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+                <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HwManagerInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="177" column="41" selection-start-line="177" selection-start-column="41" selection-end-line="177" selection-end-column="65" />
+              <folding>
+                <element signature="n#build#0;n#profile#0;n#profiles#0;n#project#0;n#!!top" expanded="false" />
+                <element signature="n#build#0;n#profile#4;n#profiles#0;n#project#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sw_client_startup.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/sw_client_startup.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HwUser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7008197">
+              <caret line="480" column="14" selection-start-line="480" selection-start-column="14" selection-end-line="480" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
+                <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
+                <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
+                <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
+                <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -360,13 +341,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/scripts/hw_manager_startup.sh" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/StatusTransportObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwComputer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
       </list>
     </option>
   </component>
@@ -465,8 +446,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -580,6 +559,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -828,7 +809,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20965692" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.093954846" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14420976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -962,12 +943,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -997,23 +975,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1050,12 +1025,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1096,12 +1068,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1117,23 +1086,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1198,12 +1164,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1219,23 +1182,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1289,12 +1249,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1310,23 +1267,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1359,12 +1313,9 @@
             <element signature="imports" expanded="true" />
             <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
             <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
             <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
             <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
             <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1380,23 +1331,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1415,23 +1363,20 @@
             <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
             <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
             <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
             <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
             <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
             <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
             <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
             <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
             <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
             <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
@@ -1527,13 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="72" selection-start-line="36" selection-start-column="72" selection-end-line="36" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwComputerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1552,41 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="211" column="4" selection-start-line="211" selection-start-column="4" selection-end-line="211" selection-end-column="4" />
-          <folding>
-            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
-            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
-            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
-            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
-            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
-            <element signature="e#5967#6044#0" expanded="false" />
-            <element signature="method#initAWS#0;class#HwManager#0" expanded="false" />
-            <element signature="e#7796#7861#0" expanded="false" />
-            <element signature="e#8676#8690#0" expanded="false" />
-            <element signature="method#startHardwareComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="e#11967#11996#0" expanded="false" />
-            <element signature="e#12264#12366#0" expanded="false" />
-            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
-            <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
-            <element signature="method#terminateAllAWSInstances#0;class#HwManager#0" expanded="false" />
-            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
-            <element signature="method#computerRequestsHeartbeatOfHwManager#0;class#HwManager#0" expanded="false" />
-            <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
-            <element signature="method#main#0;class#HwManager#0" expanded="false" />
-            <element signature="e#18468#18536#0" expanded="false" />
-            <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-            <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-            <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1598,30 +1501,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/HwManagerInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="588" column="0" selection-start-line="588" selection-start-column="0" selection-end-line="588" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
-            <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
-            <element signature="method#runConsole#0;class#HwUser#0" expanded="false" />
-            <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
-            <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
-            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
-            <element signature="method#printSystemStatusFromManager#0;class#HwUser#0" expanded="false" />
-            <element signature="method#connectHwManager#0;class#HwUser#0" expanded="false" />
-          </folding>
+          <caret line="49" column="4" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27667984">
-          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="488" column="71" selection-start-line="488" selection-start-column="71" selection-end-line="488" selection-end-column="71" />
+          <folding>
+            <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#registerComputer#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#cleanDeadComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getSystemStatus#0;class#HwManager#0" expanded="false" />
+            <element signature="e#5967#6044#0" expanded="false" />
+            <element signature="e#8675#8689#0" expanded="false" />
+            <element signature="method#startHw_ComputerInstances#0;class#HwManager#0" expanded="false" />
+            <element signature="e#11969#11998#0" expanded="false" />
+            <element signature="e#12266#12368#0" expanded="false" />
+            <element signature="method#killAllSpaceProcesses#0;class#HwManager#0" expanded="false" />
+            <element signature="method#terminateApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceOnHwManager#0;class#HwManager#0" expanded="false" />
+            <element signature="method#startApplicationSpaceAndComputers#0;class#HwManager#0" expanded="false" />
+            <element signature="class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#run#0;class#Scheduler#0;class#HwManager#0" expanded="false" />
+            <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
+            <element signature="method#removeComputerFromLists#0;class#HwManager#0" expanded="false" />
+            <element signature="method#main#0;class#HwManager#0" expanded="false" />
+            <element signature="e#18518#18586#0" expanded="false" />
+            <element signature="class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+            <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+            <element signature="method#run#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7008197">
+          <caret line="480" column="14" selection-start-line="480" selection-start-column="14" selection-end-line="480" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#HwUser#0;class#HwUser#0" expanded="false" />
+            <element signature="method#readUserInput#0;class#HwUser#0" expanded="false" />
+            <element signature="method#isHwManagerAlive#0;class#HwUser#0" expanded="false" />
+            <element signature="method#terminateAllApplicationProcesses#0;class#HwUser#0" expanded="false" />
+            <element signature="method#startApplicationClient#0;class#HwUser#0" expanded="false" />
           </folding>
         </state>
       </provider>
