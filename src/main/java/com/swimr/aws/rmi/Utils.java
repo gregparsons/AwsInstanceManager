@@ -11,7 +11,7 @@ public class Utils {
 	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
 
 
-	public static final String HW_COMPUTER_AMI = "ami-4be3db7b";
+	public static final String HW_COMPUTER_AMI = "ami-b9d1e989";
 	public static final String HW_MANAGER_AMI = "ami-fde3dbcd";
 	public static final InstanceType AWS_HW_MANAGER_DEFAULT_SIZE = InstanceType.M3Large;	//m3.large
 	public static final String KEY_NAME = "290b-java";
