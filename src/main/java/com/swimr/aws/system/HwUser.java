@@ -8,7 +8,9 @@ import com.amazonaws.auth.profile.ProfilesConfigFile;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
 import com.amazonaws.services.ec2.model.*;
+import com.sun.org.apache.bcel.internal.generic.FieldGenOrMethodGen;
 import com.swimr.aws.rmi.*;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -369,9 +371,12 @@ public class HwUser implements HwUserInterface {
 
 	void startApplicationClient(){
 
+		String startSwClientScript = "scripts/sw_client_startup.sh";
 
-//		String startSwClientScript = "scripts/sw_client_startup.sh";
-		String startSwClientScript = "java -Djava.security.policy=scripts/jars/policy -cp 'scripts/jars/h4.jar' applications.euclideantsp.JobEuclideanTsp djava.dyndns.org";
+		if(SystemUtils.IS_OS_WINDOWS)
+			startSwClientScript = "scripts\\sw_client_startup_windows.bat";
+
+		//String startSwClientScript = "java -Djava.security.policy=scripts"+ File.separator + "jars" + File.separator + "policy -cp scripts" + File.separator + "jars" + File.separator + "h4.jar applications.euclideantsp.JobEuclideanTsp djava.dyndns.org";
 		String[] commands = {startSwClientScript};
 
 		System.out.println("[HwUser.runTspApplication] running script: " + startSwClientScript);

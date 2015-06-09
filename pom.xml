@@ -21,7 +21,11 @@
 			<artifactId>aws-java-sdk-ec2</artifactId>
 			<version>1.9.38</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
 
   	</dependencies>
 	<profiles>
