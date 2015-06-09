@@ -23,22 +23,12 @@ import com.swimr.aws.rmi.*;
 
 public class HwManager extends UnicastRemoteObject implements HwManagerInterface {
 
-	//static final int MAX_EC2_INSTANCES_AT_A_TIME = 5;
 	static HwManager _thisHwManager;
 
+	// Amazon API
     static AmazonEC2 ec2;
-    //static AmazonS3  s3;
-
-
 	static final InstanceType _type = InstanceType.T2Micro;
-	static final String _keyName = "290b-java";
-	static final String _securityGroup = "RMI";
-
-
-
-	// Make all these thread safe?
-	static List<Instance> _instances = new ArrayList<Instance>();
-	//static List<HwComputerInterface> _awsComputers = new ArrayList<>();
+	static List<Instance> _awsInstancesRunningHwComputerAMI = new ArrayList<Instance>();
 	static List<Process> _spaceProcesses = new ArrayList<>();
 
 	//list of all computers
@@ -217,37 +207,12 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
-
-
-
-
-	// ************************* APPLICATION helper functions **************************************************
-
-
-
-
-
-
-
-
-	// ************************* END user application helper functions *************
-
-
-
-
-	// ********** END Interface Methods **************
-
-
-
-
-	// Init
+	// Initialize Amazon API
     private static void initAWS() throws Exception
 	{
-        /*
-         * ProfileCredentialsProvider loads AWS security credentials from a
-         * .aws/config file in your home directory.
-         *
-         */
+         // ProfileCredentialsProvider loads AWS security credentials from
+         // .aws/config file in your home directory.
+
         File configFile = new File(System.getProperty("user.home"), ".aws/credentials");
         AWSCredentialsProvider credentialsProvider = new ProfileCredentialsProvider(
             new ProfilesConfigFile(configFile), "default");
@@ -261,19 +226,15 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
         }
 
         ec2 = new AmazonEC2Client(credentialsProvider);
-        //s3  = new AmazonS3Client(credentialsProvider);
-
-
         try
 		{
-			 //* Set region.
-
-
-			//https://docs.aws.amazon.com/general/latest/gr/rande.html
+			// Set region.
+			// https://docs.aws.amazon.com/general/latest/gr/rande.html
+			// Oregon
 			com.amazonaws.regions.Region usWest2 = com.amazonaws.regions.Region.getRegion(com.amazonaws.regions.Regions.US_WEST_2);
             ec2.setRegion(usWest2);
 
-			// * Zones within this region.
+			// Zones within this region.
             DescribeAvailabilityZonesResult availabilityZonesResult = ec2.describeAvailabilityZones();
             List<AvailabilityZone> availabilityZones = availabilityZonesResult.getAvailabilityZones();
             System.out.println("You have access to " + availabilityZones.size() + " availability zones:");
@@ -309,25 +270,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 					{
 						//https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/model/InstanceState.html
 						runningInstances++;
-						_instances.add(i);
+						_awsInstancesRunningHwComputerAMI.add(i);
 					}
 				}
 			}
-
-
 			System.out.println("Running/pending instances: " + runningInstances);
-
-/*
-			// launch at most 2 instances ... where ami ==
-			if(runningInstances < 2)
-			{
-				launchInstance();
-			}
-
-
-			terminateAllInstances();
-
-*/
 
         }
 		catch (AmazonServiceException ase)
@@ -368,8 +315,6 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				instanceSize = InstanceType.T2Micro;
 				break;
 			}
-
-
 		}
 
 
@@ -383,7 +328,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//
 		//https://help.ubuntu.com/community/CloudInit
 
-		String startupUserData =  "IyEvYmluL2Jhc2ggCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgCm12biB0ZXN0IC1QY29tcHV0ZXI=";
+		String startupUserData = "";//  "IyEvYmluL2Jhc2ggCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgCm12biB0ZXN0IC1QY29tcHV0ZXI=";
 
 		//String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
 		//startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
@@ -393,8 +338,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			.withMinCount(hwRequest.numHwComputers)
 			// .withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME) // NOT THIS
 			.withMaxCount(hwRequest.numHwComputers)
-			.withKeyName(_keyName)
-			.withSecurityGroups(_securityGroup)
+			.withKeyName(Utils.KEY_NAME)
+			.withSecurityGroups(Utils.SECURITY_GROUP)
 			.withUserData(startupUserData);
 
 
@@ -536,10 +481,10 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	private static void terminateAllAWSInstances(   ) {
 
 		System.out.println("[terminateAllInstances]");
-		if (_instances.size() > 0) {
+		if (_awsInstancesRunningHwComputerAMI.size() > 0) {
 
 			List<String> instIds = new ArrayList<String>();
-			for (Instance i : _instances) {
+			for (Instance i : _awsInstancesRunningHwComputerAMI) {
 				System.out.println("Deleting..." + i.getInstanceId() + " (" + i.getImageId() + ")");
 				instIds.add(i.getInstanceId());
 			}

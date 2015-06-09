@@ -1,16 +1,22 @@
 package com.swimr.aws.system;
 
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.auth.profile.ProfilesConfigFile;
+import com.amazonaws.services.ec2.AmazonEC2;
+import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.model.*;
 import com.swimr.aws.rmi.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class HwUser implements HwUserInterface {
 
@@ -28,7 +34,8 @@ public class HwUser implements HwUserInterface {
 	boolean _connectedToHwManager = false;
 	String _domainName = "";
 
-	// List<Instance> instances;
+	static AmazonEC2 ec2;
+	static List<Instance> _awsInstancesRunningHwManagerAMI = new ArrayList<Instance>();
 
 
 
@@ -143,7 +150,7 @@ public class HwUser implements HwUserInterface {
 		);
 	}
 
-	void runTspTestPrep(){
+	void startApplicationSpaceAndComputers(){
 
 		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
 		int numCities = 10;
@@ -176,40 +183,34 @@ public class HwUser implements HwUserInterface {
 
 			}
 		}
-/*
-		System.out.print("\nHow many cities? [" + numCities  +"] > ");
-		input = readUserInput();
-		if(input>0)
-			numCities = input;
-*/
-		// Start the instance(s)
 
 		if(_hwManager == null){
 			System.out.println("[HwUser.startComputeInstance] Hardware Manager isn't started.");
 			return;
 		}
 
-
 		try {
 			_hwManager.startApplicationSpaceAndComputers(hwRequest);
 		} catch (RemoteException e) {
 			System.out.println("[HwUser.startComputeInstance] Hardware Manager isn't started.");
 		}
-
-
-//		runTspClient_0(); // with numCities entered above
-
 	}
 
 
 
+
 	void printAwsMenu(){
+
+
+
 		System.out.println("\n\n\n******************************************************************\n"
 				+ "TSP Options. Connected to Hardware Manager: " + _connectedToHwManager
 				+ "\n\nSelect an option:\n\n"
 				//+"Start hardware manager"
 				+ "41. Connect to Hardware Manager\n"
 				+ "42. Start Compute Instance(s)...\n"
+				+ "43. Start/Reboot Hardware Manager\n"
+				+ "44. Hardware Manager Status"
 				+ "\n\n\n"
 		);
 	}
@@ -303,13 +304,24 @@ public class HwUser implements HwUserInterface {
 				startComputeInstanceMenu();
 				break;
 			}
+			case 43:{
+				//start/reboot hardware manager
+				startOrRebootHwManager();
+				break;
+			}
+			case 44:{
+				initAWS();
+				break;
+			}
+
+
 
 			case 21:{
-				runTspTestPrep();	//start space and computers
+				startApplicationSpaceAndComputers();	//start space and computers
 				break;
 			}
 			case 22:{
-				runTspClient_0();
+				startApplicationClient();	//start application/job/task/client
 				break;
 			}
 			case 23:{
@@ -318,10 +330,12 @@ public class HwUser implements HwUserInterface {
 			}
 			default:{
 				System.out.println("Select something else: " + selection);
-
+				break;
 			}
 		}
 	}
+
+
 
 	void terminateAllApplicationProcesses(){
 
@@ -343,7 +357,7 @@ public class HwUser implements HwUserInterface {
 
 	}
 
-	void runTspClient_0(){
+	void startApplicationClient(){
 
 
 		String startSwClientScript = "scripts/sw_client_startup.sh";
@@ -362,8 +376,9 @@ public class HwUser implements HwUserInterface {
 		}
 	}
 
-	// *** 2 ***
 	void printSystemStatusFromManager(){
+
+		System.out.println("\n\n***** System Status (From Hardware Manager) *****\n");
 
 		if(_hwManager == null){
 			System.out.println("[HwUser.printSystemStatusFromManager] Hardware Manager is null. Start HwManager instance first.");
@@ -382,112 +397,77 @@ public class HwUser implements HwUserInterface {
 			_connectedToHwManager = false;
 			//e.printStackTrace();
 		}
-
-			//print all this here!!!
-			if(statusObject==null){
-				System.out.println("[HwUser.printSystemStatusFromManager] Error: Status came back null.");
-				return;
-			}
-
-
-			System.out.println("[HwUser.printSystemStatusFromManager]\n***** System Status *****\n");
+		if(statusObject==null){
+			System.out.println("[HwUser.printSystemStatusFromManager] Error: Status came back null.");
+			return;
+		}
 
 
 			// Print micro instances
-			Map<String,HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
-			if(list !=null){
-				System.out.println("Micro instances: " + list.size());
-				/*
-				for(HwComputerInterface c:list){
+		Map<String,HwComputerInterface> list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.micro);
+		if(list !=null){
+			System.out.println("Micro instances: " + list.size());
+		}
 
-					if(c!=null)
-						System.out.println(c.getAwsInstanceId());
-				}
-				*/
-			}
+		// Print large instances
+		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
+		if(list !=null){
+			System.out.println("Large instances: " + list.size());
+		}
 
-			// Print large instances
-			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.large);
-			if(list !=null){
-				System.out.println("Large instances: " + list.size());
-				/*for(HwComputerInterface c:list){
-					if(c!=null)
-						System.out.println(c.getAwsInstanceId());
-				}
-				*/
-			}
+		// Print 2XL instances
+		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
+		if(list !=null){
+			System.out.println("2XL instances: " + list.size());
+		}
 
-			// Print 2XL instances
-			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.two_xl);
-			if(list !=null){
-				System.out.println("2XL instances: " + list.size());
-				/*
-				for(HwComputerInterface c:list){
-					if(c!=null)
-						System.out.println(c.getAwsInstanceId());
-				}
-*/
-			}
+		// Print unknown instances
+		list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.unknown);
+		if(list !=null){
+			System.out.println("Unknown instances: " + list.size());
+		}
 
-			// Print unknown instances
-			list= statusObject.computer_lists.get(Utils.Hw_Computer_Size.unknown);
-			if(list !=null){
-				System.out.println("Unknown instances: " + list.size());
-				/*for(HwComputerInterface c:list){
-					if(c!=null)
-						System.out.println(c.getAwsInstanceId());
-				}
-				*/
-			}
+		if(statusObject._logicalComputerProcesses!=null){
+			System.out.println("\nComputer processes running: "
+				+ statusObject._logicalComputerProcesses.size());
 
-			if(statusObject._logicalComputerProcesses!=null){
-				System.out.println("\nComputer processes running: "
-					+ statusObject._logicalComputerProcesses.size());
-
-				statusObject._logicalComputerProcesses.forEach(System.out::println);
-			}
+			statusObject._logicalComputerProcesses.forEach(System.out::println);
+		}
 
 
-			if(statusObject._logicalSpaceProcessesOnHwManager!=null){
-				System.out.println("\nSpace processes (on HwMgr): "
-					+ statusObject._logicalSpaceProcessesOnHwManager.size());
+		if(statusObject._logicalSpaceProcessesOnHwManager!=null){
+			System.out.println("\nSpace processes (on HwMgr): "
+				+ statusObject._logicalSpaceProcessesOnHwManager.size());
 
-				statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
+			statusObject._logicalSpaceProcessesOnHwManager.forEach(System.out::println);
 
-			}
+		}
 	}
 
-
-	// ***** 5 Connect to the Hardware Manager *****
 	void connectHwManager(){
+
+		// Make RMI connection to Hw_Manager at djava.dyndns.org
 
 		//Make this a thread that keeps trying in the background.
 
 		String url = "//" + _domainName + ":" + HwManager._port + "/" + HwManager._serviceName;
 		System.out.println("[HwUser.main] Connecting to: "+url);
 		try {
-
 			_hwManager = (HwManagerInterface) Naming.lookup(url);
 			if (_hwManager != null) {
 				String reply = _hwManager.userJustCheckingIn();
 				System.out.println("[HwUser.HwUser] reply from manager: " + reply);
 				_connectedToHwManager = true;
 			}
-			else
-			{
+			else {
 				System.out.println("[HwUser.HwUser] Naming.lookup returned null.");
 			}
-
 		}
-		catch (NotBoundException|MalformedURLException e)
-		{
+		catch (NotBoundException|MalformedURLException e) {
 			System.out.println("[HwUser.main] Non-network error connecting to Hardware Manager.");
-			// e.printStackTrace();
-
 		}
 		catch(RemoteException e){
 			System.out.println("[HwUser.main] Network error: Could not connect to Hardware Manager.");
-
 		}
 		if(_connectedToHwManager)
 			System.out.println("[HwUser.main] Connected to: " + url);
@@ -496,8 +476,6 @@ public class HwUser implements HwUserInterface {
 	}
 
 
-
-	// Menu item 8
 	void exitProgramFromMenu(){
 		System.exit(0);
 	}
@@ -505,9 +483,152 @@ public class HwUser implements HwUserInterface {
 
 
 
+
+
+	// Initialize Amazon API
+	private static void initAWS()// throws Exception
+	{
+		// ProfileCredentialsProvider loads AWS security credentials from
+		// .aws/config file in your home directory.
+
+		_awsInstancesRunningHwManagerAMI.clear();
+
+
+		File configFile = new File(System.getProperty("user.home"), ".aws/credentials");
+		AWSCredentialsProvider credentialsProvider = new ProfileCredentialsProvider(
+			new ProfilesConfigFile(configFile), "default");
+
+		if (credentialsProvider.getCredentials() == null)
+		{
+			throw new RuntimeException("No AWS security credentials found:\n"
+				+ "Make sure you've configured your credentials in: " + configFile.getAbsolutePath() + "\n"
+				+ "For more information on configuring your credentials, see "
+				+ "http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html");
+		}
+
+		ec2 = new AmazonEC2Client(credentialsProvider);
+		try
+		{
+			// Set region.
+			// https://docs.aws.amazon.com/general/latest/gr/rande.html
+			// Oregon
+			com.amazonaws.regions.Region usWest2 = com.amazonaws.regions.Region.getRegion(com.amazonaws.regions.Regions.US_WEST_2);
+			ec2.setRegion(usWest2);
+
+			/*
+			// Zones within this region.
+			DescribeAvailabilityZonesResult availabilityZonesResult = ec2.describeAvailabilityZones();
+			List<AvailabilityZone> availabilityZones = availabilityZonesResult.getAvailabilityZones();
+			System.out.println("You have access to " + availabilityZones.size() + " availability zones:");
+			for (AvailabilityZone zone : availabilityZones)
+			{
+				System.out.println(" - " + zone.getZoneName() + " (" + zone.getRegionName() + ")");
+			}
+			*/
+			DescribeInstancesResult describeInstancesResult = ec2.describeInstances();
+			Set<Instance> instances = new HashSet<Instance>();
+			for (Reservation reservation : describeInstancesResult.getReservations())
+			{
+
+				List<Instance> reservationInstances = reservation.getInstances();
+				instances.addAll(reservationInstances);
+			}
+
+			//System.out.println("You have " + instances.size() + " Amazon EC2 instance(s) running.");
+
+			int runningInstances = 0;
+			for(Instance i:instances)
+			{
+
+				//if pending or running
+				if(i.getImageId().equals(Utils.HW_MANAGER_AMI))
+				{
+					if(i.getState().getCode() == 16 || i.getState().getCode()==0)
+					{
+						//https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/ec2/model/InstanceState.html
+						runningInstances++;
+						_awsInstancesRunningHwManagerAMI.add(i);
+
+						System.out.println("Id: " + i.getInstanceId() + ": "
+								+ i.getPublicIpAddress()
+								+ ", Img: " + i.getImageId()
+								+ ", state: " + i.getState().getName()
+						);
+					}
+				}
+			}
+			System.out.println("Hardware Manager instances: " + runningInstances);
+
+		}
+		catch (AmazonServiceException ase)
+		{
+			System.out.println("Error Message:    " + ase.getMessage());
+			System.out.println("HTTP Status Code: " + ase.getStatusCode());
+			System.out.println("AWS Error Code:   " + ase.getErrorCode());
+			System.out.println("Error Type:       " + ase.getErrorType());
+			System.out.println("Request ID:       " + ase.getRequestId());
+		}
+		catch (AmazonClientException ace)
+		{
+			System.out.println("Error Message: " + ace.getMessage());
+		}
+	}
+
+
+	void startOrRebootHwManager(){
+
+
+		// Connect to AWS API, see if a hardware manager is running (by AMI id). Start or restart.
+
+		initAWS();
+
+		if(_awsInstancesRunningHwManagerAMI.size() > 0){
+			// then there's a hw_manager running, reboot it
+
+			Instance hwMgrInstance = _awsInstancesRunningHwManagerAMI.get(0); //first
+
+			if(hwMgrInstance!=null) {
+				RebootInstancesRequest rebootInstancesRequest = new RebootInstancesRequest();
+				rebootInstancesRequest.withInstanceIds(hwMgrInstance.getInstanceId());
+
+				if(ec2!=null){
+					ec2.rebootInstances(rebootInstancesRequest);
+					System.out.println("Instance " + hwMgrInstance.getInstanceId() + " is rebooting.");
+				}
+			}
+		}
+		else{
+			// nothing with that AMI running, start it
+
+			// https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/run-instance.html
+			System.out.println("Launching instance of ami: " + Utils.HW_MANAGER_AMI + " and size: " + Utils.AWS_HW_MANAGER_DEFAULT_SIZE);
+			RunInstancesRequest runRqst = new RunInstancesRequest();
+			String startupUserData =  ""; 			// Never got this working
+
+			runRqst.withImageId(Utils.HW_MANAGER_AMI)
+				.withInstanceType(Utils.AWS_HW_MANAGER_DEFAULT_SIZE)
+				.withMinCount(1)
+					// .withMaxCount(Utils.MAX_EC2_INSTANCES_AT_A_TIME) // NOT THIS
+				.withMaxCount(1)
+				.withKeyName(Utils.KEY_NAME)
+				.withSecurityGroups(Utils.SECURITY_GROUP)
+				.withUserData(startupUserData);
+
+			if(ec2!=null)
+			{
+				RunInstancesResult result = ec2.runInstances(runRqst);
+				System.out.println("Run Result: " + result.toString());
+				//String id = result.getReservation().getInstances().get(0).getImageId();
+			}
+		}
+	}
+
+
+
 	public static void main(String[] args){
 		System.out.println("[system.HwUser.main] args: " + args[0]);
 		if(args.length>0) {
+			// Start the user console
 			HwUser hwUser = new HwUser(args[0]);
 			hwUser.runConsole();
 		}

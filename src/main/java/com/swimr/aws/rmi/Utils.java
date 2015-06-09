@@ -1,14 +1,22 @@
 package com.swimr.aws.rmi;
 
 
+import com.amazonaws.services.ec2.model.InstanceType;
+
 import java.io.Serializable;
 
 public class Utils {
 
-	//HW_COMPUTER AMI
-	public static final String HW_COMPUTER_AMI = "ami-e32119d3";
 
 	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
+
+
+	// AWS
+	public static final String HW_COMPUTER_AMI = "ami-271b2317";
+	public static final String HW_MANAGER_AMI = "ami-1b1b232b";
+	public static final InstanceType AWS_HW_MANAGER_DEFAULT_SIZE = InstanceType.M3Large;	//m3.large
+	public static final String KEY_NAME = "290b-java";
+	public static final String SECURITY_GROUP = "RMI";
 
 
 	public static  enum Hw_Computer_Size {
@@ -44,3 +52,6 @@ public class Utils {
 
 
 }
+
+
+
