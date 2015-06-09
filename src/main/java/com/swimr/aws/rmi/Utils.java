@@ -12,8 +12,8 @@ public class Utils {
 
 
 	// AWS
-	public static final String HW_COMPUTER_AMI = "ami-271b2317";
-	public static final String HW_MANAGER_AMI = "ami-1b1b232b";
+	public static final String HW_COMPUTER_AMI = "ami-4d0d357d";
+	public static final String HW_MANAGER_AMI = "ami-850d35b5";
 	public static final InstanceType AWS_HW_MANAGER_DEFAULT_SIZE = InstanceType.M3Large;	//m3.large
 	public static final String KEY_NAME = "290b-java";
 	public static final String SECURITY_GROUP = "RMI";
