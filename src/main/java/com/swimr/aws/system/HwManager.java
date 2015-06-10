@@ -25,6 +25,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 	static HwManager _thisHwManager;
 
+	List<String> _swComputerProcessIdList = new ArrayList<>();
+
 	// Amazon API
     static AmazonEC2 ec2;
 	static final InstanceType _type = InstanceType.T2Micro;
@@ -169,6 +171,8 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		//transportObj._awsInstances.add(computer);
 
 
+		transportObj._logicalComputerProcesses.addAll(_swComputerProcessIdList);
+		/*
 		List<String> processList;
 		try {
 			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).entrySet()) {
@@ -188,7 +192,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		catch(RemoteException e){
 			System.out.println("[HwManager.getSystemStatus] Connection attempt to computer failed while getting processes.");
 		}
-
+		*/
 
 		System.out.println("[HwManager.getSystemStatus] Status snapshot complete. Returning to user.");
 
@@ -196,7 +200,17 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 	}
 
 
+	void updateProcesses(HwComputerInterface hwComputerInterface){
 
+
+		try {
+			_swComputerProcessIdList.addAll( hwComputerInterface.getRunningProcessStrings());
+		} catch (RemoteException e) {
+			//
+		}
+
+
+	}
 
 
 
@@ -583,7 +597,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			_hwComputerInterface = hwComputerInterface;
 		}
 
-
+		/**
+		 * Every ten seconds, see if computer is still alive and get it's current software processes.
+		 */
 		@Override
 		public void run() {
 
@@ -593,6 +609,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				if(_hwComputerInterface!=null) {
 					try {
 						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
+						_swComputerProcessIdList.addAll(_hwComputerInterface.getRunningProcessStrings());
 					} catch (RemoteException e) {
 
 						// e.printStackTrace();
@@ -618,7 +635,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				// should remove if it's null also
 
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(10000);
 				}
 				catch (InterruptedException e) { /* for thread sleep, nothing */}
 			}
