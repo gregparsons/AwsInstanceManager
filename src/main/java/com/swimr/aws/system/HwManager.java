@@ -340,15 +340,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		RunInstancesRequest runRqst = new RunInstancesRequest();
 
-		// Put startup script in here
-		// https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html
-		//
-		//https://help.ubuntu.com/community/CloudInit
-
 		String startupUserData = "";//  "IyEvYmluL2Jhc2ggCmNkIC9ob21lL3VidW50dS8yOTBiL0F3c0luc3RhbmNlTWFuYWdlcjsgCm12biB0ZXN0IC1QY29tcHV0ZXI=";
-
-		//String startupUserData = "#!/bin/bash cd /home/ubuntu/290b/AwsInstanceManager; mvn test -Pcomputer";
-		//startupUserData = com.amazonaws.util.Base64.encodeAsString(startupUserData.getBytes());
 
 		runRqst.withImageId(Utils.HW_COMPUTER_AMI)
 			.withInstanceType(instanceSize)
