@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Utils {
 
 
-	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
+	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 32;
 
 
 	public static final String HW_COMPUTER_AMI = "ami-3bbd850b"; // 12 cities
