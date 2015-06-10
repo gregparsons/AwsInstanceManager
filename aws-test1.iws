@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4df9eb32-4d9e-4c87-a229-eff936c0a27d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
     </list>
     <ignored path="aws-test1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -190,11 +190,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.03952569">
+              <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -222,10 +222,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HwManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.72540987">
+            <state vertical-scroll-proportion="-19.666666">
               <caret line="415" column="41" selection-start-line="415" selection-start-column="41" selection-end-line="415" selection-end-column="41" />
               <folding>
                 <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
@@ -352,8 +352,8 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/scripts/sw_space_startup.sh" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java" />
       </list>
     </option>
   </component>
@@ -1606,19 +1606,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/system/HwManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72540987">
+        <state vertical-scroll-proportion="-19.666666">
           <caret line="415" column="41" selection-start-line="415" selection-start-column="41" selection-end-line="415" selection-end-column="41" />
           <folding>
             <element signature="method#HwManager#0;class#HwManager#0" expanded="false" />
@@ -1638,6 +1628,16 @@
             <element signature="method#getManagerHeartbeat#0;class#HwManager#0" expanded="false" />
             <element signature="e#18949#19017#0" expanded="false" />
             <element signature="method#HwComputerProxy#0;class#HwComputerProxy#0;class#HwManager#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03952569">
+          <caret line="14" column="62" selection-start-line="14" selection-start-column="62" selection-end-line="14" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
