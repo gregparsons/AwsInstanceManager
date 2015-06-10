@@ -470,7 +470,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			startApplicationSpaceOnHwManager();
 
 			try {
-				Thread.sleep(3000);//let the space start
+				Thread.sleep(10000);//let the space start
 			} catch (InterruptedException e) {
 				//e.printStackTrace();
 			}
