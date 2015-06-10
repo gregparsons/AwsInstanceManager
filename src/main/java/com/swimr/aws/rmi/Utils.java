@@ -11,10 +11,9 @@ public class Utils {
 	public static final int MAX_EC2_INSTANCES_AT_A_TIME = 8;
 
 
-	// public static final String HW_COMPUTER_AMI = "ami-b9d1e989"; // 12 cities
-	public static final String HW_COMPUTER_AMI = "ami-dbb880eb"; // 10 cities
-	public static final String HW_MANAGER_AMI = "ami-8fc6febf";		// 10 cities
-	//public static final String HW_MANAGER_AMI = "ami-fdd1e9cd";		// 12 cities
+	public static final String HW_COMPUTER_AMI = "ami-35bc8405"; // 12 cities
+	//public static final String HW_COMPUTER_AMI = "ami-dbb880eb"; // 10 cities
+	public static final String HW_MANAGER_AMI = "ami-8fc6febf";		// 12 cities
 	public static final InstanceType AWS_HW_MANAGER_DEFAULT_SIZE = InstanceType.M3Large;	//m3.large
 	public static final String KEY_NAME = "290b-java";
 	public static final String SECURITY_GROUP = "RMI";

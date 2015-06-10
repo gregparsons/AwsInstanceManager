@@ -401,16 +401,34 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 		// kill sw_computer processes
 
 		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).entrySet()){
-			entry.getValue().terminateSwComputers();
+			try {
+				entry.getValue().terminateSwComputers();
+			}catch(RemoteException e){
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).remove(entry.getKey());
+				_all_computers.remove(entry.getKey());
+			}
 		}
 		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.large).entrySet()){
-			entry.getValue().terminateSwComputers();
+			try{
+				entry.getValue().terminateSwComputers();
+			}catch(RemoteException e){
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.large).remove(entry.getKey());
+				_all_computers.remove(entry.getKey());
+
+			}
 		}
 		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).entrySet()){
-			entry.getValue().terminateSwComputers();
+			try{entry.getValue().terminateSwComputers();}catch(RemoteException e){
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.two_xl).remove(entry.getKey());
+				_all_computers.remove(entry.getKey());
+
+			}
 		}
 		for(Map.Entry<String, HwComputerInterface> entry: _computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).entrySet()){
-			entry.getValue().terminateSwComputers();
+			try{entry.getValue().terminateSwComputers();}catch (RemoteException e){
+				_computer_lists_by_size.get(Utils.Hw_Computer_Size.unknown).remove(entry.getKey());
+				_all_computers.remove(entry.getKey());
+			}
 		}
 
 		_swComputerProcessIdList.clear();
