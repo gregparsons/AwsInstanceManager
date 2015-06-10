@@ -173,6 +173,9 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 		transportObj._logicalComputerProcesses.addAll(_swComputerProcessIdList);
 		/*
+
+		//Moved this to heartbeat threads for each computer
+
 		List<String> processList;
 		try {
 			for (Map.Entry<String, HwComputerInterface> entry : _computer_lists_by_size.get(Utils.Hw_Computer_Size.micro).entrySet()) {
@@ -410,7 +413,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			entry.getValue().terminateSwComputers();
 		}
 
-
+		_swComputerProcessIdList.clear();
 
 	}
 
