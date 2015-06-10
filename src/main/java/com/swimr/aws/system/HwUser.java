@@ -222,8 +222,6 @@ public class HwUser implements HwUserInterface {
 
 		Utils.Hw_Request hwRequest = new Utils.Hw_Request();
 
-
-		//
 		System.out.print("\nWhat size instance (1=micro, 2=Large, 3=2XL? > ");
 		//int input = readUserInput();
 		switch (readUserInput()){

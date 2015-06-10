@@ -600,7 +600,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 
 						fail_count++;
 						System.out.println("Computer " + _awsId + " failed. " + fail_count);
-						if(fail_count > 5) {
+						if(fail_count > 2) {
 							// remove hwcomputer
 							System.out.println("Computer " + _awsId + " failed. Removing.");
 							HwManager._thisHwManager.removeComputerFromLists(_awsId);
@@ -610,7 +610,7 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				}
 				else
 				{
-					System.out.println("omputer " + _awsId + " is null. Removing.");
+					System.out.println("Computer " + _awsId + " is null. Removing.");
 					HwManager._thisHwManager.removeComputerFromLists(_awsId);
 					return;
 
