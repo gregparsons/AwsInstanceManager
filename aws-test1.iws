@@ -193,7 +193,7 @@
       <file leaf-file-name="Utils.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03952569">
+            <state vertical-scroll-proportion="0.05928854">
               <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -456,7 +456,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -569,8 +568,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="ProjectViewSettings">
@@ -1507,13 +1507,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/ComputerRegistration.java">
@@ -1666,7 +1666,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/swimr/aws/rmi/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03952569">
+        <state vertical-scroll-proportion="0.05928854">
           <caret line="15" column="61" selection-start-line="15" selection-start-column="61" selection-end-line="15" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
