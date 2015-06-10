@@ -451,7 +451,11 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 			System.out.println("Starting application with " + hwRequest.numHwComputers + " " + hwRequest.size + "computers." );
 
 			int availComputers = 0;
+
+
 			Map<String,HwComputerInterface> computers = _computer_lists_by_size.get(hwRequest.size);
+
+
 			if(computers !=null ){
 				availComputers = computers.size();
 				System.out.println("Computers available: " + availComputers);
