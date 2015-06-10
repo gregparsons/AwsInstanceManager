@@ -612,7 +612,14 @@ public class HwManager extends UnicastRemoteObject implements HwManagerInterface
 				if(_hwComputerInterface!=null) {
 					try {
 						System.out.println("Heartbeat from computer " + _awsId + ":  " + _hwComputerInterface.isAlive());
-						_swComputerProcessIdList.addAll(_hwComputerInterface.getRunningProcessStrings());
+
+
+						List<String> processes = _hwComputerInterface.getRunningProcessStrings();
+						for(String p:processes) {
+							if (!(_swComputerProcessIdList.contains(p))){
+								_swComputerProcessIdList.add(p);
+							}
+						}
 					} catch (RemoteException e) {
 
 						// e.printStackTrace();
