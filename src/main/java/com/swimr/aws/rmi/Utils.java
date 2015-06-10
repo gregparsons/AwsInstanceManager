@@ -12,8 +12,8 @@ public class Utils {
 
 
 	// public static final String HW_COMPUTER_AMI = "ami-b9d1e989"; // 12 cities
-	public static final String HW_COMPUTER_AMI = "ami-4be3db7b"; // 10 cities
-	public static final String HW_MANAGER_AMI = "ami-fde3dbcd";		// 10 cities
+	public static final String HW_COMPUTER_AMI = "ami-bbc6fe8b"; // 10 cities
+	public static final String HW_MANAGER_AMI = "ami-a1c6fe91";		// 10 cities
 	//public static final String HW_MANAGER_AMI = "ami-fdd1e9cd";		// 12 cities
 	public static final InstanceType AWS_HW_MANAGER_DEFAULT_SIZE = InstanceType.M3Large;	//m3.large
 	public static final String KEY_NAME = "290b-java";
