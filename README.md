@@ -23,8 +23,7 @@ We currently test computation of a Traveling Salesman Problem using 12 cities.
 
 1. Create EC2 per the Getting Started section (here)[https://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/welcome.html].
 
-2. Start the local client using the following command:
-	'>mvn test -Puser
+2. Start the local client using the following command > mvn test -Puser
 
 3. Use the command prompts to start a hardware manager (43) and to connect to it (41).
 
