@@ -1,1 +1,0 @@
-ssh -i /Users/aaa/key/AWS/EC2/290b-java.pem ubuntu@52.11.193.182
