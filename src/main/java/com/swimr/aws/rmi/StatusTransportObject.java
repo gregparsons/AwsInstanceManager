@@ -15,8 +15,6 @@ import java.util.*;
  */
 public class StatusTransportObject implements Serializable {
 
-	// public List<HwComputerInterface> _awsInstances = new ArrayList<>();
-
 	public Map<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>> computer_lists = new HashMap<Utils.Hw_Computer_Size, Map<String,HwComputerInterface>>();
 
 
@@ -34,6 +32,4 @@ public class StatusTransportObject implements Serializable {
 
 
 	}
-
-
 }

@@ -20,5 +20,6 @@ hs_err_pid*
 *.ipr
 *.iws
 *.sh
+*.pdf
 !scripts/*.sh
 !deploy/*.jar
